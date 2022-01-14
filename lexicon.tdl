@@ -775,10 +775,6 @@ nokar := noun1-noun-lex &
   [ STEM < "nokar" >,
     SYNSEM.LKEYS.KEYREL.PRED "_shop assistant_n_rel" ].
 
-o := noun1-noun-lex &
-  [ STEM < "o" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_3s.nom / that one_n_rel" ].
-
 obi := noun1-noun-lex &
   [ STEM < "obi" >,
     SYNSEM.LKEYS.KEYREL.PRED "_3pl.nom / those ones_n_rel" ].
@@ -798,10 +794,6 @@ oqarn := noun1-noun-lex &
 oquiⁿ := noun1-noun-lex &
   [ STEM < "oquiⁿ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_3s.gen / that one_n_rel" ].
-
-oqus := noun1-noun-lex &
-  [ STEM < "oqus" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_3s.erg / that one_n_rel" ].
 
 orat_27or := noun1-noun-lex &
   [ STEM < "orat'or" >,
@@ -1802,6 +1794,30 @@ sen := noun113-noun-lex &
 p_27acient_27 := noun118-noun-lex &
   [ STEM < "p'acient'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+
+equs_1 := singular_ergative_demonstratives-noun-lex &
+  [ STEM < "equs" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_this_one_n_rel" ].
+
+icxus := singular_ergative_demonstratives-noun-lex &
+  [ STEM < "icxus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_that_one_n_rel" ].
+
+oqus := singular_ergative_demonstratives-noun-lex &
+  [ STEM < "oqus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
+
+e_1 := singular_absolutive_demonstratives-noun-lex &
+  [ STEM < "e" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_this_one_n_rel" ].
+
+i := singular_absolutive_demonstratives-noun-lex &
+  [ STEM < "i" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_that_one_n_rel" ].
+
+o := singular_absolutive_demonstratives-noun-lex &
+  [ STEM < "o" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
 
 ;;; Adjectives
 
@@ -3016,7 +3032,7 @@ e-n := det3-determiner-lex &
   [ STEM < "e-n" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
-e := det4-determiner-lex &
+e_2 := det4-determiner-lex &
   [ STEM < "e" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
@@ -3024,7 +3040,7 @@ ise := det5-determiner-lex &
   [ STEM < "ise" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
-equs := det6-determiner-lex &
+equs_2 := det6-determiner-lex &
   [ STEM < "equs" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 

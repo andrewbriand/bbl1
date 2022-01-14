@@ -496,3 +496,7 @@ verb-pc58_lrt2-lex-rule.
 verb-pc62_lrt1-prefix :=
 %prefix (* y-)
 verb-pc62_lrt1-lex-rule.
+
+present-suffix :=
+%suffix (* -ʷ)
+present-lex-rule.
