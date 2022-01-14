@@ -165,10 +165,6 @@ noun-pc35_lrt1-suffix2 :=
 %suffix (* -e)
 noun-pc35_lrt1-lex-rule.
 
-noun-pc35_lrt2-suffix :=
-%suffix (* -a)
-noun-pc35_lrt2-lex-rule.
-
 noun-pc39_lrt1-suffix :=
 %suffix (* -ar)
 noun-pc39_lrt1-lex-rule.
