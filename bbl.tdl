@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of bbl
 ;;; created at:
-;;;     Fri Jan 14 09:22:03 UTC 2022
+;;;     Fri Jan 14 10:10:40 UTC 2022
 ;;; based on Matrix customization system version of:
 ;;;     Mon Aug  2 23:22:15 UTC 2021
 ;;;
@@ -31,39 +31,39 @@ head :+ [ PRON bool,
 
 +nd :+ [ CASE case ].
 
-inflected :+ [ VERB-PC77-FLAG luk,
-    VERB-PC70-FLAG luk,
-    VERB-PC75-FLAG luk,
+inflected :+ [ VERB-PC70-FLAG luk,
     VERB-PC72-FLAG luk,
-    VERB-PC63-FLAG luk,
-    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
-    VERB-PC65-FLAG luk,
-    VERB-PC64-FLAG luk,
-    VERB-PC76-FLAG luk,
+    VERB-PC75-FLAG luk,
     VERB-PC66-FLAG luk,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
     VERB-PC73-FLAG luk,
+    VERB-PC65-FLAG luk,
     VERB-PC67-FLAG luk,
-    VERB-PC69-FLAG luk,
+    VERB-PC76-FLAG luk,
     VERB-PC68-FLAG luk,
     VERB-PC74-FLAG luk,
-    VERB-PC71-FLAG luk ].
+    VERB-PC64-FLAG luk,
+    VERB-PC71-FLAG luk,
+    VERB-PC69-FLAG luk,
+    VERB-PC77-FLAG luk,
+    VERB-PC63-FLAG luk ].
 
-infl-satisfied :+ [ VERB-PC77-FLAG na-or-+,
-    VERB-PC70-FLAG na-or-+,
-    VERB-PC75-FLAG na-or-+,
+infl-satisfied :+ [ VERB-PC70-FLAG na-or-+,
     VERB-PC72-FLAG na-or-+,
-    VERB-PC63-FLAG na-or-+,
-    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
-    VERB-PC65-FLAG na-or-+,
-    VERB-PC64-FLAG na-or-+,
-    VERB-PC76-FLAG na-or-+,
+    VERB-PC75-FLAG na-or-+,
     VERB-PC66-FLAG na-or-+,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
     VERB-PC73-FLAG na-or-+,
+    VERB-PC65-FLAG na-or-+,
     VERB-PC67-FLAG na-or-+,
-    VERB-PC69-FLAG na-or-+,
+    VERB-PC76-FLAG na-or-+,
     VERB-PC68-FLAG na-or-+,
     VERB-PC74-FLAG na-or-+,
-    VERB-PC71-FLAG na-or-+ ].
+    VERB-PC64-FLAG na-or-+,
+    VERB-PC71-FLAG na-or-+,
+    VERB-PC69-FLAG na-or-+,
+    VERB-PC77-FLAG na-or-+,
+    VERB-PC63-FLAG na-or-+ ].
 
 png :+ [ PER person,
     NUM number,
@@ -282,6 +282,9 @@ singular_absolutive_demonstratives-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.PNG.NUM sg,
                    CAT.HEAD.CASE abs ] ].
 
+oblique-stem-demonstratives-noun-lex := no-spr-noun-lex & noun-pc13-rule-dtr & noun-pc18-rule-dtr & noun-pc19-rule-dtr & noun-pc35-rule-dtr & noun-pc53-rule-dtr & noun-pc6-rule-dtr & noun-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM sg ].
+
 ;;; Verbs
 
 verb-lex := non-mod-lex-item &
@@ -418,6 +421,10 @@ verb178-verb-lex := transitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr
 
 verb179-verb-lex := transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE all,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
+
+transitive-dative-subject-verb-lex := transitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE dat,
                            COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
 
 ;;; Auxiliaries
@@ -886,60 +893,60 @@ det18-determiner-lex := determiner-lex & no-icons-lex-item &
 
 ;;; Intermediate rule types
 
-noun-pc4-rule-dtr := word-or-lexrule.
-verb-pc47-rule-dtr := word-or-lexrule.
+verb-pc2-rule-dtr := word-or-lexrule.
+noun-pc19-rule-dtr := word-or-lexrule.
+verb-pc11-rule-dtr := word-or-lexrule.
 verb-pc7-rule-dtr := word-or-lexrule.
-verb-pc34-rule-dtr := word-or-lexrule.
 verb-pc36-rule-dtr := word-or-lexrule.
-noun-pc18-rule-dtr := word-or-lexrule.
-noun-pc21-rule-dtr := word-or-lexrule.
-noun-pc12-rule-dtr := word-or-lexrule.
+verb-pc31-rule-dtr := word-or-lexrule.
+verb-pc70-rule-dtr := word-or-lexrule.
 verb-pc75-rule-dtr := word-or-lexrule.
+verb-pc72-rule-dtr := word-or-lexrule.
+noun-pc35-rule-dtr := word-or-lexrule.
+verb-pc47-rule-dtr := word-or-lexrule.
+noun-pc46-rule-dtr := word-or-lexrule.
+verb-pc5-rule-dtr := word-or-lexrule.
+noun-pc9-rule-dtr := word-or-lexrule.
+verb-pc8-rule-dtr := word-or-lexrule.
+verb-pc24-rule-dtr := word-or-lexrule.
+noun-pc52-rule-dtr := word-or-lexrule.
+verb-pc74-rule-dtr := word-or-lexrule.
+noun-pc30-rule-dtr := word-or-lexrule.
+verb-pc35-rule-dtr := word-or-lexrule.
+verb-pc45-rule-dtr := word-or-lexrule.
+noun-pc12-rule-dtr := word-or-lexrule.
+noun-pc18-rule-dtr := word-or-lexrule.
+noun-pc8-rule-dtr := word-or-lexrule.
+noun-pc13-rule-dtr := word-or-lexrule.
+verb-pc77-rule-dtr := word-or-lexrule.
+noun-pc42-rule-dtr := word-or-lexrule.
+noun-pc6-rule-dtr := word-or-lexrule.
+noun-pc21-rule-dtr := word-or-lexrule.
+noun-pc41-rule-dtr := word-or-lexrule.
+verb-pc76-rule-dtr := word-or-lexrule.
+verb-pc48-rule-dtr := word-or-lexrule.
+verb-pc6-rule-dtr := word-or-lexrule.
+noun-pc53-rule-dtr := word-or-lexrule.
+verb-pc62-rule-dtr := word-or-lexrule.
+verb-pc15-rule-dtr := word-or-lexrule.
+verb-pc38-rule-dtr := word-or-lexrule.
 verb-pc16-rule-dtr := word-or-lexrule.
 noun-pc10-rule-dtr := word-or-lexrule.
-noun-pc9-rule-dtr := word-or-lexrule.
-verb-pc5-rule-dtr := word-or-lexrule.
-verb-pc9-rule-dtr := word-or-lexrule.
-verb-pc73-rule-dtr := word-or-lexrule.
 noun-pc1-rule-dtr := word-or-lexrule.
-noun-pc49-rule-dtr := word-or-lexrule.
-verb-pc31-rule-dtr := word-or-lexrule.
-verb-pc38-rule-dtr := word-or-lexrule.
-verb-pc48-rule-dtr := word-or-lexrule.
-verb-pc72-rule-dtr := word-or-lexrule.
-verb-pc45-rule-dtr := word-or-lexrule.
-noun-pc42-rule-dtr := word-or-lexrule.
-verb-pc71-rule-dtr := word-or-lexrule.
-verb-pc8-rule-dtr := word-or-lexrule.
-noun-pc52-rule-dtr := word-or-lexrule.
-noun-pc53-rule-dtr := word-or-lexrule.
-noun-pc48-rule-dtr := word-or-lexrule.
-verb-pc74-rule-dtr := word-or-lexrule.
-noun-pc41-rule-dtr := word-or-lexrule.
-noun-pc8-rule-dtr := word-or-lexrule.
-verb-pc10-rule-dtr := word-or-lexrule.
-verb-pc77-rule-dtr := word-or-lexrule.
-noun-pc19-rule-dtr := word-or-lexrule.
-verb-pc1-rule-dtr := word-or-lexrule.
-noun-pc20-rule-dtr := word-or-lexrule.
-verb-pc76-rule-dtr := word-or-lexrule.
-noun-pc13-rule-dtr := word-or-lexrule.
-noun-pc30-rule-dtr := word-or-lexrule.
-verb-pc2-rule-dtr := word-or-lexrule.
-verb-pc24-rule-dtr := word-or-lexrule.
-verb-pc11-rule-dtr := word-or-lexrule.
+verb-pc34-rule-dtr := word-or-lexrule.
 verb-pc55-rule-dtr := word-or-lexrule.
-verb-pc6-rule-dtr := word-or-lexrule.
-noun-pc6-rule-dtr := word-or-lexrule.
-verb-pc21-rule-dtr := word-or-lexrule.
-verb-pc70-rule-dtr := word-or-lexrule.
-verb-pc15-rule-dtr := word-or-lexrule.
+verb-pc73-rule-dtr := word-or-lexrule.
+verb-pc9-rule-dtr := word-or-lexrule.
+verb-pc10-rule-dtr := word-or-lexrule.
+noun-pc49-rule-dtr := word-or-lexrule.
 noun-pc29-rule-dtr := word-or-lexrule.
+noun-pc48-rule-dtr := word-or-lexrule.
+noun-pc4-rule-dtr := word-or-lexrule.
+verb-pc21-rule-dtr := word-or-lexrule.
+noun-pc20-rule-dtr := word-or-lexrule.
 verb-pc18-rule-dtr := word-or-lexrule.
-verb-pc35-rule-dtr := word-or-lexrule.
-verb-pc62-rule-dtr := word-or-lexrule.
-noun-pc46-rule-dtr := word-or-lexrule.
-noun-pc35-rule-dtr := word-or-lexrule.
+verb-pc1-rule-dtr := word-or-lexrule.
+verb-pc71-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
@@ -1420,148 +1427,148 @@ verb-pc62_lrt1-lex-rule := verb-pc62-lex-rule-super.
 
 verb-pc63-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc70-rule-dtr & verb-pc71-rule-dtr & verb-pc72-rule-dtr & verb-pc73-rule-dtr & verb-pc74-rule-dtr & verb-pc75-rule-dtr & verb-pc76-rule-dtr &
   [ INFLECTED [ VERB-PC63-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux1-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc63_lrt1-lex-rule := verb-pc63-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc64-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc77-rule-dtr &
   [ INFLECTED [ VERB-PC64-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux2-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc64_lrt1-lex-rule := verb-pc64-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc65-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC65-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux3-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc65_lrt1-lex-rule := verb-pc65-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc66-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC66-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux6-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER non-1st,
@@ -1569,111 +1576,111 @@ verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
 
 verb-pc67-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC67-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux7-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc67_lrt1-lex-rule := verb-pc67-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.NUM pl ].
 
 verb-pc68-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC68-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux8-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc68_lrt1-lex-rule := verb-pc68-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
 
 verb-pc69-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC69-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR aux9-aux-lex &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
@@ -1681,35 +1688,35 @@ verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
 verb-pc70-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC70-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc70-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
+        [ INFLECTED [ VERB-PC72-FLAG #verb-pc72,
                       VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -1717,35 +1724,35 @@ verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
 verb-pc71-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC71-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
-                VERB-PC74-FLAG #verb-pc74 ],
+                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc71-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
-                      VERB-PC74-FLAG #verb-pc74 ] ] ].
+                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -1753,35 +1760,35 @@ verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
 verb-pc72-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC72-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
                 VERB-PC75-FLAG #verb-pc75,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc72-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
@@ -1790,35 +1797,35 @@ verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
 verb-pc73-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC73-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc73-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -1826,35 +1833,35 @@ verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
 verb-pc74-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC74-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc74-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -1862,35 +1869,35 @@ verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
 verb-pc75-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC75-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc75-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -1898,35 +1905,35 @@ verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
 verb-pc76-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC76-FLAG +,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc76-rule-dtr &
-        [ INFLECTED [ VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
+        [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc76_lrt1-lex-rule := verb-pc76-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -1934,36 +1941,36 @@ verb-pc76_lrt1-lex-rule := verb-pc76-lex-rule-super &
 verb-pc77-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC77-FLAG +,
                 VERB-PC70-FLAG #verb-pc70,
-                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC72-FLAG #verb-pc72,
-                VERB-PC63-FLAG #verb-pc63,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC66-FLAG #verb-pc66,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC76-FLAG #verb-pc76,
                 VERB-PC68-FLAG #verb-pc68,
                 VERB-PC74-FLAG #verb-pc74,
-                VERB-PC71-FLAG #verb-pc71 ],
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC63-FLAG #verb-pc63 ],
     DTR verb-pc77-rule-dtr &
         [ INFLECTED [ VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC63-FLAG #verb-pc63,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC76-FLAG #verb-pc76,
                       VERB-PC68-FLAG #verb-pc68,
                       VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC71-FLAG #verb-pc71 ] ] ].
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC63-FLAG #verb-pc63 ] ] ].
 
 verb-pc77_lrt1-lex-rule := verb-pc77-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].

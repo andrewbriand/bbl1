@@ -1819,6 +1819,18 @@ o := singular_absolutive_demonstratives-noun-lex &
   [ STEM < "o" >,
     SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
 
+equi := oblique-stem-demonstratives-noun-lex &
+  [ STEM < "equi" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_this_one_n_rel" ].
+
+icxui := oblique-stem-demonstratives-noun-lex &
+  [ STEM < "icxui" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_that_one_n_rel" ].
+
+oqui := oblique-stem-demonstratives-noun-lex &
+  [ STEM < "oqui" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
+
 ;;; Adjectives
 
 ;;; Verbs
@@ -2928,10 +2940,6 @@ ec_27e := verb178-verb-lex &
   [ STEM < "ec'e" >,
     SYNSEM.LKEYS.KEYREL.PRED "_should, must (+cm)_v_rel" ].
 
-abc_27 := verb178-verb-lex &
-  [ STEM < "abc'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_know (+preradical cm)_v_rel" ].
-
 aːx := verb178-verb-lex &
   [ STEM < "aːx" >,
     SYNSEM.LKEYS.KEYREL.PRED "_live (+preradical cm)_v_rel" ].
@@ -2951,6 +2959,10 @@ axk_27_2 := verb178-verb-lex &
 ʡedaɣ_2 := verb179-verb-lex &
   [ STEM < "ʡedaɣ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sit_v_rel" ].
+
+abc_27 := transitive-dative-subject-verb-lex &
+  [ STEM < "abc'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
 
 ;;; Auxiliaries
 
