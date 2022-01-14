@@ -3078,6 +3078,16 @@ e-go := det18-determiner-lex &
 
 ;;; Adverbs
 
+da1 := conj-lex &
+  [ STEM < "da" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "1" ].
+
+ye2 := conj-lex &
+  [ STEM < "ye" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "2" ].
+
 da4 := conj-lex &
   [ STEM < "da" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
