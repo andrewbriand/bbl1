@@ -500,3 +500,11 @@ verb-pc62_lrt1-lex-rule.
 present-suffix :=
 %suffix (* -ʷ)
 present-lex-rule.
+
+dummy-person-case-agreement_lrt1-suffix :=
+%suffix (* -as)
+dummy-person-case-agreement_lrt1-lex-rule.
+
+dummy-person-case-agreement_lrt2-suffix :=
+%suffix (* -sʷ)
+dummy-person-case-agreement_lrt2-lex-rule.

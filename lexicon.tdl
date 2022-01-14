@@ -995,10 +995,6 @@ sk_27ola := noun1-noun-lex &
   [ STEM < "sk'ola" >,
     SYNSEM.LKEYS.KEYREL.PRED "_school_n_rel" ].
 
-so_1 := noun1-noun-lex &
-  [ STEM < "so" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_1s-or-toward speaker_n_rel" ].
-
 st_27ak_27 := noun1-noun-lex &
   [ STEM < "st'ak'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_man, person, human_n_rel" ].
@@ -1830,6 +1826,10 @@ icxui := oblique-stem-demonstratives-noun-lex &
 oqui := oblique-stem-demonstratives-noun-lex &
   [ STEM < "oqui" >,
     SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
+
+so_1 := 1sg-abs-noun-lex &
+  [ STEM < "so" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_1sg_n_rel" ].
 
 ;;; Adjectives
 
@@ -2963,6 +2963,22 @@ axk_27_2 := verb178-verb-lex &
 abc_27 := transitive-dative-subject-verb-lex &
   [ STEM < "abc'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
+
+arst_27_1 := split-s-volition-abs-verb-lex &
+  [ STEM < "arst'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+
+arst_27_2 := split-s-volition-erg-1-verb-lex &
+  [ STEM < "arst'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+
+erst_27 := split-s-volition-erg-1-verb-lex &
+  [ STEM < "erst'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+
+arst_27_3 := split-s-volition-erg-2-verb-lex &
+  [ STEM < "arst'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
 ;;; Auxiliaries
 
