@@ -57,6 +57,7 @@ Judgment: g
 Phenomena: case
 oqus dol tepx-ʷ
 yon.one.erg drum(j/j).abs play-prs
+'They (sg) play the drum.'
 
 # 7: Transitive: canonical, subject is ergative
 Source: author
@@ -65,6 +66,7 @@ Judgment: u
 Phenomena: case
 o dol tepx-ʷ
 yon.one.abs drum(j/j).abs play-prs
+'They (sg) play the drum.'
 
 # 8: transitive: canonical, object should be absolutive
 Source: author
@@ -101,30 +103,3 @@ Phenomena: case
 equi-n y-abc' icxui-n
 this.one.dat cm-know that.one.dat
 'this one knows that one'
-
-
-# 7: transitive: canonical
-Source: author
-vetted: f
-Judgment: g
-Phenomena: case
-equs y-it i
-this.one.erg cm-wash that.one.abs
-'this one washes that one'
-
-# 8: transitive: canonical, object should be absolutive
-Source: author
-vetted: f
-Judgment: u
-Phenomena: case
-equs y-it icxus
-this.one.erg cm-wash that.one.erg
-'this one washes that one'
-# ?
-Source: a:49
-vetted: s
-Judgment: g
-Phenomena: case
-equs daħ b-itːe pħu
-this.one.erg pv cm-wash this dog(b/d)
-'She [the mother] is washing this dog.'
