@@ -28,8 +28,8 @@ Source: a:64
 Vetted: s
 Judgment: g
 Phenomena: case
-as j-erst'-n-as
-1sg.erg cm(f)-gain.weight-prs-1sg.erg
+as y-erst'-n-as
+1sg.erg cm(f)-gain.weight-aor-1sg.erg
 'I (F) put on weight [on purpose].'
 
 # 4: Intransitive: split S by person and volition
