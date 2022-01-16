@@ -1,0 +1,55 @@
+(in-package :lkb)
+
+(defun release-temporary-storage (&key (task :parse))
+  (purge-edge-registry)
+  (invalidate-marks)
+  (invalidate-visit-marks)
+  #+:pooling
+  (reset-pools :compressp t)
+  (case task
+    (:parse
+     (loop for chart in (cons *chart* (if *active-parsing-p* (list *achart*)))
+         do
+         (loop
+             for i from 0 below (array-total-size chart)
+             do
+             (loop for cc in (row-major-aref chart i)
+                 for edge = (chart-configuration-edge cc)
+                 do
+                 (loop
+                     for tdfs in (list (edge-odag edge) (edge-dag edge))
+                     for dag = (and (tdfs-p tdfs) (tdfs-indef tdfs))
+                     when (and dag (not (dag-safe-p dag))) do (compress-dag dag)))))
+     (clear-chart)
+     (setf *parse-times* nil))
+    (:generate
+     (loop
+         for item in %generator-lexical-items%
+         for tdfs = (mrs::found-lex-inst-fs item)
+         when (tdfs-p tdfs) do (compress-dag (tdfs-indef tdfs)))
+     (clear-gen-chart)))
+  (loop
+      for rule in (append (get-matching-lex-rules nil) (get-matching-rules nil nil))
+      for tdfs = (if (or (and (eq task :parse) *chart-packing-p*)
+                         (and (eq task :generate) *gen-packing-p*))
+                     (rule-rtdfs rule)
+                     (rule-full-fs rule))
+      for dag = (tdfs-indef tdfs)
+      do (compress-dag dag))
+  (loop
+      with start =
+           (case task
+             (:parse *start-symbol*)
+             (:generate *gen-start-symbol*))
+      for root in (if (listp start) start (list start))
+      for tdfs = (get-tdfs-given-id root)
+      for dag = (and tdfs (tdfs-indef tdfs))
+      when (dag-p dag) do (compress-dag dag))
+  #+(and :debug :allegro)
+  (when (eq task :generate)
+    (let* ((*terminal-io* excl:*initial-terminal-io*)
+           (*standard-output* *terminal-io*))
+      (sys:gsgc-parameters)
+      (excl:gc)
+      (sys:gsgc-parameters)
+      (room t))))

@@ -1,0 +1,53 @@
+kayrcxi d-itː-o clothing; the wash CM (d/d) wash (+preradical CM) present formant (+impf) . 
+They're washing clothes. (00:09:05.861 - 00:09:06.892)@@
+
+8400@@@@-1@@
+pešk'ar menxu-čo-v-a yetː qerɬb--en v-el-ar d-aɬ-en
+@@@@1@6@(dim) boy, child which (NOM) thematic extension (mine, etc) ERG (non-human singular; plural) PL thematic vowel between stem and case ending cow fear CM (B/d) aorist formant CM (M.sg) laugh (preradical CM) PL CM (d/d) give (+preradical CM) aorist formant // 
+The boy who frightened the cow laughed. (00:17:21.722 - 00:17:32.41)@@
+
+The boy laughed
+as 
+1sg-F
+
+needs j 
+
+2600@@@@-1@@
+as tet'-o-as xaxʷ 
+.ERG cut (impf) present formant (+impf) 1S.ERG onion . 
+I am cutting an onion.@@
+
+
+2610@@@@-1@@
+aħo tet'-o xaxʷ .@@@@1@4@
+2S.ERG cut (impf) present formant (+impf) onion . 
+// You are cutting an onion.@@
+
+2620@@@@-1@@
+oqus tet'-o xaxʷ 
+.@@@@1@4@3S.ERG / that one cut (impf) present formant (+impf) onion . // (S)he is cutting an onion.@@
+
+
+
+2720@@@@-1@@vux tit'-er ?@@@@1@3@what (NOM.S) cut (pfv) imperfective ? // What did (s)he cut?@@
+2730@@@@-1@@ħan tit'-e xaxʷ ?@@@@1@4@who (ERG) cut (pfv) aorist past formant onion ? // Who cut the onion?@@
+
+This sentence parses:
+ebi nan-i d-a
+these.ones mother(j/d)-PL CM-be.IMPV
+"They are mothers"'
+
+e nan y-a
+this.one mother(j/d) cm.be.IMPV
+"This is a mother"
+
+1540@@@@-1@@ - this parses
+o pħere y-a .@@@@1@4@3S.NOM / that one villager CM (F.sg) be (present) . // She is a villager. (00:02:07.520 - 00:02:08.706; 00:02:12.507 - 00:02:13.766; 00:02:17.570 - 00:02:19.055)@@
+1550@@@@-1@@ 
+o pħere v-a .@@@@1@4@3S.NOM / that one villager CM (M.sg) be (present) . // He is a villager. (00:02:22.850 - 00:02:24.082)@@
+
+1630@@@@-1@@ so nokar v-a .@@@@1@4@1S shop assistant CM (M.sg) be (present) . // I am a shop assistant. (M) (00:05:34.627 - 00:05:35.928; 00:05:37.958 - 00:05:39.728)@@
+1640@@@@-1@@ so nokar y-a .@@@@1@4@1S shop assistant CM (F.sg) be (present) . // I am a shop assistant. (F) (00:05:45.274 - 00:05:46.212)@@
+1650@@@@-1@@ o st'udent' v-a-ra .@@@@1@4@3S.NOM / that one student CM (M.sg) be (present) imperfect present (after present formant) . // He was a student. (00:06:05.147 - 00:06:07.891; 00:06:10.090 - 00:06:11.709)@@
+PARSES 1660@@@@-1@@ st'udent' y-a-ra .@@@@1@3@student CM (F.sg) be (present) imperfect present (after present formant) . // (She) was a student. (00:06:13.360 - 00:06:14.280)@@
+

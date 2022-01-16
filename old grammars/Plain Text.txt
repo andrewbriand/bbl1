@@ -1,0 +1,131 @@
+Cats is the inflected version of the lexeme cat, which is of type common-noun-lex 
+and that inherits the following constraint from supertype obl-spr-noun-lex
+[ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT - ] > ].
+
+Bare NP rule states that head daughter must be of the feature [ OPT + ]
+
+HEAD-DTR.SYNSEM.LOCAL [ CAT [ VAL [ SPR < [ OPT + ] >] ] ]
+
+
+
+
+
+
+------------------------------------------------
+no-spr-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT + ] > ].
+
+basic-head-spec-phrase-super := binary-nonloc-phrase & phrasal &
+              binary-headed-phrase &
+  [ INFLECTED infl-satisfied,
+    SYNSEM [ LOCAL.CAT [ WH [ OR < #or1, #or2 > ],
+                         VAL [ SUBJ #subj,
+                               COMPS #spcomps,
+                               SPR #spr,
+                               SPEC #spec ],
+                         POSTHEAD #ph,
+                         HC-LIGHT - ],
+              MODIFIED #modif ],
+    HEAD-DTR [ INFLECTED infl-satisfied,
+               SYNSEM [ LOCAL [ CAT [ WH #or1,
+                                      HEAD #head,
+                                      VAL [ SUBJ #subj,
+                                            COMPS olist & #comps,
+                                            SPR < #synsem &
+                                                  canonical-synsem . #spr >,
+                                            SPEC #spec ],
+                                      POSTHEAD #ph ],
+                                CONT.HOOK #hdhook ],
+                        MODIFIED #hmodif ] ],
+    NON-HEAD-DTR.SYNSEM #synsem &
+     [ LOCAL [ CAT [ WH #or2, VAL [ SPEC < [ LOCAL [ CAT [ HEAD #head,
+                                                  VAL.COMPS #comps ],
+                                            CONT.HOOK #hdhook ],
+                                    MODIFIED #hmodif ] >,
+                           COMPS #spcomps ] ] ],
+       MODIFIED #modif ],
+    C-CONT [ RELS.LIST < >, HCONS.LIST < >, ICONS.LIST < > ] ].
+
+
+basic-head-subj-phrase := binary-nonloc-phrase & binary-headed-phrase & head-compositional &
+ [ SYNSEM phr-synsem &
+           [ LOCAL.CAT [ WH [ OR < #or1, #or2 > ],
+                         HC-LIGHT -,
+                         VAL [ SPEC #spec,
+                               SUBJ < >,
+                               COMPS #comps,
+                               SPR #spr ] ],
+            MODIFIED #modified ],
+    HEAD-DTR.SYNSEM [ LOCAL.CAT [ WH  #or1,
+                                VAL [ SPEC #spec, SUBJ < #synsem >,
+                                    COMPS #comps,
+                                    SPR #spr ] ],
+                      MODIFIED #modified ],
+    NON-HEAD-DTR.SYNSEM #synsem & canonical-synsem &
+           [ LOCAL [ CAT [ WH #or2,
+                           VAL [ SUBJ olist,
+                                 COMPS olist,
+                                 SPR olist ] ] ],
+             NON-LOCAL [ SLASH append-list,
+                         REL.LIST < > ] ],
+    C-CONT [ RELS.LIST < >, HCONS.LIST < >, ICONS.LIST < > ] ].
+
+
+
+MAYBE NOT THIS ONE?
+basic-head-spec-phrase-super := binary-nonloc-phrase & phrasal &
+              binary-headed-phrase &
+  [ INFLECTED infl-satisfied,
+    SYNSEM [ LOCAL.CAT [ WH [ OR < #or1, #or2 > ],
+                         VAL [ SUBJ #subj,
+                               COMPS #spcomps,
+                               SPR #spr,
+                               SPEC #spec ],
+                         POSTHEAD #ph,
+                         HC-LIGHT - ],
+              MODIFIED #modif ],
+    HEAD-DTR [ INFLECTED infl-satisfied,
+               SYNSEM [ LOCAL [ CAT [ WH #or1,
+                                      HEAD #head,
+                                      VAL [ SUBJ #subj,
+                                            COMPS olist & #comps,
+                                            SPR < #synsem &
+                                                  canonical-synsem . #spr >,
+                                            SPEC #spec ],
+                                      POSTHEAD #ph ],
+                                CONT.HOOK #hdhook ],
+                        MODIFIED #hmodif ] ],
+    NON-HEAD-DTR.SYNSEM #synsem &
+     [ LOCAL [ CAT [ WH #or2, VAL [ SPEC < [ LOCAL [ CAT [ HEAD #head,
+                                                  VAL.COMPS #comps ],
+                                            CONT.HOOK #hdhook ],
+                                    MODIFIED #hmodif ] >,
+                           COMPS #spcomps ] ] ],
+       MODIFIED #modif ],
+    C-CONT [ RELS.LIST < >, HCONS.LIST < >, ICONS.LIST < > ] ].
+
+
+basic-head-comp-phrase := binary-nonloc-phrase & head-compositional &
+              binary-headed-phrase &
+  [ SYNSEM phr-synsem-min &
+           [ LOCAL.CAT [ WH [ OR < #or1, #or2 > ],
+                         VAL [ SUBJ #subj,
+                               SPEC #spec,
+                               SPR #spr ],
+                         POSTHEAD #ph,
+                         HC-LIGHT #light ],
+             MODIFIED #modified ],
+    HEAD-DTR.SYNSEM [ LOCAL.CAT [ WH #or1,
+                                  VAL [ SUBJ #subj,
+                                        SPEC #spec,
+                                        SPR #spr ],
+                                  HC-LIGHT #light,
+                                  POSTHEAD #ph ],
+                      MODIFIED #modified ],
+    NON-HEAD-DTR.SYNSEM canonical-synsem & [ LOCAL.CAT.WH #or2 ],
+    C-CONT [ RELS.LIST < >, HCONS.LIST < >, ICONS.LIST < > ] ].
+
+[ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ]
+
+
+

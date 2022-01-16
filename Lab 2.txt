@@ -1,0 +1,153 @@
+Write up:
+1. Yes, you may share this and future write ups with students working on AGGREGATION
+
+2. The automatically constructed choice file customized and compiled right off the bat without any
+asterisks.  There were some ? about sentential negation, but we weren't sure how to answer those,
+so we just compiled the grammar as-s.
+
+3. Answers to questions about the tsdb() runs:
+Initial run
+	1. How many items parsed?
+	223 of 999
+	2. Average parses per item?
+	32.11
+	3. Parses for the most ambiguous item?
+	408
+	4. What sources of ambiguity can you identify?
+	The sentences with ambiguity will have many trees with the
+	same structure (NP--N--N--N--word) but each tree will have
+	different lexical rules applied in different orders
+	5. In class
+Second run, after improvements
+	1. How many items parsed?
+	2. Average parses per item?
+	3. Parses for the most ambiguous item?
+	4. What sources of ambiguity can you identify?
+	5. In class
+
+4.
+
+Andrew's stuff:
+
+There are two main valencies for transitive verbs in Tsova-Tush. 
+The first requires the subject of the verb to be in the ergative case and the object of the verb 
+to be in the absolutive case. Here are some examples of this word order, both grammatical and ungrammatical:
+
+ # 6: Transitive: canonical
+Source: a:65
+vetted: s
+Judgment: g
+Phenomena: case
+oqus dol tepx-ʷ
+yon.one.erg drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 7: Transitive: canonical, subject is ergative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+o dol tepx-ʷ
+yon.one.abs drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 8: transitive: canonical, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-it icxus
+this.one.erg cm-wash that.one.erg
+'this one washes that one'
+
+The second requires the subject of the verb to be in the dative case and the object to be in the absolutive case:
+
+# 9: transitive: dative subject
+Source: author
+vetted: f
+Judgment: g
+Phenomena: case
+equi-n y-abc' i
+this.one.dat cm-know that.one.abs
+'this one knows that one'
+
+# 10: transitive: dative subject, subject should be dative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-abc' i
+this.one.erg cm-know that.one.abs
+'this one knows that one'
+
+# 11: transitive: dative subject, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equi-n y-abc' icxui-n
+this.one.dat cm-know that.one.dat
+'this one knows that one'
+
+There are three main valencies for intransitive verbs in Tsova-Tush, those that invariably take an absolutive subject, 
+those that take an ergative 1st or 2nd person subject and an absolutive 3rd person subject, 
+and those that can either take either an absolutive or ergative subject in the first or second person take 
+take an absolutive subject in the third person. Since 1st and 2nd person subjects require special agreement with the verb, 
+I only demonstrated the first and third cases in my test suite. 
+I should be able to model the second case easily as well once the agreement is more fleshed out and we can handle more examples. 
+Here are the intransitive examples from the test suite:
+
+# 1: Intransitive: invariant
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+q'ar y-atx
+rain(j/j).abs cm-drip
+'It is raining.' (lit., 'Rain drips/falls.')
+
+# 2: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+so y-arst'-e-sʷ
+1sg.abs cm(f)-gain.weight-prs-1sg.abs
+'I (F) am putting on weight [unintentionally].'
+
+# 3: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+as y-erst'-n-as
+1sg.erg cm(f)-gain.weight-aor-1sg.erg
+'I (F) put on weight [on purpose].'
+
+# 4: Intransitive: split S by person and volition
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: case
+o y-arst'-e
+yon.one.abs cm(f)-gain.weight-prs
+'She is putting on weight'
+
+# 5: Intransitive: split S by person and volition, 3rd person subject must be absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: case
+oqus y-arst'-e
+yon.one.erg cm(f)-gain.weight-prs
+'She is putting on weight'
+
+I handled this by defining verb types for each of the above patterns, specifying them as intransitive or transitive, 
+and them specifying the appropriate case on their subjects and objects. I then added stems and predicates to the types for the verbs 
+in my test suite. 
+
+Additionally, I had to specify case for the nouns occurring in my test suite. For the ergative and absolutive forms of 
+the demonstratives and pronouns, I simply made a noun type for the ergative forms and one for the absolutive forms. 
+For the dative forms, I made an oblique stem noun type, and a noun position class to add the dative suffix. 
+For the case person agreement on verbs with 1st and 2nd person subjects, I added temporary dummy suffixes for 
+now to parse the sentences.

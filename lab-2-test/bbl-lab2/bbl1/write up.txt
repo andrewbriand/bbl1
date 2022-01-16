@@ -1,0 +1,360 @@
+
+Andrew Briand and Libbey Brown
+Tsova-Tush
+Lab 2
+January 14, 2022
+
+Write up:
+1. Yes, you may share this and future write ups with students working on AGGREGATION
+
+2. The automatically constructed choice file customized and compiled right off the bat without any
+asterisks.  There were some ? about sentential negation, but we weren't sure how to answer those,
+so we just compiled the grammar as-s.
+
+3. Answers to questions about the tsdb() runs:
+Initial run
+	1. How many items parsed?
+	223 of 999
+	2. Average parses per item?
+	32.11
+	3. Parses for the most ambiguous item?
+	408
+	4. What sources of ambiguity can you identify?
+	Coordination is creating a lot of ambiguity, because our grammar allows things to coordinate without a coordination word,
+	so it seems anything and everything can coordinate to make phrases.  There is also a lot of ambiguity related to different 
+	lexical rules being applied in various orders, but it seems as though many of those sentences do not vary much in terms of
+	the semantics. 
+	5. Semantics for 10 sentences:
+		1. e kotam d-a, transcribed in our corpus as "This is a chicken" (sentence 5)
+		The semantics seem somewhat reasonable.  The noun kotam 'chicken' is the
+		argument of the determiner-like word e, which has the 'exist' predication,
+		and also the argument of the verb 'd-a', which means 'be'.  The structure of
+		how they are put together is a bit strange, but the meaning seems to have come through.
+		2. ħo leʔ kotam-e-ɣ y-erc'-an, in our corpus meaning "You want to become a chicken" (sentence 35)
+		None of these semantics seem great (plus this is a strange sentence).  All the trees
+		have coordination, and are combining things in a way I do not think is correct - for instance,
+		the arguments of the coordinator are the verb "want" and the verb "become", and instead the
+		verb "become" makes more sense as an argument of "want" rather than joined via coordination.
+		3. sara bader-i-cin labc', "Sara is playing with the children" (sentence 77)
+		The semantics seem reasonable for the sentences without coordination.  Sara and children
+		are both the arguments of the verb "play". 
+		4. kori-e-go laːtː-e-ra, "(S/he was standing by the window)" (sentence 82)
+		The semantics seem reasonable, though it is strange to see sentences that do not have subjects after
+		working with English.  Window is the argument of exist, and also the argument of stand.  There is a "non-local"
+		argument for stand as well which I assume is the unstated "s/he"
+		5. e sen daq'ar d-a, "This is my food" (sentence 9)
+		Semantics don't seem to imply possession.  As with many other of the sentences, there are multiple exist predications.  
+		One exist predication as the same ARG0 values as the first person pronoun, which seems to imply "I exist", and the
+		other exist predication takes the argument of the food.  The being present verb takes as its arguments the pronoun
+		and the food, but I don't see anything linking the food and the posessive pronoun together.
+		6. k'oba-s qer qos-in kotam-e-n, "Kota threw a stone at a chicken" (sentence 38)
+		Semantics don't really work.  There is a lot of coordination that doesn't necessarily make sense.
+		Many exist predications - Kota exists, a stone exists, the act of throwing exists, and the chicken exists.  Chicken
+		is an argument of throw, but stone is not an argument of throw.
+		7. but: b-a, "This is the moon" (sentence 12)
+		Semantics are good - moon is an argument of the exist predication and the "be" predication.
+		8.  e sen mar v-a, "This is my husband" (sentence 22)
+		Semantics of possession again seem like they are not working correctly - there is nothing in the semantics linking
+		the "my" pronoun to husband
+		9. lav d-a, "There is snow" (sentence 19)
+		Semantics are good - snow is the argument of the exist predication and the "be" predication.
+		10. k'eč'-e-n šindri d-a, "There are wool socks" (sentence 46)
+		Semantics are not great - links wool and socks to the exist predication, but nothing that seems to 
+		link the wool and socks together.  Seems more like it means "there is wool and there are socks"
+		
+
+Second run, after changes made to the choices file
+	1. How many items parsed?
+	151
+	2. Average parses per item?
+	25.43
+	3. Parses for the most ambiguous item?
+	496
+	4. What sources of ambiguity can you identify?
+	We continue to see many of the same sources - coordination and various lexical rules.  Some of the sentences now have more
+	readings, largely because of the lexical rules created to try and handle agreement (see further discussion in that section below)
+	5. Semantics for 10 sentences, the same 10 chosen as before:
+		1. e kotam d-a, transcribed in our corpus as "This is a chicken" (sentence 5)
+		Semantics have not changed, though there are more readings this time than before.
+		2. ħo leʔ kotam-e-ɣ y-erc'-an, in our corpus meaning "You want to become a chicken" (sentence 35)
+		Semantics have not changed following our adjustments.
+		3. sara bader-i-cin labc', "Sara is playing with the children" (sentence 77)
+		This sentence is no longer parsing
+		4. kori-e-go laːtː-e-ra, "(S/he was standing by the window)" (sentence 82)
+		This sentence is no longer parsing
+		5. e sen daq'ar d-a, "This is my food" (sentence 8)
+		Semantics are unchanged and still don't seem to imply possession. 
+		6. k'oba-s qer qos-in kotam-e-n, "Kota threw a stone at a chicken" (sentence 38)
+		This sentence is no longer parsing
+		7. but: b-a, "This is the moon" (sentence 12)
+		Semantics are unchanged and still seem good
+		8.  e sen mar v-a, "This is my husband" (sentence 22)
+		Semantics of possession continue to be bad
+		9. lav d-a, "There is snow" (sentence 19)
+		Semantics are unchanged and good
+		10. k'eč'-e-n šindri d-a, "There are wool socks" (sentence 46)
+		Sentence is no longer parsing
+
+		New sentences, as 4 of the original choices did not parse on the second run:
+		1. dažar-e-ɣ d-erc'-a-ħe-ra e xen-bi, "O for these trees to become grass!" (sentence 112)
+		Semantics seems reasonable (though there is no RELS for the exclamation O).  Grass is ARG1
+		of the verb turn into, and tree is ARG2 of the verb turn into
+		2. as tet'-o-as xaxʷ, "I am cutting an onion" (sentence 260)
+		Semantics look good - pronoun I is the ARG1 of cut, and noun onion is ARG2.
+		3. daħ tit' st'eplaʔo, "Chop the carrot" (sentence 258)
+		The semantics has more information than the translation, as there is a "away from speaker" RELS that 
+		takes cut and carrot as an argument.  I'm curious if that is accurate.
+		4. žagno st'ol mak lepč, "The book lies on the table" (sentence 206)
+		Semantics don't make much sense.  All of the trees have strange coordination, combining constituents that
+		don't make sense to be combined. The RELS for up and lie are combined, but there is nothing linking the 
+		table or the book to the other RELS.
+
+Run of our test suite sentences:
+	1. 14 of our sentences parsed
+	2. Average parses per item is 10.93
+	3. The most ambigious item received 52 parses
+	4. The biggest source of ambiguity is the problem I had trying to constrain agreement.  I discuss this further below,
+	but coordination and other phrase structure rules continued to make NP constiuents that did not have the gender/number
+	of the daughters, so there was nothing to prevent verbal prefixes from forming ungrammatical sentences.
+
+4-5
+The topics this week we attempted were case and agreement.
+
+For case:
+
+There are two main valencies for transitive verbs in Tsova-Tush. 
+The first requires the subject of the verb to be in the ergative case and the object of the verb 
+to be in the absolutive case. Here are some examples of this word order, both grammatical and ungrammatical:
+
+ # 6: Transitive: canonical
+Source: a:65
+vetted: s
+Judgment: g
+Phenomena: case
+oqus dol tepx-ʷ
+yon.one.erg drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 7: Transitive: canonical, subject is ergative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+o dol tepx-ʷ
+yon.one.abs drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 8: transitive: canonical, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-it icxus
+this.one.erg cm-wash that.one.erg
+'this one washes that one'
+
+The second requires the subject of the verb to be in the dative case and the object to be in the absolutive case:
+
+# 9: transitive: dative subject
+Source: author
+vetted: f
+Judgment: g
+Phenomena: case
+equi-n y-abc' i
+this.one.dat cm-know that.one.abs
+'this one knows that one'
+
+# 10: transitive: dative subject, subject should be dative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-abc' i
+this.one.erg cm-know that.one.abs
+'this one knows that one'
+
+# 11: transitive: dative subject, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equi-n y-abc' icxui-n
+this.one.dat cm-know that.one.dat
+'this one knows that one'
+
+There are three main valencies for intransitive verbs in Tsova-Tush, those that invariably take an absolutive subject, 
+those that take an ergative 1st or 2nd person subject and an absolutive 3rd person subject, 
+and those that can either take either an absolutive or ergative subject in the first or second person take 
+take an absolutive subject in the third person. Since 1st and 2nd person subjects require special agreement with the verb, 
+I only demonstrated the first and third cases in my test suite. 
+I should be able to model the second case easily as well once the agreement is more fleshed out and we can handle more examples. 
+Here are the intransitive examples from the test suite:
+
+# 1: Intransitive: invariant
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+q'ar y-atx
+rain(j/j).abs cm-drip
+'It is raining.' (lit., 'Rain drips/falls.')
+
+# 2: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+so y-arst'-e-sʷ
+1sg.abs cm(f)-gain.weight-prs-1sg.abs
+'I (F) am putting on weight [unintentionally].'
+
+# 3: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+as y-erst'-n-as
+1sg.erg cm(f)-gain.weight-aor-1sg.erg
+'I (F) put on weight [on purpose].'
+
+# 4: Intransitive: split S by person and volition
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: case
+o y-arst'-e
+yon.one.abs cm(f)-gain.weight-prs
+'She is putting on weight'
+
+# 5: Intransitive: split S by person and volition, 3rd person subject must be absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: case
+oqus y-arst'-e
+yon.one.erg cm(f)-gain.weight-prs
+'She is putting on weight'
+
+I handled this by defining verb types for each of the above patterns, specifying them as intransitive or transitive, 
+and them specifying the appropriate case on their subjects and objects. I then added stems and predicates to the types for the verbs 
+in my test suite. 
+
+Additionally, I had to specify case for the nouns occurring in my test suite. For the ergative and absolutive forms of 
+the demonstratives and pronouns, I simply made a noun type for the ergative forms and one for the absolutive forms. 
+For the dative forms, I made an oblique stem noun type, and a noun position class to add the dative suffix. 
+For the case person agreement on verbs with 1st and 2nd person subjects, I added temporary dummy suffixes for 
+now to parse the sentences.
+
+Agreement - noun/verb gender/number
+
+Tsova-Tush has five full grammatical genders and three inquorate genders (containing a limited number of nouns
+that are treated as an exception).  The genders are defined by the agreement class markers a noun triggers on an
+agreement target in singular/plural.  The name v/b means nouns of that gender trigger a v- class marker for a singular noun
+and a b- target for a plural noun. I chose to focus on only the five full genders to start. The five full genders are as follows:
+
+v/b
+j/d
+j/j
+d/d
+d/j
+
+Follows are sample sentences demonstaring the agreement pattern of nouns of different genders.  Note that the gender categories
+use the character j (I followed the convention in our literature) but the prefixes are written as y- in our corpus.
+
+j/d gender sg
+Souce: a:40
+Vetted: s
+Judgment: g
+Phenomena: agreement
+e nan y-a
+this.one mother cmjdsg-be.IMPV
+'This is a mother'
+
+j/d gender pl
+Source: a:40
+Vetted: s
+Judgment: g
+Phenomena: agreement
+nan-i nan-i d-a
+these.ones mother.PL cmjdpl-be.IMPV
+'These are mothers'
+
+v/b gender sg
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: agreement
+e mar v-a
+'this.one husband cmvbsg-be.IMPV'
+'This is a husband'
+
+v/b gender pl
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: agreement
+ebi mar-i b-a
+these.ones husband-PL cmvbpl-be.IMPV
+'These are husbands'
+
+j/j gender sg
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: Agreement
+q’ar y-atx
+rain(j/j).abs cmjjsg-drip
+‘It is raining.’ (lit., ‘Rain drips/falls.’)
+
+d/d gender pl
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Agreement
+ebi bader-i d-a
+these.ones child-PL cmdd-be.IMPV
+'These are children'
+
+d/j gender sg
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Agreement
+e t'ot' d-a
+this.one hand;paw;branch cmdjsg-be.IMPV
+'This is a hand'
+
+d/j gender pl
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Agreement
+ebi t'ot'-i y-a
+these.ones hand;paw;branch-PL cmdjpl-be.IMPV
+'These are hands'
+
+It became clear there were multiple lexical rules licensing the various prefixes - some were restricted by gender, and some
+were not.  It also was evident the original choices file did not have the correct genders - it merely defined two genders, m
+and f, whereas Tsova-Tush has five full genders.
+
+I attempted to remove any lexical rules that were licensing prefixes on verbs without restricting the gender or number of the noun
+subject of the verb.  
+
+I created new classes for nouns of the various genders.
+
+I created several new lexical rules licensing the various prefixes, with the hope that the resulting verb would fail to unify with
+any nouns that were not the correct number or gender.
+
+I ran into significant issues with this process.  The first is that all the nouns were underspecified for both number and gender.  When
+I attempted to specify singular number on the nouns, this prevented the plural nouns (with the -i suffix) from parsing, because that 
+suffix -i only is able to combine with plural or underspecified nouns.  I hope in morphology next week we will address how to create
+lexical rules that take singular input, and output plural.  I also found that coordination and determiners were complicating things,
+because the coordination and head-specifier rules of the determiners were leading to NPs of varying genders, despite what I had 
+specified in the lexical entry for the noun.  I still have a lot of work I need to do to prevent the parsing of ungrammatical sentences.
+
+Additionally, when I created new lexical entries in the correct gender type, the lexical entry for q'ar "rain" became corrupted.
+
+6. Phenomena in our language not covered by our starter grammar is certainly gender - the starter grammar inferred two genders,
+and did not specify gender for any of the lexical entries, but our grammar has 5 full and 3 inquorate genders.  Case was not 
+specified for nouns, so new noun types had to be added.  
+

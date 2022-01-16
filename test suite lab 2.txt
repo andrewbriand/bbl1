@@ -1,0 +1,8 @@
+Language: Tsova-Tush
+Language code: bbl
+Lines: orth gloss translat
+Author: Libbey Brown
+Date: January 12, 2022
+Source a: Hauk
+
+

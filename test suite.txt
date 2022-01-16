@@ -1,0 +1,105 @@
+Language: Tsova-Tush
+Language code: bbl
+Lines: orth gloss translat
+Author: Andrew Briand and Libbey Brown
+Date: January 12, 2022
+Source a: Hauk
+
+# 1: Intransitive: invariant
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+q’ar y-atx
+rain(j/j).abs cm-drip
+‘It is raining.’ (lit., ‘Rain drips/falls.’) 
+
+# 2: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+so y-arst'-e-sʷ
+1sg.abs cm(f)-gain.weight-prs-1sg.abs
+'I (F) am putting on weight [unintentionally].'
+
+# 3: Intransitive: split S by person and volition
+Source: a:64
+Vetted: s
+Judgment: g
+Phenomena: case
+as y-erst'-n-as
+1sg.erg cm(f)-gain.weight-aor-1sg.erg
+'I (F) put on weight [on purpose].'
+
+# 4: Intransitive: split S by person and volition
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: case
+o y-arst'-e
+yon.one.abs cm(f)-gain.weight-prs
+'She is putting on weight'
+
+# 5: Intransitive: split S by person and volition, 3rd person subject must be absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: case
+oqus y-arst'-e
+yon.one.erg cm(f)-gain.weight-prs
+'She is putting on weight'
+
+# 6: Transitive: canonical
+Source: a:65
+vetted: s
+Judgment: g
+Phenomena: case
+oqus dol tepx-ʷ
+yon.one.erg drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 7: Transitive: canonical, subject is ergative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+o dol tepx-ʷ
+yon.one.abs drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+# 8: transitive: canonical, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-it icxus
+this.one.erg cm-wash that.one.erg
+'this one washes that one'
+
+# 9: transitive: dative subject
+Source: author
+vetted: f
+Judgment: g
+Phenomena: case
+equi-n y-abc' i
+this.one.dat cm-know that.one.abs
+'this one knows that one'
+
+# 10: transitive: dative subject, subject should be dative
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equs y-abc' i
+this.one.erg cm-know that.one.abs
+'this one knows that one'
+
+# 11: transitive: dative subject, object should be absolutive
+Source: author
+vetted: f
+Judgment: u
+Phenomena: case
+equi-n y-abc' icxui-n
+this.one.dat cm-know that.one.dat
+'this one knows that one'

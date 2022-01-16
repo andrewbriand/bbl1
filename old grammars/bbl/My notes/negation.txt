@@ -1,0 +1,7 @@
+Negator:
+co - 'not' - neg4
+ma = 'don't' - aux19 
+
+I couldn't find any other negators listed in the dissertation, so I just deleted aux21. Saved
+screenshot of what I had deleted. I do not think that needs to exist at this point. 
+

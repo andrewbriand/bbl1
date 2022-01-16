@@ -1,0 +1,7 @@
+verb-pc36_lrt1-prefix1 :=
+%prefix (* d-)
+verb-pc36_lrt1-lex-rule.
+
+verb-pc36_lrt1-prefix2 :=
+%prefix (* b-)
+verb-pc36_lrt1-lex-rule. 

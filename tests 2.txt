@@ -1,0 +1,59 @@
+Good sentences that should parse:
+
+ebi nan-i d-a
+these.ones mother(j/d)-PL CMPL-be.IMPV
+"They are mothers"'
+
+e nan y-a
+this.one mother(j/d) CMSG.be.IMPV
+"This is a mother"
+
+e mar v-a
+this.one husband CMSG.be.IMPV
+This is a husband
+
+ebi mar-i b-a
+these.ones husband CMPL.be.IMPV
+They are husbands
+
+e bader d-a
+this.one child CMSG.be.IMPV
+
+ebi bader-i d-a
+these.ones children CMPL.be.IMPV
+
+Sentences that should not parse, but are parsing anyway:
+
+ebi nan-i b-a
+these.ones mother(j/d)-PL CMPLb-be.IMPV
+**incorrect marking for gender, correct number
+
+ebi nan-i v-a
+these.ones mother(j/d)-PL CMSGv-be.IMPV
+**incorrect marking for gender and number
+
+ebi nan-i y-a
+these.ones mother(j/d)-PL CMSG-be.IMPV
+They is mothers **has incorrect marking for number, correct gender
+
+e nan d-a
+this.one mother(j/d) CMPL.be.IMPV
+This are mother **incorrect number, correct gender
+
+e mar b-a
+this.one husband CMPL.be.IMPV
+This are husband **incorrect number, correct gender
+
+ebi mar-i v-a
+these.ones husband CMPL.be.IMPV
+They is husbands **incorrect number, correct gender
+
+
+st'ak = man
+vaser = men
+
+
+
+
+
+
