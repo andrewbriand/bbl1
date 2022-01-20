@@ -1,0 +1,177 @@
+Language: Tsova-Tush
+Language code: bbl
+Lines: orth gloss translat
+Author: Andrew Briand and Libbey Brown
+Date: January 12, 2022
+Source a: Hauk
+
+# 10: Coordination: Parataxis
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+vir st'ak d-arst'-e
+donkey man cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 20: Coordination: Parataxis, subjects of different genders trigger (d/d) agreement
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir st'ak j-arst'-e
+donkey man cm(j/j)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 30: Coordination: Clitic
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+vir=e st'ak=e d-arst'-e
+donkey man cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 40: Coordination: Clitic, subjects of different genders trigger (d/d) agreement
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir=e st'ak=e j-arst'-e
+donkey man cm(j/j)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 50: Coordination: Conjunction
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+vir e st'ak d-arst'-e
+donkey man cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 60: Coordination: Conjunction, subjects of different genders trigger (d/d) agreement
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir e st'ak j-arst'-e
+donkey man cm(j/j)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 70: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+e st'ak v-arst'-e
+this.ABS man cm(v/b)-gain.weight-prs
+This man is gaining weight
+
+# 80: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+eq st'ak v-arst'-e
+this.OBL man cm(v/b)-gain.weight-prs
+This man is gaining weight
+
+# 90: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+is st'ak v-arst'-e
+that.ABS man cm(v/b)-gain.weight-prs
+That man is gaining weight
+
+# 100: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+icx st'ak v-arst'-e
+that.OBL man cm(v/b)-gain.weight-prs
+That man is gaining weight
+
+# 110: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+o st'ak v-arst'-e
+yon.ABS man cm(v/b)-gain.weight-prs
+Yon man is gaining weight
+
+# 120: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+oq st'ak v-arst'-e
+yon.OBL man cm(v/b)-gain.weight-prs
+Yon man is gaining weight
+
+# 130: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+eq bader-i-v ʡok'-i y-aq'-o 
+this.OBL child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+These children are eating pancakes
+
+# 140: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+e bader-i-v ʡok'-i y-aq'-o 
+this.ABS child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+These children are eating pancakes
+
+# 150: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+icx bader-i-v ʡok'-i y-aq'-o 
+that.OBL child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Those children are eating pancakes
+
+# 160: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+is bader-i-v ʡok'-i y-aq'-o 
+that.ABS child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Those children are eating pancakes
+
+# 170: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+oq bader-i-v ʡok'-i y-aq'-o 
+yon.OBL child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Yon children are eating pancakes
+
+# 180: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+o bader-i-v ʡok'-i y-aq'-o 
+yon.ABS child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Yon children are eating pancakes
+
+# 190: Demonstrative adjectives: Demonstrative adjective preceeds noun
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+bader-i-v oq ʡok'-i y-aq'-o 
+child-PL-ERG yon.OBL crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Yon children are eating pancakes
