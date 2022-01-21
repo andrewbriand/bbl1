@@ -129,10 +129,6 @@ noun-pc21_lrt1-suffix2 :=
 %suffix (* =lna)
 noun-pc21_lrt1-lex-rule.
 
-noun-pc21_lrt2-suffix :=
-%suffix (* -i)
-noun-pc21_lrt2-lex-rule.
-
 noun-pc24_lrt1-prefix :=
 %prefix (* d-)
 noun-pc24_lrt1-lex-rule.
@@ -196,10 +192,6 @@ noun-pc48_lrt1-lex-rule.
 noun-pc49_lrt1-suffix :=
 %suffix (* -in)
 noun-pc49_lrt1-lex-rule.
-
-noun-pc51_lrt1-suffix :=
-%suffix (* -i)
-noun-pc51_lrt1-lex-rule.
 
 noun-pc52_lrt1-suffix :=
 %suffix (* -aʔ)
