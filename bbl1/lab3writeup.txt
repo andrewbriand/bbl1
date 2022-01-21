@@ -1,3 +1,28 @@
+1. Answers to questions for initial and final runs
+
+a. Initial
+
+i. Test corpus:
+
+Our results for the test corpus using the lab 2 grammar are the same as at the end of lab 2, namely: 
+
+ii. Lab 3 test suite:
+
+For the new test suite including our lab 3 additions, our lab 2 grammar 
+
+We analyzed the semantics of 10 sentences from our lab 3 testsuite, since our test corpus and grammar were the same as in lab 2:
+
+
+
+b. Final
+
+i. Test Corpus
+
+ii. Lab 3 test suite
+
+We analyzed the semantics of 10 sentences from both our test corpus and lab 3 test suite:
+
+
 2. Phenomena added to the testsuite
 
 a. Coordination

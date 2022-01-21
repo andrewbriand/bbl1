@@ -106,7 +106,7 @@ this.one.dat cm-know that.one.dat
 'this one knows that one'
 
 # 12 Agreement j/d gender sg
-Souce: a:40
+Source: a:40
 Vetted: s
 Judgment: g
 Phenomena: agreement
