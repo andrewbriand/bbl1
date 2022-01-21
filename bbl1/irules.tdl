@@ -153,14 +153,6 @@ noun-pc30_lrt1-suffix :=
 %suffix (* -čo)
 noun-pc30_lrt1-lex-rule.
 
-noun-pc35_lrt1-suffix1 :=
-%suffix (* -a)
-noun-pc35_lrt1-lex-rule.
-
-noun-pc35_lrt1-suffix2 :=
-%suffix (* -e)
-noun-pc35_lrt1-lex-rule.
-
 noun-pc39_lrt1-suffix :=
 %suffix (* -ar)
 noun-pc39_lrt1-lex-rule.
@@ -196,10 +188,6 @@ noun-pc49_lrt1-lex-rule.
 noun-pc52_lrt1-suffix :=
 %suffix (* -aʔ)
 noun-pc52_lrt1-lex-rule.
-
-noun-pc53_lrt1-suffix :=
-%suffix (* -n)
-noun-pc53_lrt1-lex-rule.
 
 verb-pc1_lrt1-suffix1 :=
 %suffix (* -u)
