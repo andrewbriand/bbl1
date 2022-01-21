@@ -1,0 +1,43 @@
+
+We renamed the following position classes to make them clearer:
+
+Renamed noun-pc13 -> noun-yes-no-question-particle
+Renamed noun-pc18 -> noun-and-clitic
+Renamed noun-pc20 -> noun-plural-for-people
+Renamed noun-pc30 -> noun-thematic-extension
+
+We added a position class called Number to handle noun number marking. The position class has lexical rule types to add an empty suffix to a noun to make it singular (noun-pc10_lrt2) or the '-i' suffix to make a noun plural (noun-pc10_lrt1). An example of a sentence affected by this change is the following:
+
+niq' b-a .
+road CM (B/d) be (present) . 
+This is a road.
+
+Two parses in which 'niq' (road) was interpreted as being plural were eliminated by this change, bringing the count from 6 to 4.
+
+We removed lexical rule type noun-pc21_lrt2 and noun position class noun-pc51 as they both were responsible for adding the -i suffix indicating plurality for nouns, a task now handled by the Number noun position class. We added noun25 and noun4 as inputs to Number to cover the inputs taken by noun-pc21 and noun-pc51. These changes have an effect on the following sentence:
+
+esmaⁿ-s t'ot'-i y-il-u
+Esman (female name) ERG.S for humans and nouns ending in /o/ or /u/ hand; paw; branch PL CM (F.sg) wash (+pre and postradical CM) present formant (+impf) .
+Esman is washing (her) hands.
+
+Before the change, the parse chart has 9 feature structures in the box above t'ot'-i, including one for noun-pc21_lrt2 and plural_suffix (from the Number noun position class). After this change, there are only 6, including plural_suffix but not noun-pc21_lrt2.
+
+We removed noun-pc19_lrt2, noun-pc9_lrt2, noun-pc12_lrt3, and noun-pc35_lrt3, all of which took many different inputs and made a noun ergative without a suffix. As far as we could tell viewing the results from our test corpus and using the compare functionality in tsdb, this had no effect in our test corpus, so we don't have an IGT example for this one.
+
+We removed noun-pc35 and noun-pc53 completely, as noun-pc35 only contained lexical rule types to 1) make nouns ergatives without a suffix (noun-pc35_lrt3) or add suffixes -a and -e with no features, which are already covered by noun-pc1. The following two sentences are among those affected:
+
+oqus b-ʕog-in koǰo gago-e-n mak
+3S.ERG / that one CM (B/d) break (+preradical CM) aorist formant broom knee SG thematic vowel between stem and case ending DAT on (+DAT)
+(S)he broke the broom on (his/her) knee.
+
+The number of parses for this sentence is halved from 32 to 16, as previously 'gago-e-n' could be analyzed either through noun-pc35 or noun-pc1.
+
+as tit'-n-as st'eplaʔo ħo-n-e-n .
+1S.ERG cut (pfv) AOR 1S.ERG carrot 2S DAT SG thematic vowel between stem and case ending DAT . 
+I chopped a carrot for you.
+
+This sentence no longer parses, as ħo-n-e-n could not be analyzed. It could previously be analyzed through noun-pc35_lrt suffix 2 "-e" which accepts noun-pc9 as an input. This was the only sentence that stopped parsing after this change.
+
+Our morphological changes brought the average anaylses per sentence down from 25.43 to 20.18, the number of lexical analyses per word down from 1.5 to 1.35 and our coverage went from 15.1% to 14.5%.
+
+
