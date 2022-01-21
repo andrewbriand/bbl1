@@ -1,3 +1,211 @@
+2. Phenomena added to the testsuite
+
+a. Coordination
+
+Coordination takes three forms in Tsova-Tush. First, in asyndetic coordination, clauses are placed next to each other without a conjunction. Second, clauses can be combined through the use of the coordinating conjunction, for example "e." Third, constituents and clauses can be combined through the use of a clitic. In the following examplefrom our testsuite, "donkey" and "man" are coordinated with the use of the clitic "=e":
+
+# 30: Coordination: Clitic
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+vir=e st'ak=e d-arst'-e
+donkey=and man=and cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+Note that since "donkey" and "man" have different genders, the verb takes d/d agreement. We therefore also added a negative test case to ensure this agreement is enforced:
+
+# 31: Coordination: Clitic, subjects of different genders trigger (d/d) agreement
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir=e st'ak=e j-arst'-e
+donkey=and man=and cm(j/j)-gain.weight-prs
+A donkey and a man are gaining weight
+
+Since the first two forms of coordination, asyndeton and conjunction, can only be used with clauses and not constituents, we added the following negative examples:
+
+# 28: Coordination: Parataxis cannot be used with constituents
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir st'ak d-arst'-e
+donkey man cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+# 32: Coordination: Conjunction cannot be used with constituents
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Coordination
+vir e st'ak d-arst'-e
+donkey and man cm(d/d)-gain.weight-prs
+A donkey and a man are gaining weight
+
+Finally, we added the following two grammatical examples to demonstrate the clausal uses of these two forms of coordination:
+
+# 29: Coordination: Parataxis
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+k'uit' d-arst'-e, st'ak v-arst'-e
+cat cm(d/d)-gain.weight-prs, man cm(v/b)-gain.weight-prs
+A cat is gaining weight and a man is gaining weight
+
+# 33: Coordination: Conjunction
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+k'uit' d-arst'-e, e st'ak v-arst'-e
+cat cm(d/d)-gain,weight-prs, and man cm(v/b)-gain.weight-prs
+A cat is ganing weight and a man is gaining weight
+
+b. Demonstrative adjectives (rest of NP)
+
+There are three demonstrative adjectives in Tsova-Tush, each of which agrees with the noun in case. The following table reproduced from our reference shows their forms:
+
+	'this'	'that'	'yon'
+ABS	e	is	o
+OBL	eq	icx	oq
+
+We used variations on the following test case to test the absolutive forms of these adjectives:
+
+# 34: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+e st'ak v-arst'-e
+this.ABS man cm(v/b)-gain.weight-prs
+This man is gaining weight
+
+We included negative examples such as the following where the wrong case of the adjective has been used:
+
+# 35: Demonstrative adjectives: absolutive
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+eq st'ak v-arst'-e
+this.OBL man cm(v/b)-gain.weight-prs
+This man is gaining weight
+
+To test the oblique forms of these adjectives (which are employed with nouns in all other cases), we used variations on the following example:
+
+# 40: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Demonstrative adjectives
+eq bader-i-v ʡok'-i y-aq'-o 
+this.OBL child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+These children are eating pancakes
+
+We again included negative examples where the wrong case of the adjective was used:
+
+# 41: Demonstrative adjectives: oblique
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+e bader-i-v ʡok'-i y-aq'-o 
+this.ABS child-PL-ERG crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+These children are eating pancakes
+
+Additionally, we included a negative example where the demonstrative adjective is placed after the noun it describes:
+
+# 46: Demonstrative adjectives: Demonstrative adjective preceeds noun
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: Demonstrative adjectives
+bader-i-v oq ʡok'-i y-aq'-o 
+child-PL-ERG yon.OBL crescent.shaped.pastry-PL cm(y/y)-eat-IMPF
+Yon children are eating pancakes
+
+c. Tense and aspect
+
+Tense and aspect fall into three groups in Tsova-Tush: present, future, and aorist.  The present group
+is based on the imperfective stem of the verb, the future group is based on the perfective stem of the verb,
+and the aorist is based on both the perfective and the imperfective stems.  Our literature summarizes the tense/aspect
+groups as follows:
+
+-Present group: present, imperfect
+-Future group: future, future imperfect
+-Aorist group: imperfective aorist, perfective aorist, imperfective perfect, perfective perfict
+
+Tsova-Tush has optional evidentiality markers that combine with verbs to identify information obtained through
+second-hand sources.  These markers can be left unspecified.  There is one form of evidentiality that combines
+with the future and present tenses, and a different form that combines with the aorist group.
+
+Our literature provided a table with conjuguations for the various tense/aspect combinations we found
+helpful in understanding the different meanings, based on the verb cut, taking a third person subject.  A
+sentence with the following verb was found in our test corpus, and from that sentence and the conjugations
+in the table we extrapolated examples of the different tense/aspect/evidentiality combinations.
+
+The sentence from our corpus:
+	oqus tit'-en xen
+	yon.one cut(aorist perfective)-aorist tree
+	(S)he did cut the tree
+
+Paradigm of the verb "cut" from the literature:
+
+Present group, based on the imperfect stem of the verb 'cut', tet'ar:
+	Present: tet'-o (s/he) cuts, is cutting
+	Imperfect: tet'-ora (s/he) used to cut
+	Imperfect reported: tet'-ralʷ
+
+Future group, based on the perfect stem of the verb 'cut', tit'ar:
+	Future: tit'-o (s/he) will cut
+	Imperfect: tit'-ora (s/he) will cut (multiple times)
+	Imperfect reported: tit'-ralʷ (s/he) evidently will cut
+
+Aorist imperfective group, based on the imperfect stem tet'ar:
+	Aorist: tet'-in (s/he) cut, did cut (multiple times)
+	Perfect: tet'-ir (s/he) had cut (multiple times)
+	Aorist reported: tet'-ino (s/he) evidently cut, did cut (multiple times)
+	Perfect reported: tet'-nor (s/he) evidently had cut (multiple times)
+
+Aorist perfective group, based on the perfect stem tit'ar:
+	Aorist: tit'-en (s/he) cut, did cut
+	Perfect: tit'-er (s/he) had cut
+	Aorist reported: tit'-eno (s/he) evidently cut, did cut
+	Perfect reported: tit'-nor (s/he) evidently had cut
+
+Test sentences have been added to our test suite representative of each tense/aspect/evidentiality combination. For example, the following were added for the present group, for present, imperfect, and imperfect reported:
+
+# 47: Tense/aspect: Present group
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: tense/aspect
+oqus tet'-o xen
+yon.one cut(present)-present tree
+(S)he cuts the tree / (S)he is cutting the tree
+
+# 48: Tense/aspect: Present group
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: tense/aspect
+oqus tet'-ora xen
+yon.one cut(present)-imperfect tree
+(S)he used to cut the tree 
+
+# 49: Tense/aspect: Present group
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: tense/aspect
+oqus tet'-ralʷ xen
+yon.one cut(present)-imperfect.reported tree
+(S)he evidently used to cut the tree 
+
+3. Documentation of morphotactic improvements
 
 We renamed the following position classes to make them clearer:
 
@@ -24,7 +232,7 @@ Before the change, the parse chart has 9 feature structures in the box above t'o
 
 We removed noun-pc19_lrt2, noun-pc9_lrt2, noun-pc12_lrt3, and noun-pc35_lrt3, all of which took many different inputs and made a noun ergative without a suffix. As far as we could tell viewing the results from our test corpus and using the compare functionality in tsdb, this had no effect in our test corpus, so we don't have an IGT example for this one.
 
-We removed noun-pc35 and noun-pc53 completely, as noun-pc35 only contained lexical rule types to 1) make nouns ergatives without a suffix (noun-pc35_lrt3) or add suffixes -a and -e with no features, which are already covered by noun-pc1. The following two sentences are among those affected:
+We removed noun-pc35 and noun-pc53 completely, as noun-pc35 only contained lexical rule types to 1) make nouns ergative without a suffix (noun-pc35_lrt3) or add suffixes -a and -e with no features, which are already covered by noun-pc1. The following two sentences are among those affected:
 
 oqus b-ʕog-in koǰo gago-e-n mak
 3S.ERG / that one CM (B/d) break (+preradical CM) aorist formant broom knee SG thematic vowel between stem and case ending DAT on (+DAT)
@@ -38,6 +246,4 @@ I chopped a carrot for you.
 
 This sentence no longer parses, as ħo-n-e-n could not be analyzed. It could previously be analyzed through noun-pc35_lrt suffix 2 "-e" which accepts noun-pc9 as an input. This was the only sentence that stopped parsing after this change.
 
-Our morphological changes brought the average anaylses per sentence down from 25.43 to 20.18, the number of lexical analyses per word down from 1.5 to 1.35 and our coverage went from 15.1% to 14.5%.
-
-
+Our morphological changes brought the average analyses per sentence down from 25.43 to 20.18 and the number of lexical analyses per word down from 1.5 to 1.35. Our coverage went from 15.1% to 14.5%.

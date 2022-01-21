@@ -249,23 +249,23 @@ e t'ot' y-a
 this.one hand;paw;branch cmdjpl-be.IMPV
 'This is a hand'
 
-# 28: Coordination: Parataxis
+# 28: Coordination: Parataxis cannot be used with constituents
 Source: author
 Vetted: f
-Judgment: g
+Judgment: u
 Phenomena: Coordination
 vir st'ak d-arst'-e
 donkey man cm(d/d)-gain.weight-prs
 A donkey and a man are gaining weight
 
-# 29: Coordination: Parataxis, subjects of different genders trigger (d/d) agreement
+# 29: Coordination: Parataxis
 Source: author
 Vetted: f
-Judgment: u
+Judgment: g
 Phenomena: Coordination
-vir st'ak j-arst'-e
-donkey man cm(j/j)-gain.weight-prs
-A donkey and a man are gaining weight
+k'uit' d-arst'-e, st'ak v-arst'-e
+cat cm(d/d)-gain.weight-prs, man cm(v/b)-gain.weight-prs
+A cat is gaining weight and a man is gaining weight
 
 # 30: Coordination: Clitic
 Source: author
@@ -273,7 +273,7 @@ Vetted: f
 Judgment: g
 Phenomena: Coordination
 vir=e st'ak=e d-arst'-e
-donkey man cm(d/d)-gain.weight-prs
+donkey=and man=and cm(d/d)-gain.weight-prs
 A donkey and a man are gaining weight
 
 # 31: Coordination: Clitic, subjects of different genders trigger (d/d) agreement
@@ -282,26 +282,26 @@ Vetted: f
 Judgment: u
 Phenomena: Coordination
 vir=e st'ak=e j-arst'-e
-donkey man cm(j/j)-gain.weight-prs
+donkey=and man=and cm(j/j)-gain.weight-prs
 A donkey and a man are gaining weight
 
-# 32: Coordination: Conjunction
-Source: author
-Vetted: f
-Judgment: g
-Phenomena: Coordination
-vir e st'ak d-arst'-e
-donkey man cm(d/d)-gain.weight-prs
-A donkey and a man are gaining weight
-
-# 33: Coordination: Conjunction, subjects of different genders trigger (d/d) agreement
+# 32: Coordination: Conjunction cannot be used with constituents
 Source: author
 Vetted: f
 Judgment: u
 Phenomena: Coordination
-vir e st'ak j-arst'-e
-donkey man cm(j/j)-gain.weight-prs
+vir e st'ak d-arst'-e
+donkey and man cm(d/d)-gain.weight-prs
 A donkey and a man are gaining weight
+
+# 33: Coordination: Conjunction
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: Coordination
+k'uit' d-arst'-e, e st'ak v-arst'-e
+cat cm(d/d)-gain,weight-prs, and man cm(v/b)-gain.weight-prs
+A cat is ganing weight and a man is gaining weight
 
 # 34: Demonstrative adjectives: absolutive
 Source: author
