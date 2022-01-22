@@ -18,6 +18,7 @@ Using our extended lab 3 test suite, our lab 2 grammar produced the following re
 	1. How many items parsed? 19 out of 60 (39 of which are positive examples)
 	2. Average parses per item? 6.47
         3. Parses for the most ambiguous item? 20
+        4. We see ambiguity due to asyndetic coordination being allowed between constituents as due to the misinterpretation of first person pronouns as verbs. We also still see ambiguity due to multiple lexical rules having the same effect.
 
 For question 5, we analyzed the semantics of 10 sentences from our lab 3 testsuite, since our test corpus and grammar were the same as in lab 2:
 
@@ -95,10 +96,89 @@ b. Final
 
 i. Test Corpus
 
+	1. How many items parsed? 145 out of 999
+        2. Average parses per item? 20.18
+        3. Parses for the most ambiguous item? 242
+        4. We still see ambiguity due to coordination being allowed between practically any two constituents asyndetically, and having multiple lexical rules with the same function applied to a single word to produce multiple trees. This second source of ambiguity was reduced by the changes we made detailed in part 3 of the writeup, however.
+
 ii. Lab 3 test suite
 
-We analyzed the semantics of 10 sentences from both our test corpus and lab 3 test suite:
+	1. How many items parsed? 19 out of 60 (39 of which are positive examples)
+	2. Average parses per item? 5.21
+        3. Parses for the most ambiguous item? 17
+        4. We still see ambiguity due to asyndetic coordination being allowed between constituents as due to the misinterpretation of first person pronouns as verbs. We also still see ambiguity due to multiple lexical rules having the same effect, though this was reduced through our morphotactic changes from the initial test run.
 
+We analyzed the semantics of 10 sentences from our test corpus with the new lab 3 grammar:
+
+1.
+k'ač'aro dapxol meq'-o .
+wool:ERG warmth stay present formant (+impf) .
+Wool holds warmth.
+
+None of the semantics here look reasonable, as 'wool' and 'warmth' are initerpreted as being coordinaed asyndetically in all 3 parses.
+
+2.
+bʕerc'-a-ɣ v-erc'-in st'ak' .
+wolf SG thematic ending? ADV CM (M.sg) turn into (+preradical CM) aorist formant man, person, human .
+The man became a wolf.
+
+The semantics for this sentence are reasonable in that one parse has the ARG1 of '_turn into (+preradical cm)_v_rel' identified with the ARG0 of '_wolf_n_rel' and the ARG2 with '_man, person, human_n_rel'. The other parse has the arguments swapped, which is acceptable since case cannot distinguish them in this case. '_turn into (+preradical cm)_v_rel' should simply be '_turn_into_v_rel' as "(+preradical cm)" is morphological information about the verb contained in the original gloss.
+
+3.
+kortʷ-e-ɣ b-erc'-in qer .
+head SG thematic vowel between stem and case ending ADV CM (B/d) turn into (+preradical CM) aorist formant stone .
+A stone became the head.
+
+Again, '_turn into (+preradical cm)_v_rel' should simply be '_turn_into_v_rel' as "(+preradical cm)" is morphological information about the verb contained in the original gloss. Again, two interpretations are proposed with the arguments of this v_rel swapped, as case cannot distinguish them, so the semantics appear reasonable.
+
+4.
+k'uit'i d-a .
+cat CM (d/d) be (present) .
+It's a cat.
+
+The semantics seem reasonable here, with one of the arguments of '_be (present)_v_rel' identified with RARG of a non-focus structure and the other identified with the ARG0 of 'cat_n_rel'. '_be (present)_v_rel' should again be simplt '_be_v_rel'
+
+5.
+k'uit'i d-a-nuic .
+cat CM (d/d) be (present) evidential? indeed? .
+It is indeed a cat.
+
+This grammar gives the same semantics to this sentence as the last one, which i s probably not reasonable since there is no mention of evidentiality in the semantics. The same comment applies again for '_be (present)_v_rel'.
+
+6.
+k'uit'i d-a=e .
+cat CM (d/d) be (present) =and .
+It's a cat.
+
+The semantics are again the same as 4. We are not sure if this is reasonable since the linguist gives the same translation but this sentence includes a coordination clitic.
+
+7.
+band y-a .
+rag, duster CM (y/y) be (present) .
+It's a rag.
+
+Again, one of the arguments of '_be (present)_v_rel' is identified with RARG of a non-focus structure and the other identified with the ARG0 of '_rag,duster_n_rel'. '_be (present)_v_rel' should again be simply '_be_v_rel'.
+
+8.
+vir d-a-ra .
+donkey CM (d/d) be (present) imperfect present (after present formant) . 
+There was a donkey.
+
+This sentence has the same semantics as 7 and 4 with a '_be (present)_v_rel' taking a non-focus argument and 'donkey' in either ARG1 or ARG2. It has no mention of tense or aspect information despite the verb being marked for it.
+
+9.
+moħ d-ec'e aɬ-an ?
+how CM (d/d) should, must (+CM) say, talk about (pfv; no CM) infinitive ?
+How should one say it?
+
+'_should,must (+cm)_v_rel' should simply be '_should,must_v_rel' here. The question word 'how' is interpreted as a noun and the ARG1 of 'should'. Additionally the verb 'say' here is interpreted as '_become?_v_rel', so the semantics are not very reasonable.
+
+10.
+kayrcxi d-itː-o .
+clothing; the wash CM (d/d) wash (+preradical CM) present formant (+impf) .
+They're washing clothes.
+
+The semantics here seem reasonable here for one parse with clothing identified as the ARG2 of the verb '_wash (+preradical cm)_v_rel' However, the two other parses have it as the ARG1. '_wash (+preradical cm)_v_rel' should simply be '_wash_v_rel' and there is no mention of aspect in the semantics. 
 
 2. Phenomena added to the testsuite
 
@@ -348,4 +428,4 @@ I chopped a carrot for you.
 
 This sentence no longer parses, as ħo-n-e-n could not be analyzed. It could previously be analyzed through noun-pc35_lrt suffix 2 "-e" which accepts noun-pc9 as an input. This was the only sentence that stopped parsing after this change.
 
-Our morphological changes brought the average analyses per sentence down from 25.43 to 20.18 and the number of lexical analyses per word down from 1.5 to 1.35. Our coverage went from 15.1% to 14.5%.
+Our morphological changes brought the average analyses per sentence down from 25.43 to 20.18. Our coverage went from 15.1% to 14.5%.
