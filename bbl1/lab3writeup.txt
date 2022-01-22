@@ -6,13 +6,90 @@ i. Test corpus:
 
 Our results for the test corpus using the lab 2 grammar are the same as at the end of lab 2, namely: 
 
+	1. How many items parsed? 151 out of 999
+        2. Average parses per item? 25.43
+        3. Parses for the most ambiguous item? 496
+        4. We continue to see ambiguity due to coordination being allowed between practically any two constituents without clitics or conjunctions, and having multiple lexical rules with the same function and morphological form that are applied to a single word to produce multiple trees.
+
 ii. Lab 3 test suite:
 
-For the new test suite including our lab 3 additions, our lab 2 grammar 
+Using our extended lab 3 test suite, our lab 2 grammar produced the following results:
 
-We analyzed the semantics of 10 sentences from our lab 3 testsuite, since our test corpus and grammar were the same as in lab 2:
+	1. How many items parsed? 19 out of 60 (39 of which are positive examples)
+	2. Average parses per item? 6.47
+        3. Parses for the most ambiguous item? 20
 
+For question 5, we analyzed the semantics of 10 sentences from our lab 3 testsuite, since our test corpus and grammar were the same as in lab 2:
 
+1. 
+as y-erst'-n-as
+1sg.erg cm(f)-gain.weight-aor-1sg.erg
+'I (F) put on weight [on purpose].'
+
+The semantics for the only tree produced by this sentence seem reasonable. The arg1 of _gain_weight_v_rel is the _pron_n_rel corresponding to "as" ('I'). 
+
+2.
+ebi t'ot'-i d-a
+these.ones hand;paw;branch-PL cmdjsg-be.IMPV
+'These are hands'
+
+Here the v_rel is called '_be (present)_v_rel' which should probably be changed to simply '_be_v_rel'. In all 10 trees "ebi" is interpreted as a determiner whereas it should be a demonstrative pronoun. Accordingly, none of the semantic analyses have a _pron_n_rel. Some of the analyses identify _hand;paw;branch_n_rel with ARG1 of '_be (present)_v_rel' while others identify it with ARG2.
+
+3.
+so y-arst'-e-sʷ
+1sg.abs cm(f)-gain.weight-prs-1sg.abs
+'I (F) am putting on weight [unintentionally].'
+
+10 of the parses for this sentence interpret 'so' as a verb, giving a semantic representation where a member of the non-focus feature structure is both the an argument of a '_toward speaker_v_rel' and the '_gain_weight_v_rel'. These analyses additionally have an 'and_coord_rel' as the grammar interprets this sentence as having asyndetic coordination between the two "verbs." In the other two parses, "so" is correctly interpreted as a first person pronoun, giving a semantic representation in which the ARG0 of '1sg_n_rel' is identified with the ARG1 of '_gain_weight_v_rel.'
+
+4. 
+equi-n y-abc' i
+this.one.dat cm-know that.one.abs
+'this one knows that one'
+
+The semantic representations for both trees produced by this sentence seem reasonable identifying ARG1 of '_know_v_rel' with ARG0 of 'this_one_n_rel' and ARG2 with ARG0 of 'that_one_n_rel.'
+
+5. 
+oqus tet'-o xen
+yon.one cut(present)-present tree
+(S)he cuts the tree / (S)he is cutting the tree
+
+For the only parse produced for this sentence, the verb arguments seem reasonable, ARG2 of 'cut (impf)_v_rel' being identified with ARG0 of _tree_n_rel and ARG1 being identified with ARG0 of 'yon_one_n_rel.' However, 'cut (impf)_v_rel' should be simply 'cut_v_rel' and there appears to be no tense information inthe semantics despite the verb marking for present tense.
+
+6. 
+oqus tit'-o xen
+yon.one cut(future)-future tree
+(S)he will cut the tree 
+
+Both parses for this sentence had reasonable argument semantics with ARG1 of 'cut (pfv)_v_rel' identified with ARG0 of 'yon_one_n_rel' and ARG2 identified with ARG0 of '_tree_n_rel'. However 'cut (pfv)_v_rel' should be simply 'cut_v_rel' and there is no information about tense despite the verb being marked for future tense.
+
+7.
+oqus dol tepx-ʷ
+yon.one.erg drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+In 3 of the 4 parses for this sentence, 'they' and 'drum' are interpreted as being asyndetically coordinated, leading to unreasonable semantic representations. The semantic representation for the fourth parse looks reasonable, except that '_play (impf)_v_rel' should simply be '_play_v_rel'. ARG1 of 'play (impf)_v_rel' is correctly identified with ARG0 of '_yon_one_n_rel' and ARG2 is correctly identified with '_drum_n_rel'
+
+8.
+o dol tepx-ʷ
+yon.one.abs drum(j/j).abs play-prs
+'They (sg) play the drum.'
+
+This sentence is actually ungrammatical, but produces 3 parses in which 'they' and 'drum' are asyndetically coordinated, leading to unreasonable semantic representations.
+
+9.
+ebi bader-i d-a
+these.ones child-PL cmdd-be.IMPV
+'These are children'
+
+Here the v_rel is called '_be (present)_v_rel' which should probably be changed to simply '_be_v_rel'. In both trees "ebi" is interpreted as a determiner whereas it should be a demonstrative pronoun. Accordingly, none of the semantic analyses have a _pron_n_rel. One of the analyses has a '_be (present)_v_rel' in which ARG2 is identified with '_child_n_rel' where as the other simply has a '_child_n_rel' and no reference to verbs.
+
+10. 
+oqus tet'-in xen
+yon.one cut(aorist imperfective)-aorist tree
+(S)he did cut (multiple times) the tree
+
+The semantics for the only parse here look reasonable in that ARG0 _tree_n_rel is identified with ARG2 of '_cut (impf)_v_rel' and ARG0 of '_yon_one_n_rel' is identified with ARG1 of '_cut (impf)_v_rel'. However '_cut (impf)_v_rel' should simply be '_cut_v_rel' and there is no mention of the aorist despite the verb being marked for it.
 
 b. Final
 
