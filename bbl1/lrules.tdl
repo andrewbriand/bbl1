@@ -1,4 +1,6 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
+absolutive-lex := absolutive-lex-rule.
+
 singular-lex := singular-lex-rule.
 
 verb-pc63_lrt1-lex := verb-pc63_lrt1-lex-rule.
