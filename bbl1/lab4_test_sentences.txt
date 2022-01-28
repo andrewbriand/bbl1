@@ -58,7 +58,7 @@ Vetted: f
 Judgment: g
 Phenomena: Adnominal Possession
 txeⁿ k'uit' d-arst'-e
-1sg.EXCL.POSS cat cm(d/d)-gain.weight-prs
+1pl.EXCL.POSS cat cm(d/d)-gain.weight-prs
 Our (exclusive) cat is gaining weight
 
 # Possessive pronouns: Case agreement
@@ -67,7 +67,7 @@ Vetted: f
 Judgment: u
 Phenomena: Adnominal Possession
 txe k'uit' d-arst'-e
-1sg.EXCL.POSS.OBL cat cm(d/d)-gain.weight-prs
+1pl.EXCL.POSS.OBL cat cm(d/d)-gain.weight-prs
 Our (exclusive) cat is gaining weight
 
 # Possessive pronouns: Case agreement
@@ -76,7 +76,7 @@ Vetted: f
 Judgment: g
 Phenomena: Adnominal Possession
 vaiⁿ k'uit' d-arst'-e
-1sg.INCL.POSS cat cm(d/d)-gain.weight-prs
+1pl.INCL.POSS cat cm(d/d)-gain.weight-prs
 Our (inclusive) cat is gaining weight
 
 # Possessive pronouns: Case agreement
@@ -85,7 +85,7 @@ Vetted: f
 Judgment: u
 Phenomena: Adnominal Possession
 vai k'uit' d-arst'-e
-1sg.INCL.POSS.OBL cat cm(d/d)-gain.weight-prs
+1pl.INCL.POSS.OBL cat cm(d/d)-gain.weight-prs
 Our (inclusive) cat is gaining weight
 
 # Possessive pronouns: Case agreement
