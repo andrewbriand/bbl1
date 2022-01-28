@@ -62,6 +62,9 @@ PNG.GEND : PNG.GEND
   * <> *
 
 E.TENSE : E.TENSE
+  aorist <> aorist
+  future <> future
+  present <> present
   * <> *
 
 E.ASPECT : E.ASPECT
@@ -69,6 +72,9 @@ E.ASPECT : E.ASPECT
   cont <> cont
   pfv <> pfv
   ipfv <> ipfv
+  impf_reported <> impf_reported
+  aorist_reported <> aorist_reported
+  perf_reported <> perf_reported
   * <> *
 
 E.MOOD : E.MOOD
