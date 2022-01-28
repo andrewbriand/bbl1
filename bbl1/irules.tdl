@@ -1,9 +1,9 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Inflecting Lexical Rule Instances
 
-noun-pc1_lrt1-suffix :=
+noun-pc1-suffix :=
 %suffix (* -e)
-noun-pc1_lrt1-lex-rule.
+noun-pc1-lex-rule.
 
 noun-pc4_lrt1-suffix :=
 %suffix (* -a)
@@ -205,9 +205,57 @@ verb-pc1_lrt1-suffix4 :=
 %suffix (* -če)
 verb-pc1_lrt1-lex-rule.
 
-verb-pc2_lrt1-suffix :=
+basic_pr_fut-suffix1 :=
 %suffix (* -o)
-verb-pc2_lrt1-lex-rule.
+basic_pr_fut-lex-rule.
+
+basic_pr_fut-suffix2 :=
+%suffix (* -ʷ)
+basic_pr_fut-lex-rule.
+
+imp_pr_fut-suffix1 :=
+%suffix (* -ora)
+imp_pr_fut-lex-rule.
+
+imp_pr_fut-suffix2 :=
+%suffix (* -or)
+imp_pr_fut-lex-rule.
+
+imp_report_prfut-suffix :=
+%suffix (* -ralʷ)
+imp_report_prfut-lex-rule.
+
+aor_impf_aor-suffix :=
+%suffix (* -in)
+aor_impf_aor-lex-rule.
+
+aor_impf_perf-suffix :=
+%suffix (* -ir)
+aor_impf_perf-lex-rule.
+
+aor_impf_aor_rep-suffix :=
+%suffix (* -ino)
+aor_impf_aor_rep-lex-rule.
+
+aor_impf_per_rep-suffix :=
+%suffix (* -nor)
+aor_impf_per_rep-lex-rule.
+
+aor_per_aor-suffix :=
+%suffix (* -en)
+aor_per_aor-lex-rule.
+
+aor_per_perf-suffix :=
+%suffix (* -er)
+aor_per_perf-lex-rule.
+
+aor_per_aor_rep-suffix :=
+%suffix (* -eno)
+aor_per_aor_rep-lex-rule.
+
+aor_per_per_rep-suffix :=
+%suffix (* -nor)
+aor_per_per_rep-lex-rule.
 
 verb-pc5_lrt1-suffix :=
 %suffix (* =ainʷ)
@@ -476,10 +524,6 @@ verb-pc58_lrt1-lex-rule.
 verb-pc58_lrt2-suffix :=
 %suffix (* -n)
 verb-pc58_lrt2-lex-rule.
-
-present-suffix :=
-%suffix (* -ʷ)
-present-lex-rule.
 
 dummy-person-case-agreement_lrt1-suffix :=
 %suffix (* -as)

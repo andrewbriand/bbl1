@@ -1623,7 +1623,7 @@ met_27r := noun109-noun-lex &
   [ STEM < "met'r" >,
     SYNSEM.LKEYS.KEYREL.PRED "_meter_n_rel" ].
 
-meⁿ := noun109-noun-lex &
+meⁿ_1 := noun109-noun-lex &
   [ STEM < "meⁿ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_who (nom.s)_n_rel" ].
 
@@ -1827,9 +1827,29 @@ bader := dd_nouns-noun-lex &
   [ STEM < "bader" >,
     SYNSEM.LKEYS.KEYREL.PRED "_child_n_rel" ].
 
+k_27uit_27 := dd_nouns-noun-lex &
+  [ STEM < "k'uit'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cat_n_rel" ].
+
 t_27ot_27 := dj_nouns-noun-lex &
   [ STEM < "t'ot'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hand; paw; branch_n_rel" ].
+
+ħan := question_erg-noun-lex &
+  [ STEM < "ħan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_who_n_rel" ].
+
+st_27e := question_erg-noun-lex &
+  [ STEM < "st'e" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_what_n_rel" ].
+
+vux := question_abs-noun-lex &
+  [ STEM < "vux" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_what _n_rel" ].
+
+meⁿ_2 := question_abs-noun-lex &
+  [ STEM < "meⁿ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_who_n_rel" ].
 
 ;;; Adjectives
 
@@ -1934,10 +1954,6 @@ sodaħ_1 := verb5-verb-lex &
 teɬ_1 := verb5-verb-lex &
   [ STEM < "teɬ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_be better than, prefer-or-give (impf)_v_rel" ].
-
-tit_27_1 := verb5-verb-lex &
-  [ STEM < "tit'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut (pfv)_v_rel" ].
 
 xac_27_1 := verb5-verb-lex &
   [ STEM < "xac'" >,
@@ -2126,10 +2142,6 @@ sodaħ_2 := verb11-verb-lex &
 teɬ_2 := verb11-verb-lex &
   [ STEM < "teɬ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_be better than, prefer-or-give (impf)_v_rel" ].
-
-tit_27_2 := verb11-verb-lex &
-  [ STEM < "tit'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut (pfv)_v_rel" ].
 
 xac_27_2 := verb11-verb-lex &
   [ STEM < "xac'" >,
@@ -2728,10 +2740,6 @@ teɬ_4 := verb178-verb-lex &
   [ STEM < "teɬ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_be better than, prefer-or-give (impf)_v_rel" ].
 
-tit_27_3 := verb178-verb-lex &
-  [ STEM < "tit'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut (pfv)_v_rel" ].
-
 xac_27_3 := verb178-verb-lex &
   [ STEM < "xac'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hear, understand_v_rel" ].
@@ -2896,10 +2904,6 @@ qetː_2 := verb178-verb-lex &
   [ STEM < "qetː" >,
     SYNSEM.LKEYS.KEYREL.PRED "_get up (+ħal for pfv)_v_rel" ].
 
-tet_27 := verb178-verb-lex &
-  [ STEM < "tet'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut (impf)_v_rel" ].
-
 ag_2 := verb178-verb-lex &
   [ STEM < "ag" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see (+preradical cm)_v_rel" ].
@@ -2931,10 +2935,6 @@ aʔ_2 := verb178-verb-lex &
 ol_2 := verb178-verb-lex &
   [ STEM < "ol" >,
     SYNSEM.LKEYS.KEYREL.PRED "_start (pre- and postradical cm)_v_rel" ].
-
-a := verb178-verb-lex &
-  [ STEM < "a" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_be (present)_v_rel" ].
 
 ec_27e := verb178-verb-lex &
   [ STEM < "ec'e" >,
@@ -2979,6 +2979,26 @@ erst_27 := split-s-volition-erg-1-verb-lex &
 arst_27_3 := split-s-volition-erg-2-verb-lex &
   [ STEM < "arst'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+
+tet_27_1 := present_group-verb-lex &
+  [ STEM < "tet'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+tit_27_1 := future_group-verb-lex &
+  [ STEM < "tit'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+tet_27_2 := aorist_impf-verb-lex &
+  [ STEM < "tet'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+tit_27_2 := aorist_perf-verb-lex &
+  [ STEM < "tit'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+a := be_existential-verb-lex &
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_be_v_rel" ].
 
 ;;; Auxiliaries
 
@@ -3121,6 +3141,42 @@ e-go := det18-determiner-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
 ;;; Adverbs
+
+1SG-POSS-ABS-noun := 1SG-POSS-ABS-noun-lex &
+  [ STEM < "seⁿ" > ].
+
+1SG-POSS-OBL-noun := 1SG-POSS-OBL-noun-lex &
+  [ STEM < "se" > ].
+
+2SG-POSS-ABS-noun := 2SG-POSS-ABS-noun-lex &
+  [ STEM < "ħeⁿ" > ].
+
+2SG-POSS-OBL-noun := 2SG-POSS-OBL-noun-lex &
+  [ STEM < "ħe" > ].
+
+2PL-POSS-ABS-noun := 2PL-POSS-ABS-noun-lex &
+  [ STEM < "šuⁿ" > ].
+
+2PL-POSS-OBL-noun := 2PL-POSS-OBL-noun-lex &
+  [ STEM < "šu" > ].
+
+1PL-INCL-POSS-ABS-noun := 1PL-INCL-POSS-ABS-noun-lex &
+  [ STEM < "vaiⁿ" > ].
+
+1PL-INCL-POSS-OBL-noun := 1PL-INCL-POSS-OBL-noun-lex &
+  [ STEM < "vai" > ].
+
+1PL-EXCL-POSS-ABS-noun := 1PL-EXCL-POSS-ABS-noun-lex &
+  [ STEM < "txeⁿ" > ].
+
+1PL-EXCL-POSS-OBL-noun := 1PL-EXCL-POSS-OBL-noun-lex &
+  [ STEM < "txe" > ].
+
+3SG-POSS-ABS-noun := 3SG-POSS-ABS-noun-lex &
+  [ STEM < "oquiⁿ" > ].
+
+3SG-POSS-OBL-noun := 3SG-POSS-OBL-noun-lex &
+  [ STEM < "oqui" > ].
 
 da1 := conj-lex &
   [ STEM < "da" >,
