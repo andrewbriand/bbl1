@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of bbl
 ;;; created at:
-;;;     Fri Jan 28 10:10:38 UTC 2022
+;;;     Fri Jan 28 20:52:02 UTC 2022
 ;;; based on Matrix customization system version of:
 ;;;     Mon Aug  2 23:22:15 UTC 2021
 ;;;
@@ -32,51 +32,47 @@ head :+ [ PRON bool,
 
 +nd :+ [ CASE case ].
 
-inflected :+ [ VERB-PC71-FLAG luk,
-    VERB-PC67-FLAG luk,
-    VERB-PC69-FLAG luk,
+inflected :+ [ VERB-PC76-FLAG luk,
     VERB-PC73-FLAG luk,
-    VERB-PC68-FLAG luk,
-    NUMBER-FLAG luk,
-    CASE-FLAG luk,
-    VERB-PC76-FLAG luk,
-    VERB-PC75-FLAG luk,
-    VERB-PC74-FLAG luk,
+    VERB-PC69-FLAG luk,
     VERB-PC70-FLAG luk,
+    CASE-FLAG luk,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
     VERB-PC77-FLAG luk,
-    AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG luk,
-    VERB-PC65-FLAG luk,
+    VERB-PC74-FLAG luk,
     VERB-PC72-FLAG luk,
     VERB-PC64-FLAG luk,
-    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
     VERB-PC66-FLAG luk,
-    NEW_VERBS-VERB-FLAG luk,
     VERB-PC63-FLAG luk,
-    AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG luk,
-    AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG luk ].
+    NUMBER-FLAG luk,
+    VERB-PC75-FLAG luk,
+    VERB-PC65-FLAG luk,
+    IMPF_STEMS-FLAG luk,
+    VERB-PC71-FLAG luk,
+    VERB-PC67-FLAG luk,
+    NEW_VERBS-VERB-FLAG luk,
+    VERB-PC68-FLAG luk ].
 
-infl-satisfied :+ [ VERB-PC71-FLAG na-or-+,
-    VERB-PC67-FLAG na-or-+,
-    VERB-PC69-FLAG na-or-+,
+infl-satisfied :+ [ VERB-PC76-FLAG na-or-+,
     VERB-PC73-FLAG na-or-+,
-    VERB-PC68-FLAG na-or-+,
-    NUMBER-FLAG na-or-+,
-    CASE-FLAG na-or-+,
-    VERB-PC76-FLAG na-or-+,
-    VERB-PC75-FLAG na-or-+,
-    VERB-PC74-FLAG na-or-+,
+    VERB-PC69-FLAG na-or-+,
     VERB-PC70-FLAG na-or-+,
+    CASE-FLAG na-or-+,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
     VERB-PC77-FLAG na-or-+,
-    AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na-or-+,
-    VERB-PC65-FLAG na-or-+,
+    VERB-PC74-FLAG na-or-+,
     VERB-PC72-FLAG na-or-+,
     VERB-PC64-FLAG na-or-+,
-    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
     VERB-PC66-FLAG na-or-+,
-    NEW_VERBS-VERB-FLAG na-or-+,
     VERB-PC63-FLAG na-or-+,
-    AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG na-or-+,
-    AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na-or-+ ].
+    NUMBER-FLAG na-or-+,
+    VERB-PC75-FLAG na-or-+,
+    VERB-PC65-FLAG na-or-+,
+    IMPF_STEMS-FLAG na-or-+,
+    VERB-PC71-FLAG na-or-+,
+    VERB-PC67-FLAG na-or-+,
+    NEW_VERBS-VERB-FLAG na-or-+,
+    VERB-PC68-FLAG na-or-+ ].
 
 png :+ [ PER person,
     NUM number,
@@ -237,13 +233,8 @@ present := tense.
 
 ;;; Aspect
 
-cmpl := aspect.
-cont := aspect.
 pfv := aspect.
 ipfv := aspect.
-impf_reported := aspect.
-aorist_reported := aspect.
-perf_reported := aspect.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -450,10 +441,12 @@ dj_nouns-noun-lex := noun1-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dj ].
 
 question_erg-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE erg ].
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE erg,
+                   CONT.HOOK.INDEX.PNG.GEND dd ] ].
 
 question_abs-noun-lex := wh-pronoun-noun-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.CASE abs ].
+  [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+                   CONT.HOOK.INDEX.PNG.GEND dd ] ].
 
 poss-pron1-noun-lex := non-local-none-lex-item &
   [ SYNSEM [ LKEYS.ALTKEYREL #altkeyrel & noun-relation &
@@ -697,44 +690,34 @@ transitive-dative-subject-verb-lex := transitive-verb-lex & verb-pc1-rule-dtr & 
                              COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ],
                    CONT.HOOK.INDEX.E.TENSE present ] ].
 
-split-s-volition-abs-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
-                   CONT.HOOK.INDEX.E.TENSE present ] ].
+split-s-volition-abs-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
+    INFLECTED.IMPF_STEMS-FLAG - ].
 
-split-s-volition-erg-1-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
-                                              CONT.HOOK.INDEX.PNG.PER 1st ],
-                   CONT.HOOK.INDEX.E.TENSE present ] ].
+split-s-volition-erg-1-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
+                                            CONT.HOOK.INDEX.PNG.PER 1st ],
+    INFLECTED.IMPF_STEMS-FLAG - ].
 
-split-s-volition-erg-2-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL [ CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
-                                              CONT.HOOK.INDEX.PNG.PER 2nd ],
-                   CONT.HOOK.INDEX.E.TENSE present ] ].
-
-present_group-verb-lex := verb5-verb-lex & new_verbs-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present,
-    INFLECTED [ AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG +,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG + ] ].
-
-future_group-verb-lex := verb5-verb-lex & new_verbs-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future,
-    INFLECTED [ AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG +,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG + ] ].
-
-aorist_impf-verb-lex := verb5-verb-lex & new_verbs-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE aorist,
-    INFLECTED [ AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG +,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG + ] ].
-
-aorist_perf-verb-lex := verb5-verb-lex & new_verbs-verb-lex &
-  [ INFLECTED [ AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG +,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG + ] ].
+split-s-volition-erg-2-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
+                                            CONT.HOOK.INDEX.PNG.PER 2nd ],
+    INFLECTED.IMPF_STEMS-FLAG - ].
 
 new_verbs-verb-lex := verb-lex &
   [ INFLECTED.NEW_VERBS-VERB-FLAG + ].
 
-be_existential-verb-lex := verb178-verb-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present ].
+be_existential-verb-lex := verb178-verb-lex & impf_stems-rule-dtr &
+  [ INFLECTED.IMPF_STEMS-FLAG - ].
+
+trans_imperfective-verb-lex := erg-abs-transitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc21-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ],
+    INFLECTED.IMPF_STEMS-FLAG - ].
+
+trans_perfective-verb-lex := erg-abs-transitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc21-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
 
 ;;; Auxiliaries
 
@@ -776,7 +759,7 @@ arg-comp-aux-with-pred := arg-comp-aux & hcons-lex-item &
              [ LOCAL.CONT.HOOK.LTOP #larg ] > ].
 
 aux1-aux-lex := arg-comp-aux-with-pred & verb-pc70-rule-dtr & verb-pc71-rule-dtr & verb-pc72-rule-dtr & verb-pc73-rule-dtr & verb-pc74-rule-dtr & verb-pc75-rule-dtr & verb-pc76-rule-dtr &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ],
     INFLECTED [ VERB-PC63-FLAG -,
                 VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG - ] ].
@@ -789,7 +772,7 @@ aux1-aux-lex := arg-comp-aux-with-pred & verb-pc70-rule-dtr & verb-pc71-rule-dtr
 ; event-relation by hand here.
 
 aux2-aux-lex := arg-comp-aux-with-pred & verb-pc77-rule-dtr &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ],
     INFLECTED [ VERB-PC64-FLAG -,
                 VERB-PC77-FLAG - ] ].
@@ -802,7 +785,7 @@ aux2-aux-lex := arg-comp-aux-with-pred & verb-pc77-rule-dtr &
 ; event-relation by hand here.
 
 aux3-aux-lex := arg-comp-aux-with-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ],
     INFLECTED.VERB-PC65-FLAG - ].
 
@@ -836,7 +819,7 @@ arg-comp-aux-no-pred := arg-comp-aux & raise-sem-lex-item &
              [ LOCAL.CAT.HEAD.AUX - ] > ].
 
 aux5-aux-lex := arg-comp-aux-no-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cmpl,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT pfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ] ].
 
 ; Somewhat surprisingly, this used to inherit from basic-two-arg (when we had lexical threading), so
@@ -950,7 +933,7 @@ aux10-aux-lex := arg-comp-aux-no-pred & verb-pc70-rule-dtr &
 ; might not be true.
 
 aux11-aux-lex := arg-comp-aux-no-pred & verb-pc71-rule-dtr &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ],
     INFLECTED.VERB-PC71-FLAG - ].
 
@@ -970,7 +953,7 @@ aux11-aux-lex := arg-comp-aux-no-pred & verb-pc71-rule-dtr &
 ; might not be true.
 
 aux12-aux-lex := arg-comp-aux-no-pred &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ] ].
 
 ; Somewhat surprisingly, this used to inherit from basic-two-arg (when we had lexical threading), so
@@ -1065,7 +1048,7 @@ aux16-aux-lex := arg-comp-aux-no-pred & verb-pc74-rule-dtr &
 ; might not be true.
 
 aux17-aux-lex := arg-comp-aux-no-pred & verb-pc75-rule-dtr &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT cont,
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.ASPECT ipfv,
                    CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ],
     INFLECTED.VERB-PC75-FLAG - ].
 
@@ -1202,58 +1185,59 @@ det18-determiner-lex := determiner-lex & no-icons-lex-item &
 
 ;;; Intermediate rule types
 
-verb-pc9-rule-dtr := word-or-lexrule.
-verb-pc70-rule-dtr := word-or-lexrule.
-verb-pc10-rule-dtr := word-or-lexrule.
-verb-pc55-rule-dtr := word-or-lexrule.
-noun-pc19-rule-dtr := word-or-lexrule.
-verb-pc77-rule-dtr := word-or-lexrule.
-verb-pc21-rule-dtr := word-or-lexrule.
-noun-pc1-rule-dtr := word-or-lexrule.
-noun-pc12-rule-dtr := word-or-lexrule.
-verb-pc7-rule-dtr := word-or-lexrule.
-noun-plural-for-people-rule-dtr := word-or-lexrule.
-verb-pc48-rule-dtr := word-or-lexrule.
-verb-pc76-rule-dtr := word-or-lexrule.
-Number-rule-dtr := word-or-lexrule.
-noun-thematic-extension-rule-dtr := word-or-lexrule.
-verb-pc15-rule-dtr := word-or-lexrule.
-verb-pc58-rule-dtr := word-or-lexrule.
-verb-pc71-rule-dtr := word-or-lexrule.
-noun-pc49-rule-dtr := word-or-lexrule.
-verb-pc31-rule-dtr := word-or-lexrule.
-dummy-person-case-agreement-rule-dtr := word-or-lexrule.
-noun-pc48-rule-dtr := word-or-lexrule.
-noun-pc8-rule-dtr := word-or-lexrule.
-noun-pc41-rule-dtr := word-or-lexrule.
-noun-pc21-rule-dtr := word-or-lexrule.
-noun-yes-no-question-particle-rule-dtr := word-or-lexrule.
-Case-rule-dtr := word-or-lexrule.
-verb-pc74-rule-dtr := word-or-lexrule.
-noun-pc4-rule-dtr := word-or-lexrule.
-verb-pc75-rule-dtr := word-or-lexrule.
-noun-pc42-rule-dtr := word-or-lexrule.
-noun-pc52-rule-dtr := word-or-lexrule.
-verb-pc47-rule-dtr := word-or-lexrule.
-verb-pc24-rule-dtr := word-or-lexrule.
-verb-pc38-rule-dtr := word-or-lexrule.
-noun-pc29-rule-dtr := word-or-lexrule.
-verb-pc2-rule-dtr := word-or-lexrule.
-verb-pc6-rule-dtr := word-or-lexrule.
-verb-pc5-rule-dtr := word-or-lexrule.
-verb-pc16-rule-dtr := word-or-lexrule.
 verb-pc1-rule-dtr := word-or-lexrule.
-verb-pc18-rule-dtr := word-or-lexrule.
-noun-pc6-rule-dtr := word-or-lexrule.
-verb-pc36-rule-dtr := word-or-lexrule.
+verb-pc55-rule-dtr := word-or-lexrule.
+verb-pc58-rule-dtr := word-or-lexrule.
+verb-pc2-rule-dtr := word-or-lexrule.
 noun-and-clitic-rule-dtr := word-or-lexrule.
-verb-pc45-rule-dtr := word-or-lexrule.
 verb-pc34-rule-dtr := word-or-lexrule.
 verb-pc72-rule-dtr := word-or-lexrule.
-noun-pc46-rule-dtr := word-or-lexrule.
-verb-pc11-rule-dtr := word-or-lexrule.
-verb-pc35-rule-dtr := word-or-lexrule.
+verb-pc21-rule-dtr := word-or-lexrule.
+noun-pc21-rule-dtr := word-or-lexrule.
+verb-pc77-rule-dtr := word-or-lexrule.
+noun-pc6-rule-dtr := word-or-lexrule.
+verb-pc70-rule-dtr := word-or-lexrule.
+verb-pc31-rule-dtr := word-or-lexrule.
+noun-pc42-rule-dtr := word-or-lexrule.
+noun-pc19-rule-dtr := word-or-lexrule.
+noun-pc41-rule-dtr := word-or-lexrule.
+verb-pc38-rule-dtr := word-or-lexrule.
 verb-pc73-rule-dtr := word-or-lexrule.
+verb-pc7-rule-dtr := word-or-lexrule.
+verb-pc10-rule-dtr := word-or-lexrule.
+noun-pc49-rule-dtr := word-or-lexrule.
+noun-pc29-rule-dtr := word-or-lexrule.
+verb-pc74-rule-dtr := word-or-lexrule.
+verb-pc24-rule-dtr := word-or-lexrule.
+noun-yes-no-question-particle-rule-dtr := word-or-lexrule.
+noun-pc1-rule-dtr := word-or-lexrule.
+noun-pc12-rule-dtr := word-or-lexrule.
+verb-pc48-rule-dtr := word-or-lexrule.
+noun-pc4-rule-dtr := word-or-lexrule.
+verb-pc35-rule-dtr := word-or-lexrule.
+verb-pc47-rule-dtr := word-or-lexrule.
+verb-pc9-rule-dtr := word-or-lexrule.
+verb-pc11-rule-dtr := word-or-lexrule.
+dummy-person-case-agreement-rule-dtr := word-or-lexrule.
+noun-thematic-extension-rule-dtr := word-or-lexrule.
+noun-pc46-rule-dtr := word-or-lexrule.
+verb-pc15-rule-dtr := word-or-lexrule.
+verb-pc18-rule-dtr := word-or-lexrule.
+noun-plural-for-people-rule-dtr := word-or-lexrule.
+verb-pc6-rule-dtr := word-or-lexrule.
+verb-pc76-rule-dtr := word-or-lexrule.
+noun-pc52-rule-dtr := word-or-lexrule.
+verb-pc5-rule-dtr := word-or-lexrule.
+verb-pc36-rule-dtr := word-or-lexrule.
+verb-pc75-rule-dtr := word-or-lexrule.
+verb-pc71-rule-dtr := word-or-lexrule.
+verb-pc16-rule-dtr := word-or-lexrule.
+noun-pc8-rule-dtr := word-or-lexrule.
+impf_stems-rule-dtr := word-or-lexrule.
+noun-pc48-rule-dtr := word-or-lexrule.
+verb-pc45-rule-dtr := word-or-lexrule.
+Case-rule-dtr := word-or-lexrule.
+Number-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
@@ -1285,49 +1269,45 @@ noun-pc8_lrt1-lex-rule := noun-pc8-lex-rule-super.
 
 Case-lex-rule-super := add-only-no-ccont-rule & noun-and-clitic-rule-dtr & noun-pc19-rule-dtr & noun-pc6-rule-dtr & noun-yes-no-question-particle-rule-dtr &
   [ INFLECTED [ CASE-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR Case-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 noun-pc9_lrt1-lex-rule := Case-lex-rule-super & infl-lex-rule &
   [ SYNSEM.LOCAL.CAT.HEAD.CASE all ].
@@ -1357,49 +1337,45 @@ absolutive-lex-rule := Case-lex-rule-super & const-lex-rule &
 
 Number-lex-rule-super := Case-rule-dtr & add-only-no-ccont-rule & noun-and-clitic-rule-dtr & noun-pc1-rule-dtr & noun-pc19-rule-dtr & noun-pc21-rule-dtr & noun-pc29-rule-dtr & noun-pc4-rule-dtr & noun-pc46-rule-dtr & noun-pc6-rule-dtr & noun-pc8-rule-dtr & noun-yes-no-question-particle-rule-dtr &
   [ INFLECTED [ NUMBER-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR Number-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 plural-lex-rule := Number-lex-rule-super & infl-lex-rule &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM pl ].
@@ -1551,52 +1527,11 @@ verb-pc1-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & verb-pc10-ru
 
 verb-pc1_lrt1-lex-rule := verb-pc1-lex-rule-super.
 
-verb-pc2-lex-rule-super := add-only-no-ccont-rule & dummy-person-case-agreement-rule-dtr & infl-lex-rule & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+verb-pc2-lex-rule := add-only-no-ccont-rule & dummy-person-case-agreement-rule-dtr & infl-lex-rule & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
   [ INFLECTED #infl,
     DTR verb-pc2-rule-dtr &
-        [ INFLECTED #infl ] ].
-
-basic_pr_fut-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG na,
+        [ INFLECTED #infl ],
     SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT pfv ].
-
-imp_pr_fut-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT ipfv ].
-
-imp_report_prfut-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT impf_reported ].
-
-aor_impf_aor-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na ].
-
-aor_impf_perf-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT pfv ].
-
-aor_impf_aor_rep-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT aorist_reported ].
-
-aor_impf_per_rep-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perf_reported ].
-
-aor_per_aor-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na ].
-
-aor_per_perf-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT pfv ].
-
-aor_per_aor_rep-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT aorist_reported ].
-
-aor_per_per_rep-lex-rule := verb-pc2-lex-rule-super &
-  [ DTR.INFLECTED.AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG na,
-    SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT perf_reported ].
 
 verb-pc5-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & verb-pc6-rule-dtr &
   [ INFLECTED #infl,
@@ -1638,8 +1573,7 @@ verb-pc10-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
     DTR verb-pc10-rule-dtr &
         [ INFLECTED #infl ] ].
 
-verb-pc10_lrt1-lex-rule := verb-pc10-lex-rule-super &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.ASPECT cont ].
+verb-pc10_lrt1-lex-rule := verb-pc10-lex-rule-super.
 
 verb-pc11-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & verb-pc15-rule-dtr & verb-pc45-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr &
   [ INFLECTED #infl,
@@ -1821,196 +1755,180 @@ verb-pc58_lrt2-lex-rule := verb-pc58-lex-rule-super &
 
 verb-pc63-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc70-rule-dtr & verb-pc71-rule-dtr & verb-pc72-rule-dtr & verb-pc73-rule-dtr & verb-pc74-rule-dtr & verb-pc75-rule-dtr & verb-pc76-rule-dtr &
   [ INFLECTED [ VERB-PC63-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
                 NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux1-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
                       NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc63_lrt1-lex-rule := verb-pc63-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc64-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc77-rule-dtr &
   [ INFLECTED [ VERB-PC64-FLAG +,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC66-FLAG #verb-pc66,
+                VERB-PC63-FLAG #verb-pc63,
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
-                VERB-PC72-FLAG #verb-pc72,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC66-FLAG #verb-pc66,
                 NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux2-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
-                      VERB-PC72-FLAG #verb-pc72,
+                      CASE-FLAG #case,
                       VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC72-FLAG #verb-pc72,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc64_lrt1-lex-rule := verb-pc64-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc65-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC65-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux3-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc65_lrt1-lex-rule := verb-pc65-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc66-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC66-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux6-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER non-1st,
@@ -2018,147 +1936,135 @@ verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
 
 verb-pc67-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC67-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux7-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc67_lrt1-lex-rule := verb-pc67-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.NUM pl ].
 
 verb-pc68-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC68-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb ],
     DTR aux8-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb ] ] ].
 
 verb-pc68_lrt1-lex-rule := verb-pc68-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
 
 verb-pc69-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC69-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR aux9-aux-lex &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
@@ -2166,47 +2072,43 @@ verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
 verb-pc70-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC70-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc70-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
+                      VERB-PC69-FLAG #verb-pc69,
                       CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2214,47 +2116,43 @@ verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
 verb-pc71-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC71-FLAG +,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc71-rule-dtr &
-        [ INFLECTED [ VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2262,47 +2160,43 @@ verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
 verb-pc72-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC72-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc72-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
@@ -2311,47 +2205,43 @@ verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
 verb-pc73-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC73-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc73-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC69-FLAG #verb-pc69,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -2359,47 +2249,43 @@ verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
 verb-pc74-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC74-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc74-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2407,47 +2293,43 @@ verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
 verb-pc75-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC75-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc75-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2455,96 +2337,88 @@ verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
 verb-pc76-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC76-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
                 VERB-PC77-FLAG #verb-pc77,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc76-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC69-FLAG #verb-pc69,
-                      VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
                       VERB-PC77-FLAG #verb-pc77,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc76_lrt1-lex-rule := verb-pc76-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
 
 verb-pc77-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC77-FLAG +,
-                VERB-PC71-FLAG #verb-pc71,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69,
-                VERB-PC73-FLAG #verb-pc73,
-                VERB-PC68-FLAG #verb-pc68,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
                 VERB-PC76-FLAG #verb-pc76,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
                 VERB-PC70-FLAG #verb-pc70,
-                AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                VERB-PC65-FLAG #verb-pc65,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                VERB-PC74-FLAG #verb-pc74,
                 VERB-PC72-FLAG #verb-pc72,
                 VERB-PC64-FLAG #verb-pc64,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC66-FLAG #verb-pc66,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC63-FLAG #verb-pc63,
-                AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ],
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
     DTR verb-pc77-rule-dtr &
-        [ INFLECTED [ VERB-PC71-FLAG #verb-pc71,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69,
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
                       VERB-PC73-FLAG #verb-pc73,
-                      VERB-PC68-FLAG #verb-pc68,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC69-FLAG #verb-pc69,
                       VERB-PC70-FLAG #verb-pc70,
-                      AORIST_IMPF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_impf-verb-or-future_group-verb-or-present_group-verb,
-                      VERB-PC65-FLAG #verb-pc65,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                      VERB-PC74-FLAG #verb-pc74,
                       VERB-PC72-FLAG #verb-pc72,
                       VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC66-FLAG #verb-pc66,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC63-FLAG #verb-pc63,
-                      AORIST_IMPF-VERB-OR-AORIST_PERF-VERB-FLAG #aorist_impf-verb-or-aorist_perf-verb,
-                      AORIST_PERF-VERB-OR-FUTURE_GROUP-VERB-OR-PRESENT_GROUP-VERB-FLAG #aorist_perf-verb-or-future_group-verb-or-present_group-verb ] ] ].
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
 
 verb-pc77_lrt1-lex-rule := verb-pc77-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -2557,6 +2431,124 @@ dummy-person-case-agreement-lex-rule-super := add-only-no-ccont-rule & infl-lex-
 dummy-person-case-agreement_lrt1-lex-rule := dummy-person-case-agreement-lex-rule-super.
 
 dummy-person-case-agreement_lrt2-lex-rule := dummy-person-case-agreement-lex-rule-super.
+
+impf_stems-lex-rule-super := cont-change-only-lex-rule &
+  [ INFLECTED [ IMPF_STEMS-FLAG +,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC73-FLAG #verb-pc73,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC70-FLAG #verb-pc70,
+                CASE-FLAG #case,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                VERB-PC77-FLAG #verb-pc77,
+                VERB-PC74-FLAG #verb-pc74,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC66-FLAG #verb-pc66,
+                VERB-PC63-FLAG #verb-pc63,
+                NUMBER-FLAG #number,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC65-FLAG #verb-pc65,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68 ],
+    DTR impf_stems-rule-dtr &
+        [ INFLECTED [ VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC70-FLAG #verb-pc70,
+                      CASE-FLAG #case,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
+                      VERB-PC77-FLAG #verb-pc77,
+                      VERB-PC74-FLAG #verb-pc74,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC63-FLAG #verb-pc63,
+                      NUMBER-FLAG #number,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68 ] ] ].
+
+present_tense-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present ].
+
+present_ipf-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE present,
+                                     ASPECT ipfv ] ].
+
+evidential-lex-rule := cont-change-only-lex-rule & same-spr-lex-rule & same-spec-lex-rule &
+  [ C-CONT [ RELS.LIST < event-relation &
+                         [ LBL #ltop,
+                           ARG0 event,
+                           ARG1 #harg ] >,
+             HCONS.LIST < qeq &
+                          [ HARG #harg,
+                            LARG #larg ] >,
+             HOOK [ LTOP #ltop,
+                    INDEX #mainev,
+                    XARG #mainagent ] ],
+    DTR.SYNSEM.LOCAL.CONT.HOOK [ LTOP #larg,
+                                 XARG #mainagent,
+                                 INDEX #mainev ] ].
+
+reported-evidential-lex-rule := evidential-lex-rule &
+  [ C-CONT.RELS.LIST < [ PRED "ev_reported_rel" ] > ].
+
+pres_ipf_reported-lex-rule := impf_stems-lex-rule-super & infl-lex-rule & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE present,
+                                     ASPECT ipfv ] ].
+
+aorist-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE aorist ].
+
+aorist_perfect-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE aorist,
+                                     ASPECT pfv ] ].
+
+aorist_reported-lex-rule := impf_stems-lex-rule-super & infl-lex-rule & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE aorist ].
+
+perfect_reported-lex-rule := impf_stems-lex-rule-super & infl-lex-rule & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE aorist,
+                                     ASPECT pfv ] ].
+
+present_uninfl-lex-rule := add-only-no-ccont-rule & const-lex-rule & impf_stems-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present ].
+
+perf_stems-lex-rule-super := cont-change-only-lex-rule & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR trans_perfective-verb-lex &
+        [ INFLECTED #infl ] ].
+
+future-lex-rule := add-only-no-ccont-rule & perf_stems-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE future ].
+
+future_ipf-lex-rule := add-only-no-ccont-rule & perf_stems-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE future,
+                                     ASPECT ipfv ] ].
+
+future_ipf_reported-lex-rule := perf_stems-lex-rule-super & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE future,
+                                     ASPECT ipfv ] ].
+
+aor-lex-rule := add-only-no-ccont-rule & perf_stems-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE aorist ].
+
+aor_per-lex-rule := add-only-no-ccont-rule & perf_stems-lex-rule-super &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE aorist,
+                                     ASPECT pfv ] ].
+
+aor_rep-lex-rule := perf_stems-lex-rule-super & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE aorist ].
+
+aor_per_rep-lex-rule := perf_stems-lex-rule-super & reported-evidential-lex-rule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE aorist,
+                                     ASPECT pfv ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
@@ -2652,15 +2644,9 @@ comp-aux-phrase := basic-head-1st-comp-phrase & head-final &
                           [ AUX + ],
     NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD verb ].
 
-basic-filler-phrase :+ [ SYNSEM.NON-LOCAL.SLASH.LIST < >,
-    ARGS < [ SYNSEM [ LOCAL #slash,
-                      NON-LOCAL.SLASH.LIST < > ] ],
-           [ SYNSEM.NON-LOCAL.SLASH.LIST < #slash > ] > ].
-
-extracted-subj-phrase := basic-extracted-subj-phrase &
-  [ SYNSEM.LOCAL.CAT.HEAD verb ].
-
 ;;; Wh-question-related phrasal types
+
+; In-situ interrogative clause.
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination
@@ -2739,4 +2725,20 @@ vp7-bottom-coord-rule := unary-bottom-coord-rule & vp-bottom-coord-phrase &
   [ SYNSEM.LOCAL [ COORD-STRAT "7",
                    COORD-REL.PRED "_and_coord_rel" ] ].
 
-clause :+ [ SYNSEM.NON-LOCAL.QUE.LIST < > ].
+insitu-int-cl := interrogative-clause & head-only &
+  [ C-CONT [ RELS.LIST < >,
+             HCONS.LIST < > ],
+    HEAD-DTR.SYNSEM [ LOCAL.CAT [ HEAD verb,
+                                  VAL #val &
+                                      [ SUBJ < >,
+                                        COMPS < > ] ],
+                      NON-LOCAL [ SLASH.LIST < >,
+                                  REL.LIST < >,
+                                  QUE.LIST.FIRST ref-ind ] ],
+    SYNSEM [ MODIFIED hasmod,
+             NON-LOCAL [ SLASH.LIST < >,
+                         QUE.LIST < >,
+                         REL.LIST < > ],
+             LOCAL.CAT [ VAL #val,
+                         MC bool,
+                         WH.BOOL + ] ] ].

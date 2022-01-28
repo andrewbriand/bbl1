@@ -2,7 +2,7 @@
 ;;; Semantically Empty Lexical Entries
 
 me_gr := arg0e_gtr &
-  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT cmpl ] >,
+  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT pfv ] >,
     FLAGS.TRIGGER "me" ].
 
 šuin_gr := arg0e_gtr &
@@ -26,11 +26,11 @@ me_gr := arg0e_gtr &
     FLAGS.TRIGGER "šarin" ].
 
 oqux_gr := arg0e_gtr &
-  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT cont ] >,
+  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT ipfv ] >,
     FLAGS.TRIGGER "oqux" ].
 
 -x_gr := arg0e_gtr &
-  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT cont ] >,
+  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT ipfv ] >,
     FLAGS.TRIGGER "-x" ].
 
 -er_gr := arg0e_gtr &
@@ -50,7 +50,7 @@ sain_gr := arg0e_gtr &
     FLAGS.TRIGGER "šer" ].
 
 šarax_gr := arg0e_gtr &
-  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT cont ] >,
+  [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT ipfv ] >,
     FLAGS.TRIGGER "šarax" ].
 
 suin_gr := arg0e_gtr &

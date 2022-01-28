@@ -68,13 +68,8 @@ E.TENSE : E.TENSE
   * <> *
 
 E.ASPECT : E.ASPECT
-  cmpl <> cmpl
-  cont <> cont
   pfv <> pfv
   ipfv <> ipfv
-  impf_reported <> impf_reported
-  aorist_reported <> aorist_reported
-  perf_reported <> perf_reported
   * <> *
 
 E.MOOD : E.MOOD

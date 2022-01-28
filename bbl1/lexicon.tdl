@@ -2980,25 +2980,17 @@ arst_27_3 := split-s-volition-erg-2-verb-lex &
   [ STEM < "arst'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
-tet_27_1 := present_group-verb-lex &
-  [ STEM < "tet'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
-
-tit_27_1 := future_group-verb-lex &
-  [ STEM < "tit'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
-
-tet_27_2 := aorist_impf-verb-lex &
-  [ STEM < "tet'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
-
-tit_27_2 := aorist_perf-verb-lex &
-  [ STEM < "tit'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
-
 a := be_existential-verb-lex &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_be_v_rel" ].
+
+tet_27 := trans_imperfective-verb-lex &
+  [ STEM < "tet'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+tit_27 := trans_perfective-verb-lex &
+  [ STEM < "tit'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
 ;;; Auxiliaries
 

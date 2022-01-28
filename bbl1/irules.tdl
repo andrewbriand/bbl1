@@ -205,57 +205,13 @@ verb-pc1_lrt1-suffix4 :=
 %suffix (* -če)
 verb-pc1_lrt1-lex-rule.
 
-basic_pr_fut-suffix1 :=
+verb-pc2-suffix1 :=
 %suffix (* -o)
-basic_pr_fut-lex-rule.
+verb-pc2-lex-rule.
 
-basic_pr_fut-suffix2 :=
+verb-pc2-suffix2 :=
 %suffix (* -ʷ)
-basic_pr_fut-lex-rule.
-
-imp_pr_fut-suffix1 :=
-%suffix (* -ora)
-imp_pr_fut-lex-rule.
-
-imp_pr_fut-suffix2 :=
-%suffix (* -or)
-imp_pr_fut-lex-rule.
-
-imp_report_prfut-suffix :=
-%suffix (* -ralʷ)
-imp_report_prfut-lex-rule.
-
-aor_impf_aor-suffix :=
-%suffix (* -in)
-aor_impf_aor-lex-rule.
-
-aor_impf_perf-suffix :=
-%suffix (* -ir)
-aor_impf_perf-lex-rule.
-
-aor_impf_aor_rep-suffix :=
-%suffix (* -ino)
-aor_impf_aor_rep-lex-rule.
-
-aor_impf_per_rep-suffix :=
-%suffix (* -nor)
-aor_impf_per_rep-lex-rule.
-
-aor_per_aor-suffix :=
-%suffix (* -en)
-aor_per_aor-lex-rule.
-
-aor_per_perf-suffix :=
-%suffix (* -er)
-aor_per_perf-lex-rule.
-
-aor_per_aor_rep-suffix :=
-%suffix (* -eno)
-aor_per_aor_rep-lex-rule.
-
-aor_per_per_rep-suffix :=
-%suffix (* -nor)
-aor_per_per_rep-lex-rule.
+verb-pc2-lex-rule.
 
 verb-pc5_lrt1-suffix :=
 %suffix (* =ainʷ)
@@ -532,3 +488,79 @@ dummy-person-case-agreement_lrt1-lex-rule.
 dummy-person-case-agreement_lrt2-suffix :=
 %suffix (* -sʷ)
 dummy-person-case-agreement_lrt2-lex-rule.
+
+present_tense-suffix1 :=
+%suffix (* -ʷ)
+present_tense-lex-rule.
+
+present_tense-suffix2 :=
+%suffix (* -o)
+present_tense-lex-rule.
+
+present_tense-suffix3 :=
+%suffix (* -e)
+present_tense-lex-rule.
+
+present_ipf-suffix1 :=
+%suffix (* -or)
+present_ipf-lex-rule.
+
+present_ipf-suffix2 :=
+%suffix (* -ora)
+present_ipf-lex-rule.
+
+pres_ipf_reported-suffix :=
+%suffix (* -ralʷ)
+pres_ipf_reported-lex-rule.
+
+aorist-suffix :=
+%suffix (* -in)
+aorist-lex-rule.
+
+aorist_perfect-suffix :=
+%suffix (* -ir)
+aorist_perfect-lex-rule.
+
+aorist_reported-suffix :=
+%suffix (* -ino)
+aorist_reported-lex-rule.
+
+perfect_reported-suffix :=
+%suffix (* -nor)
+perfect_reported-lex-rule.
+
+future-suffix1 :=
+%suffix (* -ʷ)
+future-lex-rule.
+
+future-suffix2 :=
+%suffix (* -o)
+future-lex-rule.
+
+future_ipf-suffix1 :=
+%suffix (* -or)
+future_ipf-lex-rule.
+
+future_ipf-suffix2 :=
+%suffix (* -ora)
+future_ipf-lex-rule.
+
+future_ipf_reported-suffix :=
+%suffix (* -ralʷ)
+future_ipf_reported-lex-rule.
+
+aor-suffix :=
+%suffix (* -en)
+aor-lex-rule.
+
+aor_per-suffix :=
+%suffix (* -er)
+aor_per-lex-rule.
+
+aor_rep-suffix :=
+%suffix (* -eno)
+aor_rep-lex-rule.
+
+aor_per_rep-suffix :=
+%suffix (* -nor)
+aor_per_rep-lex-rule.
