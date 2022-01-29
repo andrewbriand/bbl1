@@ -26,4 +26,5 @@
 ((:path . "corpus") (:content . "IGT provided by the linguist"))
 ((:path . "lab2") (:content . "Case test suite for lab 2"))
 ((:path . "lab3") (:content . "Test suite extended for lab 3"))
+((:path . "lab4") (:content . "Test suite extended for lab 4"))
 )
