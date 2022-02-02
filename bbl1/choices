@@ -239,6 +239,10 @@ obj-mark-no-drop=obj-mark-no-drop-not
 section=nominalclause
 
 section=clausal-comp
+  comps1_clause-pos-same=on
+  comps1_ques=prop
+  comps1_comp=opt
+    comps1_stem1_orth=me
 
 section=clausalmods
 
@@ -2137,6 +2141,20 @@ section=lexicon
   verb191_valence=erg-abs
     verb191_stem1_orth=tit'
     verb191_stem1_pred=_cut_v_rel
+  verb192_name=clause_comp_dec_impf
+  verb192_valence=trans,comps1
+    verb192_stem1_orth=dak'lev
+    verb192_stem1_pred=_think_v_rel
+    verb192_stem2_orth=xeʔ
+    verb192_stem2_pred=_know_v_rel
+  verb193_name=clause_comp_ques_impf
+  verb193_valence=trans,comps1
+    verb193_stem1_orth=xet'ː
+    verb193_stem1_pred=_askː_v_rel
+  verb194_name=clause_comp_ques_perf
+  verb194_valence=trans,comps1
+    verb194_stem1_orth=xat'ː
+    verb194_stem1_pred=_ask_v_rel
   aux1_name=aux1
   aux1_sem=add-pred
     aux1_feat2_name=aspect

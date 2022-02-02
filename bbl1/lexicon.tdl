@@ -2011,7 +2011,7 @@ tepx_1 := verb5-verb-lex &
   [ STEM < "tepx" >,
     SYNSEM.LKEYS.KEYREL.PRED "_play (impf)_v_rel" ].
 
-xet_27ː := verb5-verb-lex &
+xet_27ː_1 := verb5-verb-lex &
   [ STEM < "xet'ː" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
@@ -2892,7 +2892,7 @@ tox := verb178-verb-lex &
   [ STEM < "tox" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hit, beat (pfv)_v_rel" ].
 
-xat_27ː := verb178-verb-lex &
+xat_27ː_1 := verb178-verb-lex &
   [ STEM < "xat'ː" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
@@ -2992,6 +2992,22 @@ tit_27 := trans_perfective-verb-lex &
   [ STEM < "tit'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
+dak_27lev_3 := clause_comp_dec_impf-verb-lex &
+  [ STEM < "dak'lev" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
+
+xeʔ_4 := clause_comp_dec_impf-verb-lex &
+  [ STEM < "xeʔ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
+
+xet_27ː_2 := clause_comp_ques_impf-verb-lex &
+  [ STEM < "xet'ː" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_askː_v_rel" ].
+
+xat_27ː_2 := clause_comp_ques_perf-verb-lex &
+  [ STEM < "xat'ː" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
+
 ;;; Auxiliaries
 
 šarn_4 := aux1-aux-lex &
@@ -3010,7 +3026,7 @@ co := neg4-aux-lex &
   [ STEM < "co" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
-me := aux5-aux-lex &
+me_1 := aux5-aux-lex &
   [ STEM < "me" > ].
 
 šuin := aux6-aux-lex &
@@ -3194,3 +3210,8 @@ tibʷ-e6 := conj-lex &
   [ STEM < "tibʷ-e" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "6" ].
+
+;;; Complementizers
+
+me_2 := comps1-complementizer-lex-item &
+  [ STEM < "me" > ].

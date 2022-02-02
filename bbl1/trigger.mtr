@@ -1,9 +1,9 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Semantically Empty Lexical Entries
 
-me_gr := arg0e_gtr &
+me_1_gr := arg0e_gtr &
   [ CONTEXT.RELS.LIST < [ ARG0.E.ASPECT pfv ] >,
-    FLAGS.TRIGGER "me" ].
+    FLAGS.TRIGGER "me_1" ].
 
 šuin_gr := arg0e_gtr &
   [ CONTEXT.RELS.LIST < [ PRED "non_existing_rel" ] >,
