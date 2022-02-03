@@ -1,4 +1,12 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
+n8-bottom :=
+  %suffix (* =e)
+  n8-bottom-coord-rule.
+
+n8-left :=
+  %suffix (* =e)
+  n8-left-coord-rule.
+
 ;;; Inflecting Lexical Rule Instances
 
 noun-pc1-suffix :=
@@ -564,3 +572,11 @@ aor_rep-lex-rule.
 aor_per_rep-suffix :=
 %suffix (* -nor)
 aor_per_rep-lex-rule.
+
+verb-singular-vb-prefix :=
+%prefix (* v-)
+verb-singular-vb-lex-rule.
+
+verb-dd-prefix :=
+%prefix (* d-)
+verb-dd-lex-rule.

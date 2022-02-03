@@ -1819,6 +1819,10 @@ dad := vb_nouns-noun-lex &
   [ STEM < "dad" >,
     SYNSEM.LKEYS.KEYREL.PRED "_father_n_rel" ].
 
+st_27ak := vb_nouns-noun-lex &
+  [ STEM < "st'ak" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_man_n_rel" ].
+
 q_27ar := jj_nouns-noun-lex &
   [ STEM < "q'ar" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_n_rel" ].
@@ -3186,30 +3190,15 @@ e-go := det18-determiner-lex &
 3SG-POSS-OBL-noun := 3SG-POSS-OBL-noun-lex &
   [ STEM < "oqui" > ].
 
-da1 := conj-lex &
-  [ STEM < "da" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "1" ].
-
 ye2 := conj-lex &
   [ STEM < "ye" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "2" ].
 
-da4 := conj-lex &
-  [ STEM < "da" >,
+e9 := conj-lex &
+  [ STEM < "e" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "4" ].
-
-ye5 := conj-lex &
-  [ STEM < "ye" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "5" ].
-
-tibʷ-e6 := conj-lex &
-  [ STEM < "tibʷ-e" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
-    CFORM "6" ].
+    CFORM "9" ].
 
 ;;; Complementizers
 
