@@ -2011,7 +2011,7 @@ tepx_1 := verb5-verb-lex &
   [ STEM < "tepx" >,
     SYNSEM.LKEYS.KEYREL.PRED "_play (impf)_v_rel" ].
 
-xet_27ː_1 := verb5-verb-lex &
+xet_27ː := verb5-verb-lex &
   [ STEM < "xet'ː" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
@@ -2892,7 +2892,7 @@ tox := verb178-verb-lex &
   [ STEM < "tox" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hit, beat (pfv)_v_rel" ].
 
-xat_27ː_1 := verb178-verb-lex &
+xat_27ː := verb178-verb-lex &
   [ STEM < "xat'ː" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
@@ -3000,12 +3000,12 @@ xeʔ_4 := clause_comp_dec_impf-verb-lex &
   [ STEM < "xeʔ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
 
-xet_27ː_2 := clause_comp_ques_impf-verb-lex &
-  [ STEM < "xet'ː" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_askː_v_rel" ].
+xet_27 := clause_comp_ques_impf-verb-lex &
+  [ STEM < "xet'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
-xat_27ː_2 := clause_comp_ques_perf-verb-lex &
-  [ STEM < "xat'ː" >,
+xat_27 := clause_comp_ques_perf-verb-lex &
+  [ STEM < "xat'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
 ;;; Auxiliaries
