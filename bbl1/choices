@@ -204,12 +204,22 @@ section=coordination
   cs8_mark=affix
   cs8_orth==e
   cs8_order=after
+    cs8_csap1_pat=fr1
+    cs8_csap1_target=all
   cs9_vp=on
   cs9_s=on
   cs9_pat=mono
   cs9_mark=word
   cs9_orth=e
   cs9_order=before
+  fr1_name=noun-coordination
+    fr1_feat1_name=gender
+      fr1_feat1_rule1_left=same
+      fr1_feat1_rule1_right=same
+      fr1_feat1_rule1_par=same
+      fr1_feat1_rule2_left=any
+      fr1_feat1_rule2_right=nonmatching
+      fr1_feat1_rule2_par=dd
 
 section=matrix-yes-no
 

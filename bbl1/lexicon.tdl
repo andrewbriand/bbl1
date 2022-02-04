@@ -1083,7 +1083,7 @@ vedr := noun1-noun-lex &
   [ STEM < "vedr" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bucket_n_rel" ].
 
-vir := noun1-noun-lex &
+vir := dd_nouns-noun-lex &
   [ STEM < "vir" >,
     SYNSEM.LKEYS.KEYREL.PRED "_donkey_n_rel" ].
 
