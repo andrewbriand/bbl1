@@ -1779,7 +1779,7 @@ i := singular_absolutive_demonstratives-noun-lex &
   [ STEM < "i" >,
     SYNSEM.LKEYS.KEYREL.PRED "_that_one_n_rel" ].
 
-o := singular_absolutive_demonstratives-noun-lex &
+o_1 := singular_absolutive_demonstratives-noun-lex &
   [ STEM < "o" >,
     SYNSEM.LKEYS.KEYREL.PRED "_yon_one_n_rel" ].
 
@@ -3116,10 +3116,6 @@ ese := det9-determiner-lex &
   [ STEM < "ese" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
-_3De := det10-determiner-lex &
-  [ STEM < "=e" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
-
 eq_3 := det11-determiner-lex &
   [ STEM < "eq" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
@@ -3150,6 +3146,18 @@ ošt_27un-aʔ := det17-determiner-lex &
 
 e-go := det18-determiner-lex &
   [ STEM < "e-go" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
+
+icx := det19-determiner-lex &
+  [ STEM < "icx" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
+
+o_2 := det20-determiner-lex &
+  [ STEM < "o" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
+
+oq := det21-determiner-lex &
+  [ STEM < "oq" >,
     SYNSEM.LKEYS.KEYREL.PRED "_exist_q_rel" ].
 
 ;;; Adverbs
