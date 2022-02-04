@@ -580,3 +580,19 @@ verb-singular-vb-lex-rule.
 verb-dd-prefix :=
 %prefix (* d-)
 verb-dd-lex-rule.
+
+verb-plural-vb-prefix :=
+%prefix (* b-)
+verb-plural-vb-lex-rule.
+
+verb-singular-jd-prefix :=
+%prefix (* y-)
+verb-singular-jd-lex-rule.
+
+verb-plural-jd-prefix :=
+%prefix (* d-)
+verb-plural-jd-lex-rule.
+
+verb-jj-prefix :=
+%prefix (* y-)
+verb-jj-lex-rule.
