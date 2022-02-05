@@ -2447,10 +2447,6 @@ qaic_27 := verb72-verb-lex &
   [ STEM < "qaic'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hang_v_rel" ].
 
-toħ := verb72-verb-lex &
-  [ STEM < "toħ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
-
 ħirc_27_1 := verb72-verb-lex &
   [ STEM < "ħirc'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_become, turn into?_v_rel" ].
@@ -2991,6 +2987,10 @@ a := be_existential-verb-lex &
 tet_27 := trans_imperfective-verb-lex &
   [ STEM < "tet'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
+
+toħ := intrans_imperfective-verb-lex &
+  [ STEM < "toħ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 tit_27 := trans_perfective-verb-lex &
   [ STEM < "tit'" >,

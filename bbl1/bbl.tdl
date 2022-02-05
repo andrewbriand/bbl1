@@ -729,6 +729,10 @@ split-s-volition-erg-2-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr &
                                             CONT.HOOK.INDEX.PNG.PER 2nd ],
     INFLECTED.IMPF_STEMS-FLAG - ].
 
+intrans_imperfective-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE abs ],
+    INFLECTED.IMPF_STEMS-FLAG - ].
+
 new_verbs-verb-lex := verb-lex &
   [ INFLECTED.NEW_VERBS-VERB-FLAG + ].
 
