@@ -152,6 +152,14 @@ bottom-coord-phrase :+ [ SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
     NONCONJ-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
                                    POSSESSUM #possessum ] ].
 
+add-ccont-and-coord-change-only-lex-rule := same-non-local-lex-rule &
+					    same-modified-lex-rule &
+					    same-light-lex-rule &
+					    same-ctxt-lex-rule &
+					    same-cont-lex-rule &
+					    same-agr-lex-rule &
+					    same-cat-lex-rule.
+
 ;;;;;;;;;;;;;;
 ;;; Features
 ;;;;;;;;;;;;;;
@@ -2985,7 +2993,17 @@ n8-bottom-coord-rule := infl-bottom-coord-rule & pass-up-png-coord-rule &
     SYNSEM.LOCAL.COORD-REL.PRED "_and_coord_rel",
     DTR.SYNSEM.LOCAL.CAT.HEAD noun ].
 
-n8-left-coord-rule := infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
+bbl-infl-left-coord-rule := omni-left-coord-rule &
+			    add-ccont-and-coord-change-only-lex-rule &
+  [ INFLECTED infl-satisfied,
+    DTR.INFLECTED inflected,
+    NEEDS-AFFIX +,
+    SYNSEM.LOCAL [ COORD +,
+		   COORD-REL #crel ],
+    C-CONT [ RELS.LIST < #crel >,
+             HCONS.LIST < > ]].
+
+n8-left-coord-rule := bbl-infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL [ COORD-STRAT "8",
                    COORD-REL.PRED "_and_coord_rel" ] ].
 
