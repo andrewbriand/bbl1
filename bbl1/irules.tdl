@@ -9,13 +9,13 @@ n8-left :=
 
 ;;; Inflecting Lexical Rule Instances
 
-noun-pc1-suffix :=
-%suffix (* -e)
-noun-pc1-lex-rule.
+;;noun-pc1-suffix :=
+;;%suffix (* -e)
+;;noun-pc1-lex-rule.
 
-noun-pc4_lrt1-suffix :=
-%suffix (* -a)
-noun-pc4_lrt1-lex-rule.
+;;noun-pc4_lrt1-suffix :=
+;;%suffix (* -a)
+;;noun-pc4_lrt1-lex-rule.
 
 ;;;noun-pc6_lrt1-suffix1 :=
 ;;;%suffix (* =ainʷ)
@@ -25,9 +25,9 @@ noun-pc4_lrt1-lex-rule.
 ;;;%suffix (* =aynŏ)
 ;;;noun-pc6_lrt1-lex-rule.
 
-noun-pc8_lrt1-suffix :=
-%suffix (* -o)
-noun-pc8_lrt1-lex-rule.
+;;noun-pc8_lrt1-suffix :=
+;;%suffix (* -o)
+;;noun-pc8_lrt1-lex-rule.
 
 noun-pc9_lrt1-suffix :=
 %suffix (* -go)
@@ -57,9 +57,9 @@ noun-pc9_lrt8-suffix :=
 %suffix (* -s)
 noun-pc9_lrt8-lex-rule.
 
-noun-pc9_lrt9-suffix1 :=
-%suffix (* -ɣ)
-noun-pc9_lrt9-lex-rule.
+;;noun-pc9_lrt9-suffix1 :=
+;;%suffix (* -ɣ)
+;;noun-pc9_lrt9-lex-rule.
 
 ;;noun-pc9_lrt9-suffix2 :=
 ;;%suffix (* =xiⁿ)
@@ -145,17 +145,17 @@ noun-pc20_lrt1-lex-rule.
 ;;;%suffix (* =guiħ)
 ;;;noun-pc29_lrt1-lex-rule.
 
-noun-pc29_lrt1-suffix2 :=
-%suffix (* -lo)
-noun-pc29_lrt1-lex-rule.
-
-noun-pc29_lrt1-suffix3 :=
-%suffix (* -č)
-noun-pc29_lrt1-lex-rule.
-
-noun-pc29_lrt2-suffix :=
-%suffix (* -atx)
-noun-pc29_lrt2-lex-rule.
+;;noun-pc29_lrt1-suffix2 :=
+;;%suffix (* -lo)
+;;noun-pc29_lrt1-lex-rule.
+;;
+;;noun-pc29_lrt1-suffix3 :=
+;;%suffix (* -č)
+;;noun-pc29_lrt1-lex-rule.
+;;
+;;noun-pc29_lrt2-suffix :=
+;;%suffix (* -atx)
+;;noun-pc29_lrt2-lex-rule.
 
 noun-pc30_lrt1-suffix :=
 %suffix (* -čo)

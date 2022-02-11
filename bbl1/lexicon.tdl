@@ -3030,8 +3030,8 @@ co := neg4-aux-lex &
   [ STEM < "co" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
-me_1 := aux5-aux-lex &
-  [ STEM < "me" > ].
+;;me_1 := aux5-aux-lex &
+;;  [ STEM < "me" > ].
 
 šuin := aux6-aux-lex &
   [ STEM < "šuin" > ].
@@ -3048,14 +3048,14 @@ me_1 := aux5-aux-lex &
 šarin := aux10-aux-lex &
   [ STEM < "šarin" > ].
 
-oqux := aux11-aux-lex &
-  [ STEM < "oqux" > ].
+;;oqux := aux11-aux-lex &
+;;  [ STEM < "oqux" > ].
 
--x := aux12-aux-lex &
-  [ STEM < "-x" > ].
+;;-x := aux12-aux-lex &
+;;  [ STEM < "-x" > ].
 
--er := aux13-aux-lex &
-  [ STEM < "-er" > ].
+;;-er := aux13-aux-lex &
+;;  [ STEM < "-er" > ].
 
 txain := aux14-aux-lex &
   [ STEM < "txain" > ].
@@ -3066,8 +3066,8 @@ sain := aux15-aux-lex &
 šer := aux16-aux-lex &
   [ STEM < "šer" > ].
 
-šarax := aux17-aux-lex &
-  [ STEM < "šarax" > ].
+;;šarax := aux17-aux-lex &
+;;  [ STEM < "šarax" > ].
 
 suin := aux18-aux-lex &
   [ STEM < "suin" > ].
