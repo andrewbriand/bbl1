@@ -195,14 +195,23 @@ sg := number.
 gender := *top*.
 f := gender.
 m := gender.
-vb := gender.
-jd := gender.
-jj := gender.
-dd := gender.
-dj := gender.
-bb := gender.
-bd := gender.
-bj := gender.
+non-dd := gender.
+non-bd := gender.
+non-jd := gender.
+non-bb := gender.
+non-jj := gender.
+non-vb := gender.
+non-bj := gender.
+non-dj := gender.
+
+dd := non-dj & non-jj & non-bj & non-bb & non-bd & non-jd & non-vb.
+bj := non-dd & non-dj & non-jj & non-bb & non-bd & non-jd & non-vb.
+dj := non-dd & non-jj & non-bj & non-bb & non-bd & non-jd & non-vb.
+jd := non-dd & non-dj & non-jj & non-bj & non-bb & non-bd & non-vb.
+vb := non-dd & non-dj & non-jj & non-bj & non-bb & non-bd & non-jd.
+bb := non-dd & non-dj & non-jj & non-bj & non-bd & non-jd & non-vb.
+bd := non-dd & non-dj & non-jj & non-bj & non-bb & non-jd & non-vb.
+jj := non-dd & non-dj & non-bj & non-bb & non-bd & non-jd & non-vb.
 
 ;;; Possession
 
@@ -2921,9 +2930,45 @@ same-same-same-gend-coord-rule := coord-phrase &
     LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND #gend,
     RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND #gend ].
 
-any-nonmatching-dd-gend-coord-rule := coord-phrase &
+dd-nonmatching-dd-gend-coord-rule := coord-phrase &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND nonmatching ].
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-dd ].
+
+vb-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND vb,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-vb ].
+
+jj-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jj,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-jj ].
+
+bj-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bj,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bj ].
+
+jd-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jd,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-jd ].
+
+bb-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bb,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bb ].
+
+bd-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bd,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bd ].
+
+dj-nonmatching-dd-gend-coord-rule := coord-phrase &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
+    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dj,
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-dj ].
 
 pass-up-png-coord-rule := bottom-coord-phrase &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG #png,
@@ -2937,18 +2982,82 @@ n8-same-same-same-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule
 n8-same-same-same-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & same-same-same-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-any-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & any-nonmatching-dd-gend-coord-rule &
+n8-dd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & dd-nonmatching-dd-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-any-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & any-nonmatching-dd-gend-coord-rule &
+n8-dd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & dd-nonmatching-dd-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-bottom-coord-rule := infl-bottom-coord-rule & pass-up-png-coord-rule &
+n8-vb-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & vb-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-vb-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & vb-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-jj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & jj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-jj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & jj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-jd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & jd-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-jd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & jd-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bb-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bb-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bb-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bb-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bd-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-bd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bd-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-dj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & dj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+n8-dj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & dj-nonmatching-dd-gend-coord-rule &
+  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
+
+bbl-infl-bottom-coord-rule := infl-bottom-coord-rule &
+  [ INFLECTED infl-satisfied,
+    DTR.INFLECTED infl-satisfied].
+
+n8-bottom-coord-rule := bbl-infl-bottom-coord-rule & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8",
     SYNSEM.LOCAL.COORD-REL.PRED "_and_coord_rel",
     DTR.SYNSEM.LOCAL.CAT.HEAD noun ].
 
-n8-left-coord-rule := infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
+add-ccont-and-coord-change-only-lex-rule := same-non-local-lex-rule &
+					    same-modified-lex-rule &
+					    same-light-lex-rule &
+					    same-ctxt-lex-rule &
+					    same-cont-lex-rule &
+					    same-agr-lex-rule &
+					    same-cat-lex-rule.
+
+bbl-infl-left-coord-rule := omni-left-coord-rule &
+			    add-ccont-and-coord-change-only-lex-rule &
+  [ INFLECTED infl-satisfied,
+    DTR.INFLECTED infl-satisfied,
+    NEEDS-AFFIX +,
+    SYNSEM.LOCAL [ COORD +,
+		   COORD-REL #crel ],
+    C-CONT [ RELS.LIST < #crel >,
+             HCONS.LIST < > ]].
+
+n8-left-coord-rule := bbl-infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL [ COORD-STRAT "8",
                    COORD-REL.PRED "_and_coord_rel" ] ].
 
