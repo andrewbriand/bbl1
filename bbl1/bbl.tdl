@@ -2988,7 +2988,11 @@ n8-dj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-r
 n8-dj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & dj-nonmatching-dd-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-bottom-coord-rule := infl-bottom-coord-rule & pass-up-png-coord-rule &
+bbl-infl-bottom-coord-rule := infl-bottom-coord-rule &
+  [ INFLECTED infl-satisfied,
+    DTR.INFLECTED infl-satisfied].
+
+n8-bottom-coord-rule := bbl-infl-bottom-coord-rule & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8",
     SYNSEM.LOCAL.COORD-REL.PRED "_and_coord_rel",
     DTR.SYNSEM.LOCAL.CAT.HEAD noun ].
@@ -2996,7 +3000,7 @@ n8-bottom-coord-rule := infl-bottom-coord-rule & pass-up-png-coord-rule &
 bbl-infl-left-coord-rule := omni-left-coord-rule &
 			    add-ccont-and-coord-change-only-lex-rule &
   [ INFLECTED infl-satisfied,
-    DTR.INFLECTED inflected,
+    DTR.INFLECTED infl-satisfied,
     NEEDS-AFFIX +,
     SYNSEM.LOCAL [ COORD +,
 		   COORD-REL #crel ],
