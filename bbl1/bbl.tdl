@@ -2,7 +2,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Grammar of bbl
 ;;; created at:
-;;;     Fri Feb 04 22:26:42 UTC 2022
+;;;     Fri Feb 11 22:42:50 UTC 2022
 ;;; based on Matrix customization system version of:
 ;;;     Mon Aug  2 23:22:15 UTC 2021
 ;;;
@@ -32,49 +32,49 @@ head :+ [ PRON bool,
 
 +nd :+ [ CASE case ].
 
-inflected :+ [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
-    VERB-GENDER-AGREEMENT-FLAG luk,
-    VERB-PC74-FLAG luk,
-    VERB-PC70-FLAG luk,
-    VERB-PC76-FLAG luk,
-    VERB-PC72-FLAG luk,
-    NUMBER-FLAG luk,
-    VERB-PC75-FLAG luk,
-    CASE-FLAG luk,
-    VERB-PC64-FLAG luk,
-    VERB-PC77-FLAG luk,
-    VERB-PC73-FLAG luk,
+inflected :+ [ VERB-PC73-FLAG luk,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG luk,
     VERB-PC63-FLAG luk,
     VERB-PC65-FLAG luk,
-    IMPF_STEMS-FLAG luk,
+    VERB-PC75-FLAG luk,
+    VERB-PC67-FLAG luk,
+    NEW_VERBS-VERB-FLAG luk,
     VERB-PC66-FLAG luk,
     VERB-PC68-FLAG luk,
+    VERB-PC74-FLAG luk,
+    CASE-FLAG luk,
+    IMPF_STEMS-FLAG luk,
     VERB-PC71-FLAG luk,
-    NEW_VERBS-VERB-FLAG luk,
-    VERB-PC67-FLAG luk,
-    VERB-PC69-FLAG luk ].
+    VERB-PC76-FLAG luk,
+    VERB-PC69-FLAG luk,
+    NUMBER-FLAG luk,
+    VERB-PC70-FLAG luk,
+    VERB-GENDER-AGREEMENT-INTRANS-FLAG luk,
+    VERB-PC72-FLAG luk,
+    VERB-PC64-FLAG luk,
+    VERB-PC77-FLAG luk ].
 
-infl-satisfied :+ [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
-    VERB-GENDER-AGREEMENT-FLAG na-or-+,
-    VERB-PC74-FLAG na-or-+,
-    VERB-PC70-FLAG na-or-+,
-    VERB-PC76-FLAG na-or-+,
-    VERB-PC72-FLAG na-or-+,
-    NUMBER-FLAG na-or-+,
-    VERB-PC75-FLAG na-or-+,
-    CASE-FLAG na-or-+,
-    VERB-PC64-FLAG na-or-+,
-    VERB-PC77-FLAG na-or-+,
-    VERB-PC73-FLAG na-or-+,
+infl-satisfied :+ [ VERB-PC73-FLAG na-or-+,
+    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
     VERB-PC63-FLAG na-or-+,
     VERB-PC65-FLAG na-or-+,
-    IMPF_STEMS-FLAG na-or-+,
+    VERB-PC75-FLAG na-or-+,
+    VERB-PC67-FLAG na-or-+,
+    NEW_VERBS-VERB-FLAG na-or-+,
     VERB-PC66-FLAG na-or-+,
     VERB-PC68-FLAG na-or-+,
+    VERB-PC74-FLAG na-or-+,
+    CASE-FLAG na-or-+,
+    IMPF_STEMS-FLAG na-or-+,
     VERB-PC71-FLAG na-or-+,
-    NEW_VERBS-VERB-FLAG na-or-+,
-    VERB-PC67-FLAG na-or-+,
-    VERB-PC69-FLAG na-or-+ ].
+    VERB-PC76-FLAG na-or-+,
+    VERB-PC69-FLAG na-or-+,
+    NUMBER-FLAG na-or-+,
+    VERB-PC70-FLAG na-or-+,
+    VERB-GENDER-AGREEMENT-INTRANS-FLAG na-or-+,
+    VERB-PC72-FLAG na-or-+,
+    VERB-PC64-FLAG na-or-+,
+    VERB-PC77-FLAG na-or-+ ].
 
 png :+ [ PER person,
     NUM number,
@@ -152,14 +152,6 @@ bottom-coord-phrase :+ [ SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
     NONCONJ-DTR.SYNSEM.LOCAL.CAT [ HEAD.POSSESSOR #possessor,
                                    POSSESSUM #possessum ] ].
 
-add-ccont-and-coord-change-only-lex-rule := same-non-local-lex-rule &
-					    same-modified-lex-rule &
-					    same-light-lex-rule &
-					    same-ctxt-lex-rule &
-					    same-cont-lex-rule &
-					    same-agr-lex-rule &
-					    same-cat-lex-rule.
-
 ;;;;;;;;;;;;;;
 ;;; Features
 ;;;;;;;;;;;;;;
@@ -189,8 +181,8 @@ non-abs := case.
 person := *top*.
 1st := person.
 non-1st := person.
-2nd := non-1st.
 3rd := non-1st.
+2nd := non-1st.
 
 ;;; Number
 
@@ -203,23 +195,14 @@ sg := number.
 gender := *top*.
 f := gender.
 m := gender.
-non-dd := gender.
-non-bd := gender.
-non-jd := gender.
-non-bb := gender.
-non-jj := gender.
-non-vb := gender.
-non-bj := gender.
-non-dj := gender.
-
-dd := non-dj & non-jj & non-bj & non-bb & non-bd & non-jd & non-vb.
-bj := non-dd & non-dj & non-jj & non-bb & non-bd & non-jd & non-vb.
-dj := non-dd & non-jj & non-bj & non-bb & non-bd & non-jd & non-vb.
-jd := non-dd & non-dj & non-jj & non-bj & non-bb & non-bd & non-vb.
-vb := non-dd & non-dj & non-jj & non-bj & non-bb & non-bd & non-jd.
-bb := non-dd & non-dj & non-jj & non-bj & non-bd & non-jd & non-vb.
-bd := non-dd & non-dj & non-jj & non-bj & non-bb & non-jd & non-vb.
-jj := non-dd & non-dj & non-bj & non-bb & non-bd & non-jd & non-vb.
+vb := gender.
+jd := gender.
+jj := gender.
+dd := gender.
+dj := gender.
+bb := gender.
+bd := gender.
+bj := gender.
 
 ;;; Possession
 
@@ -444,19 +427,19 @@ oblique-stem-demonstratives-noun-lex := no-spr-noun-lex & Case-rule-dtr & noun-a
                    CONT.HOOK.INDEX.PNG [ PER 1st,
                                          NUM sg ] ] ].
 
-jd_nouns-noun-lex := noun1-noun-lex &
+jd_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jd ].
 
-vb_nouns-noun-lex := noun1-noun-lex &
+vb_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND vb ].
 
-jj_nouns-noun-lex := noun1-noun-lex &
+jj_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jj ].
 
-dd_nouns-noun-lex := noun1-noun-lex &
+dd_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd ].
 
-dj_nouns-noun-lex := noun1-noun-lex &
+dj_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dj ].
 
 question_erg-noun-lex := wh-pronoun-noun-lex &
@@ -466,6 +449,9 @@ question_erg-noun-lex := wh-pronoun-noun-lex &
 question_abs-noun-lex := wh-pronoun-noun-lex &
   [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
                    CONT.HOOK.INDEX.PNG.GEND dd ] ].
+
+bb_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bb ].
 
 poss-pron1-noun-lex := non-local-none-lex-item &
   [ SYNSEM [ LKEYS.ALTKEYREL #altkeyrel & noun-relation &
@@ -717,58 +703,74 @@ verb179-verb-lex := transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE all,
                            COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
 
-transitive-dative-subject-verb-lex := transitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+transitive-dative-subject-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE dat,
                              COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ],
-                   CONT.HOOK.INDEX.E.TENSE present ] ].
-
-split-s-volition-abs-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
-    INFLECTED [ VERB-GENDER-AGREEMENT-FLAG -,
+                   CONT.HOOK.INDEX.E.TENSE present ],
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
                 IMPF_STEMS-FLAG - ] ].
 
-split-s-volition-erg-1-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+split-s-volition-abs-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
+
+split-s-volition-erg-1-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
                                             CONT.HOOK.INDEX.PNG.PER 1st ],
-    INFLECTED.IMPF_STEMS-FLAG - ].
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
 
-split-s-volition-erg-2-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
+split-s-volition-erg-2-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE erg,
                                             CONT.HOOK.INDEX.PNG.PER 2nd ],
-    INFLECTED.IMPF_STEMS-FLAG - ].
-
-intrans_imperfective-verb-lex := intransitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL [ CAT.HEAD.CASE abs ],
-    INFLECTED.IMPF_STEMS-FLAG - ].
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
 
 new_verbs-verb-lex := verb-lex &
   [ INFLECTED.NEW_VERBS-VERB-FLAG + ].
 
-be_existential-verb-lex := verb178-verb-lex & impf_stems-rule-dtr &
-  [ INFLECTED.IMPF_STEMS-FLAG - ].
+be_existential-verb-lex := verb178-verb-lex.
 
-trans_imperfective-verb-lex := erg-abs-transitive-verb-lex & impf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc21-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
-  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
-                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ],
-    INFLECTED.IMPF_STEMS-FLAG - ].
-
-trans_perfective-verb-lex := erg-abs-transitive-verb-lex & perf_stems-rule-dtr & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc16-rule-dtr & verb-pc18-rule-dtr & verb-pc2-rule-dtr & verb-pc21-rule-dtr & verb-pc24-rule-dtr & verb-pc31-rule-dtr & verb-pc34-rule-dtr & verb-pc35-rule-dtr & verb-pc36-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc58-rule-dtr & verb-pc6-rule-dtr & verb-pc7-rule-dtr & verb-pc9-rule-dtr &
+trans_imperfective_no_agr-verb-lex := erg-abs-transitive-verb-lex &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
                            COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
 
-clause_comp_dec_impf-verb-lex := clausal-verb-lex & impf_stems-rule-dtr & clausal-second-arg-trans-lex-item &
+trans_perfective_no_agr-verb-lex := erg-abs-transitive-verb-lex & perf_stems-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
+
+clause_comp_dec_impf_no_agr-verb-lex := clausal-verb-lex & impf_stems-rule-dtr & clausal-second-arg-trans-lex-item &
   [ INFLECTED.IMPF_STEMS-FLAG -,
     SYNSEM [ LOCAL.CAT.VAL.COMPS < [ LOCAL [ CAT [ HEAD +vc,
                                                    WH.BOOL - ],
                                              CONT.HOOK.INDEX.SF prop ] ] >,
              NON-LOCAL.QUE.LIST < > ] ].
 
-clause_comp_ques_impf-verb-lex := clausal-verb-lex & impf_stems-rule-dtr &
+clause_comp_ques_impf_no_agr-verb-lex := clausal-verb-lex & impf_stems-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD +vc ] >,
     INFLECTED.IMPF_STEMS-FLAG - ].
 
-clause_comp_ques_perf-verb-lex := clausal-verb-lex & perf_stems-rule-dtr &
+clause_comp_ques_perf_no_agr-verb-lex := clausal-verb-lex & perf_stems-rule-dtr &
   [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD +vc ] > ].
+
+trans_impr_agr_con-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
+                           COMPS.FIRST.LOCAL.CAT.HEAD.CASE con ],
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
+
+trans_impr_agr-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
+
+intrans_impr_agr-verb-lex := abs-intransitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
+  [ SYNSEM.LOCAL.CAT.HEAD.CASE abs,
+    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+                IMPF_STEMS-FLAG - ] ].
+
+intrans_imp_no_agr-verb-lex := abs-intransitive-verb-lex.
 
 ;;; Auxiliaries
 
@@ -1284,60 +1286,62 @@ det21-determiner-lex := determiner-lex & no-icons-lex-item &
 
 ;;; Intermediate rule types
 
-verb-pc31-rule-dtr := word-or-lexrule.
-noun-pc49-rule-dtr := word-or-lexrule.
-verb-pc2-rule-dtr := word-or-lexrule.
-verb-pc74-rule-dtr := word-or-lexrule.
-noun-pc29-rule-dtr := word-or-lexrule.
-verb-pc21-rule-dtr := word-or-lexrule.
-noun-pc41-rule-dtr := word-or-lexrule.
-noun-pc42-rule-dtr := word-or-lexrule.
-noun-pc48-rule-dtr := word-or-lexrule.
-noun-pc8-rule-dtr := word-or-lexrule.
-verb-pc75-rule-dtr := word-or-lexrule.
-noun-and-clitic-rule-dtr := word-or-lexrule.
-verb-pc6-rule-dtr := word-or-lexrule.
-verb-pc47-rule-dtr := word-or-lexrule.
-noun-pc6-rule-dtr := word-or-lexrule.
-noun-pc46-rule-dtr := word-or-lexrule.
-noun-pc4-rule-dtr := word-or-lexrule.
-verb-pc18-rule-dtr := word-or-lexrule.
-verb-pc35-rule-dtr := word-or-lexrule.
-verb-pc38-rule-dtr := word-or-lexrule.
-verb-pc16-rule-dtr := word-or-lexrule.
-dummy-person-case-agreement-rule-dtr := word-or-lexrule.
-verb-pc11-rule-dtr := word-or-lexrule.
-verb-pc71-rule-dtr := word-or-lexrule.
-noun-yes-no-question-particle-rule-dtr := word-or-lexrule.
-verb-pc58-rule-dtr := word-or-lexrule.
-verb-pc73-rule-dtr := word-or-lexrule.
 verb-pc55-rule-dtr := word-or-lexrule.
-verb-pc77-rule-dtr := word-or-lexrule.
-verb-pc10-rule-dtr := word-or-lexrule.
-verb-pc76-rule-dtr := word-or-lexrule.
-verb-pc5-rule-dtr := word-or-lexrule.
-noun-thematic-extension-rule-dtr := word-or-lexrule.
-verb-pc24-rule-dtr := word-or-lexrule.
-impf_stems-rule-dtr := word-or-lexrule.
-perf_stems-rule-dtr := word-or-lexrule.
-verb-pc1-rule-dtr := word-or-lexrule.
-noun-plural-for-people-rule-dtr := word-or-lexrule.
-noun-pc52-rule-dtr := word-or-lexrule.
-verb-pc48-rule-dtr := word-or-lexrule.
-noun-pc12-rule-dtr := word-or-lexrule.
-verb-pc72-rule-dtr := word-or-lexrule.
 noun-pc21-rule-dtr := word-or-lexrule.
-verb-pc70-rule-dtr := word-or-lexrule.
-noun-pc19-rule-dtr := word-or-lexrule.
+verb-pc35-rule-dtr := word-or-lexrule.
+noun-pc49-rule-dtr := word-or-lexrule.
 Number-rule-dtr := word-or-lexrule.
-verb-pc15-rule-dtr := word-or-lexrule.
-verb-pc7-rule-dtr := word-or-lexrule.
-verb-pc9-rule-dtr := word-or-lexrule.
-Case-rule-dtr := word-or-lexrule.
+verb-pc71-rule-dtr := word-or-lexrule.
 noun-pc1-rule-dtr := word-or-lexrule.
+noun-pc19-rule-dtr := word-or-lexrule.
+noun-pc29-rule-dtr := word-or-lexrule.
+noun-pc52-rule-dtr := word-or-lexrule.
+verb-pc21-rule-dtr := word-or-lexrule.
+noun-pc6-rule-dtr := word-or-lexrule.
+impf_stems-rule-dtr := word-or-lexrule.
+verb-pc77-rule-dtr := word-or-lexrule.
+verb-pc11-rule-dtr := word-or-lexrule.
+contact-case-rule-dtr := word-or-lexrule.
+verb-pc73-rule-dtr := word-or-lexrule.
+verb-pc48-rule-dtr := word-or-lexrule.
+verb-pc38-rule-dtr := word-or-lexrule.
+noun-yes-no-question-particle-rule-dtr := word-or-lexrule.
+verb-pc10-rule-dtr := word-or-lexrule.
+noun-plural-for-people-rule-dtr := word-or-lexrule.
+noun-thematic-extension-rule-dtr := word-or-lexrule.
+verb-pc76-rule-dtr := word-or-lexrule.
+verb-pc74-rule-dtr := word-or-lexrule.
+verb-pc47-rule-dtr := word-or-lexrule.
+noun-pc12-rule-dtr := word-or-lexrule.
+verb-pc5-rule-dtr := word-or-lexrule.
+verb-pc2-rule-dtr := word-or-lexrule.
+noun-pc8-rule-dtr := word-or-lexrule.
+noun-pc46-rule-dtr := word-or-lexrule.
+verb-pc15-rule-dtr := word-or-lexrule.
+verb-pc70-rule-dtr := word-or-lexrule.
+verb-pc16-rule-dtr := word-or-lexrule.
+Case-rule-dtr := word-or-lexrule.
+perf_stems-rule-dtr := word-or-lexrule.
+noun-and-clitic-rule-dtr := word-or-lexrule.
+noun-pc48-rule-dtr := word-or-lexrule.
+noun-pc41-rule-dtr := word-or-lexrule.
+dummy-person-case-agreement-rule-dtr := word-or-lexrule.
+verb-pc75-rule-dtr := word-or-lexrule.
+noun-pc42-rule-dtr := word-or-lexrule.
+verb-pc7-rule-dtr := word-or-lexrule.
+verb-pc72-rule-dtr := word-or-lexrule.
+verb-pc1-rule-dtr := word-or-lexrule.
 verb-pc36-rule-dtr := word-or-lexrule.
-verb-pc45-rule-dtr := word-or-lexrule.
+verb-pc18-rule-dtr := word-or-lexrule.
 verb-pc34-rule-dtr := word-or-lexrule.
+verb-pc45-rule-dtr := word-or-lexrule.
+verb-pc58-rule-dtr := word-or-lexrule.
+verb-pc9-rule-dtr := word-or-lexrule.
+noun-pc4-rule-dtr := word-or-lexrule.
+verb-pc6-rule-dtr := word-or-lexrule.
+verb-pc31-rule-dtr := word-or-lexrule.
+verb-pc24-rule-dtr := word-or-lexrule.
+verb-gender-agreement-intrans-rule-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
@@ -1369,47 +1373,47 @@ noun-pc8_lrt1-lex-rule := noun-pc8-lex-rule-super.
 
 Case-lex-rule-super := add-only-no-ccont-rule & noun-and-clitic-rule-dtr & noun-pc19-rule-dtr & noun-pc6-rule-dtr & noun-yes-no-question-particle-rule-dtr &
   [ INFLECTED [ CASE-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR Case-rule-dtr &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 noun-pc9_lrt1-lex-rule := Case-lex-rule-super & infl-lex-rule &
   [ SYNSEM.LOCAL.CAT.HEAD.CASE all ].
@@ -1439,47 +1443,47 @@ absolutive-lex-rule := Case-lex-rule-super & const-lex-rule &
 
 Number-lex-rule-super := Case-rule-dtr & add-only-no-ccont-rule & noun-and-clitic-rule-dtr & noun-pc1-rule-dtr & noun-pc19-rule-dtr & noun-pc21-rule-dtr & noun-pc29-rule-dtr & noun-pc4-rule-dtr & noun-pc46-rule-dtr & noun-pc6-rule-dtr & noun-pc8-rule-dtr & noun-yes-no-question-particle-rule-dtr &
   [ INFLECTED [ NUMBER-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR Number-rule-dtr &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 plural-lex-rule := Number-lex-rule-super & infl-lex-rule &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.NUM pl ].
@@ -1623,6 +1627,12 @@ noun-pc52-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule &
         [ INFLECTED #infl ] ].
 
 noun-pc52_lrt1-lex-rule := noun-pc52-lex-rule-super.
+
+contact-case-lex-rule := add-only-no-ccont-rule & infl-lex-rule &
+  [ INFLECTED #infl,
+    DTR contact-case-rule-dtr &
+        [ INFLECTED #infl ],
+    SYNSEM.LOCAL.CAT.HEAD.CASE con ].
 
 verb-pc1-lex-rule-super := add-only-no-ccont-rule & infl-lex-rule & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr &
   [ INFLECTED #infl,
@@ -1859,188 +1869,188 @@ verb-pc58_lrt2-lex-rule := verb-pc58-lex-rule-super &
 
 verb-pc63-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc70-rule-dtr & verb-pc71-rule-dtr & verb-pc72-rule-dtr & verb-pc73-rule-dtr & verb-pc74-rule-dtr & verb-pc75-rule-dtr & verb-pc76-rule-dtr &
   [ INFLECTED [ VERB-PC63-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux1-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc63_lrt1-lex-rule := verb-pc63-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc64-lex-rule-super := add-only-no-ccont-rule & const-lex-rule & verb-pc77-rule-dtr &
   [ INFLECTED [ VERB-PC64-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux2-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc64_lrt1-lex-rule := verb-pc64-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc65-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC65-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux3-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc65_lrt1-lex-rule := verb-pc65-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
 
 verb-pc66-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC66-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
-                VERB-PC68-FLAG #verb-pc68,
-                VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux6-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
-                      VERB-PC68-FLAG #verb-pc68,
-                      VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER non-1st,
@@ -2048,141 +2058,141 @@ verb-pc66_lrt1-lex-rule := verb-pc66-lex-rule-super &
 
 verb-pc67-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC67-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux7-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc67_lrt1-lex-rule := verb-pc67-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.NUM pl ].
 
 verb-pc68-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC68-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
-                VERB-PC66-FLAG #verb-pc66,
-                VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC75-FLAG #verb-pc75,
                 VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                VERB-PC66-FLAG #verb-pc66,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC71-FLAG #verb-pc71,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux8-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
-                      VERB-PC66-FLAG #verb-pc66,
-                      VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC75-FLAG #verb-pc75,
                       VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
+                      VERB-PC66-FLAG #verb-pc66,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC71-FLAG #verb-pc71,
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc68_lrt1-lex-rule := verb-pc68-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
 
 verb-pc69-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC69-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67 ],
+                VERB-PC76-FLAG #verb-pc76,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR aux9-aux-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 2nd ].
@@ -2190,45 +2200,45 @@ verb-pc69_lrt1-lex-rule := verb-pc69-lex-rule-super &
 verb-pc70-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC70-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc70-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2236,45 +2246,45 @@ verb-pc70_lrt1-lex-rule := verb-pc70-lex-rule-super &
 verb-pc71-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC71-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc71-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2282,45 +2292,45 @@ verb-pc71_lrt1-lex-rule := verb-pc71-lex-rule-super &
 verb-pc72-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC72-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc72-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
@@ -2329,45 +2339,45 @@ verb-pc72_lrt1-lex-rule := verb-pc72-lex-rule-super &
 verb-pc73-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC73-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc73-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC63-FLAG #verb-pc63,
+        [ INFLECTED [ VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -2375,45 +2385,45 @@ verb-pc73_lrt1-lex-rule := verb-pc73-lex-rule-super &
 verb-pc74-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC74-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc74-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2421,45 +2431,45 @@ verb-pc74_lrt1-lex-rule := verb-pc74-lex-rule-super &
 verb-pc75-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC75-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc75-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 3rd ].
@@ -2467,92 +2477,92 @@ verb-pc75_lrt1-lex-rule := verb-pc75-lex-rule-super &
 verb-pc76-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG +,
                 VERB-PC76-FLAG +,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR verb-pc76-rule-dtr &
-        [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 verb-pc76_lrt1-lex-rule := verb-pc76-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
 
 verb-pc77-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
   [ INFLECTED [ VERB-PC77-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64 ],
     DTR verb-pc77-rule-dtr &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64 ] ] ].
 
 verb-pc77_lrt1-lex-rule := verb-pc77-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
@@ -2568,47 +2578,47 @@ dummy-person-case-agreement_lrt2-lex-rule := dummy-person-case-agreement-lex-rul
 
 impf_stems-lex-rule-super := cont-change-only-lex-rule &
   [ INFLECTED [ IMPF_STEMS-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
     DTR impf_stems-rule-dtr &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-GENDER-AGREEMENT-FLAG #verb-gender-agreement,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
 present_tense-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present ].
@@ -2686,56 +2696,79 @@ aor_per_rep-lex-rule := perf_stems-lex-rule-super & reported-evidential-lex-rule
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E [ TENSE aorist,
                                      ASPECT pfv ] ].
 
-verb-gender-agreement-lex-rule-super := add-only-no-ccont-rule & impf_stems-rule-dtr & infl-lex-rule &
-  [ INFLECTED [ VERB-GENDER-AGREEMENT-FLAG +,
-                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                VERB-PC74-FLAG #verb-pc74,
-                VERB-PC70-FLAG #verb-pc70,
-                VERB-PC76-FLAG #verb-pc76,
-                VERB-PC72-FLAG #verb-pc72,
-                NUMBER-FLAG #number,
-                VERB-PC75-FLAG #verb-pc75,
-                CASE-FLAG #case,
-                VERB-PC64-FLAG #verb-pc64,
-                VERB-PC77-FLAG #verb-pc77,
+verb-gender-agreement-intrans-lex-rule-super := add-only-no-ccont-rule & impf_stems-rule-dtr & infl-lex-rule &
+  [ INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG +,
                 VERB-PC73-FLAG #verb-pc73,
+                VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                 VERB-PC63-FLAG #verb-pc63,
                 VERB-PC65-FLAG #verb-pc65,
-                IMPF_STEMS-FLAG #impf_stems,
+                VERB-PC75-FLAG #verb-pc75,
+                VERB-PC67-FLAG #verb-pc67,
+                NEW_VERBS-VERB-FLAG #new_verbs-verb,
                 VERB-PC66-FLAG #verb-pc66,
                 VERB-PC68-FLAG #verb-pc68,
+                VERB-PC74-FLAG #verb-pc74,
+                CASE-FLAG #case,
+                IMPF_STEMS-FLAG #impf_stems,
                 VERB-PC71-FLAG #verb-pc71,
-                NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                VERB-PC67-FLAG #verb-pc67,
-                VERB-PC69-FLAG #verb-pc69 ],
-    DTR split-s-volition-abs-verb-lex &
-        [ INFLECTED [ VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
-                      VERB-PC74-FLAG #verb-pc74,
-                      VERB-PC70-FLAG #verb-pc70,
-                      VERB-PC76-FLAG #verb-pc76,
-                      VERB-PC72-FLAG #verb-pc72,
-                      NUMBER-FLAG #number,
-                      VERB-PC75-FLAG #verb-pc75,
-                      CASE-FLAG #case,
-                      VERB-PC64-FLAG #verb-pc64,
-                      VERB-PC77-FLAG #verb-pc77,
-                      VERB-PC73-FLAG #verb-pc73,
+                VERB-PC76-FLAG #verb-pc76,
+                VERB-PC69-FLAG #verb-pc69,
+                NUMBER-FLAG #number,
+                VERB-PC70-FLAG #verb-pc70,
+                VERB-PC72-FLAG #verb-pc72,
+                VERB-PC64-FLAG #verb-pc64,
+                VERB-PC77-FLAG #verb-pc77 ],
+    DTR verb-gender-agreement-intrans-rule-dtr &
+        [ INFLECTED [ VERB-PC73-FLAG #verb-pc73,
+                      VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG #verb-pc70-or-verb-pc71-or-verb-pc72-or-verb-pc73-or-verb-pc74-or-verb-pc75-or-verb-pc76,
                       VERB-PC63-FLAG #verb-pc63,
                       VERB-PC65-FLAG #verb-pc65,
-                      IMPF_STEMS-FLAG #impf_stems,
+                      VERB-PC75-FLAG #verb-pc75,
+                      VERB-PC67-FLAG #verb-pc67,
+                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
                       VERB-PC66-FLAG #verb-pc66,
                       VERB-PC68-FLAG #verb-pc68,
+                      VERB-PC74-FLAG #verb-pc74,
+                      CASE-FLAG #case,
+                      IMPF_STEMS-FLAG #impf_stems,
                       VERB-PC71-FLAG #verb-pc71,
-                      NEW_VERBS-VERB-FLAG #new_verbs-verb,
-                      VERB-PC67-FLAG #verb-pc67,
-                      VERB-PC69-FLAG #verb-pc69 ] ] ].
+                      VERB-PC76-FLAG #verb-pc76,
+                      VERB-PC69-FLAG #verb-pc69,
+                      NUMBER-FLAG #number,
+                      VERB-PC70-FLAG #verb-pc70,
+                      VERB-PC72-FLAG #verb-pc72,
+                      VERB-PC64-FLAG #verb-pc64,
+                      VERB-PC77-FLAG #verb-pc77 ] ] ].
 
-verb-singular-vb-lex-rule := verb-gender-agreement-lex-rule-super &
+vb_singular-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND vb,
                                                                 NUM sg ] ].
 
-verb-dd-lex-rule := verb-gender-agreement-lex-rule-super &
+dd-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd ].
+
+vb_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND vb,
+                                                                NUM pl ] ].
+
+jd_singular-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND jd,
+                                                                NUM sg ] ].
+
+jd_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND jd,
+                                                                NUM pl ] ].
+
+jj-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND jj ].
+
+dj_singular-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND dj,
+                                                                NUM sg ] ].
+
+dj_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND dj,
+                                                                NUM pl ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
@@ -2888,45 +2921,9 @@ same-same-same-gend-coord-rule := coord-phrase &
     LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND #gend,
     RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND #gend ].
 
-dd-nonmatching-dd-gend-coord-rule := coord-phrase &
+any-nonmatching-dd-gend-coord-rule := coord-phrase &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-dd ].
-
-vb-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND vb,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-vb ].
-
-jj-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jj,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-jj ].
-
-bj-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bj,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bj ].
-
-jd-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jd,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-jd ].
-
-bb-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bb,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bb ].
-
-bd-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND bd,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-bd ].
-
-dj-nonmatching-dd-gend-coord-rule := coord-phrase &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd,
-    LCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND dj,
-    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND non-dj ].
+    RCOORD-DTR.SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND nonmatching ].
 
 pass-up-png-coord-rule := bottom-coord-phrase &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG #png,
@@ -2940,74 +2937,18 @@ n8-same-same-same-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule
 n8-same-same-same-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & same-same-same-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-dd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & dd-nonmatching-dd-gend-coord-rule &
+n8-any-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & any-nonmatching-dd-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-dd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & dd-nonmatching-dd-gend-coord-rule &
+n8-any-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & any-nonmatching-dd-gend-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8" ].
 
-n8-vb-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & vb-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-vb-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & vb-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-jj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & jj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-jj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & jj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-jd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & jd-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-jd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & jd-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bb-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bb-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bb-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bb-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bd-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & bd-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-bd-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & bd-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-dj-nonmatching-dd-top-coord-rule := basic-n-top-coord-rule & omni-top-coord-rule & dj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-n8-dj-nonmatching-dd-mid-coord-rule := basic-n-mid-coord-rule & omni-mid-coord-rule & dj-nonmatching-dd-gend-coord-rule &
-  [ SYNSEM.LOCAL.COORD-STRAT "8" ].
-
-bbl-infl-bottom-coord-rule := infl-bottom-coord-rule &
-  [ INFLECTED infl-satisfied,
-    DTR.INFLECTED infl-satisfied].
-
-n8-bottom-coord-rule := bbl-infl-bottom-coord-rule & pass-up-png-coord-rule &
+n8-bottom-coord-rule := infl-bottom-coord-rule & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL.COORD-STRAT "8",
     SYNSEM.LOCAL.COORD-REL.PRED "_and_coord_rel",
     DTR.SYNSEM.LOCAL.CAT.HEAD noun ].
 
-bbl-infl-left-coord-rule := omni-left-coord-rule &
-			    add-ccont-and-coord-change-only-lex-rule &
-  [ INFLECTED infl-satisfied,
-    DTR.INFLECTED infl-satisfied,
-    NEEDS-AFFIX +,
-    SYNSEM.LOCAL [ COORD +,
-		   COORD-REL #crel ],
-    C-CONT [ RELS.LIST < #crel >,
-             HCONS.LIST < > ]].
-
-n8-left-coord-rule := bbl-infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
+n8-left-coord-rule := infl-left-coord-rule & n-bottom-coord-phrase & pass-up-png-coord-rule &
   [ SYNSEM.LOCAL [ COORD-STRAT "8",
                    COORD-REL.PRED "_and_coord_rel" ] ].
 

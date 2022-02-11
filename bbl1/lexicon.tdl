@@ -450,10 +450,6 @@ k_27rit_27ik_27a := noun1-noun-lex &
   [ STEM < "k'rit'ik'a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_criticism_n_rel" ].
 
-k_27uit_27i := noun1-noun-lex &
-  [ STEM < "k'uit'i" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_cat_n_rel" ].
-
 k_27ur := noun1-noun-lex &
   [ STEM < "k'ur" >,
     SYNSEM.LKEYS.KEYREL.PRED "_family (house from where the smoke is coming out)_n_rel" ].
@@ -578,10 +574,6 @@ mandil := noun1-noun-lex &
   [ STEM < "mandil" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hat, head shawl, kerchief_n_rel" ].
 
-mankaⁿ := noun1-noun-lex &
-  [ STEM < "mankaⁿ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
-
 maq_27_1 := noun1-noun-lex &
   [ STEM < "maq'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_freedom_n_rel" ].
@@ -625,7 +617,7 @@ maːx := noun1-noun-lex &
 
 maːšina := noun1-noun-lex &
   [ STEM < "maːšina" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_truck_n_rel" ].
 
 megzur := noun1-noun-lex &
   [ STEM < "megzur" >,
@@ -662,10 +654,6 @@ meč_27ar := noun1-noun-lex &
 mešok := noun1-noun-lex &
   [ STEM < "mešok" >,
     SYNSEM.LKEYS.KEYREL.PRED "_sack, bag_n_rel" ].
-
-mindor := noun1-noun-lex &
-  [ STEM < "mindor" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_field_n_rel" ].
 
 mit_27o := noun1-noun-lex &
   [ STEM < "mit'o" >,
@@ -826,10 +814,6 @@ pħere := noun1-noun-lex &
 pħor := noun1-noun-lex &
   [ STEM < "pħor" >,
     SYNSEM.LKEYS.KEYREL.PRED "_supper_n_rel" ].
-
-pħu := noun1-noun-lex &
-  [ STEM < "pħu" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
 
 pšel_1 := noun1-noun-lex &
   [ STEM < "pšel" >,
@@ -1083,7 +1067,7 @@ vedr := noun1-noun-lex &
   [ STEM < "vedr" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bucket_n_rel" ].
 
-vir := dd_nouns-noun-lex &
+vir := noun1-noun-lex &
   [ STEM < "vir" >,
     SYNSEM.LKEYS.KEYREL.PRED "_donkey_n_rel" ].
 
@@ -1823,16 +1807,24 @@ st_27ak := vb_nouns-noun-lex &
   [ STEM < "st'ak" >,
     SYNSEM.LKEYS.KEYREL.PRED "_man_n_rel" ].
 
+mindor := vb_nouns-noun-lex &
+  [ STEM < "mindor" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_park_n_rel" ].
+
 q_27ar := jj_nouns-noun-lex &
   [ STEM < "q'ar" >,
     SYNSEM.LKEYS.KEYREL.PRED "_rain_n_rel" ].
+
+mankaⁿ := jj_nouns-noun-lex &
+  [ STEM < "mankaⁿ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_car_n_rel" ].
 
 bader := dd_nouns-noun-lex &
   [ STEM < "bader" >,
     SYNSEM.LKEYS.KEYREL.PRED "_child_n_rel" ].
 
-k_27uit_27 := dd_nouns-noun-lex &
-  [ STEM < "k'uit'" >,
+k_27uit_27i := dd_nouns-noun-lex &
+  [ STEM < "k'uit'i" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cat_n_rel" ].
 
 t_27ot_27 := dj_nouns-noun-lex &
@@ -1854,6 +1846,10 @@ vux := question_abs-noun-lex &
 meⁿ_2 := question_abs-noun-lex &
   [ STEM < "meⁿ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_who_n_rel" ].
+
+pħu := bb_nouns-noun-lex &
+  [ STEM < "pħu" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
 
 ;;; Adjectives
 
@@ -2034,10 +2030,6 @@ aħ_1 := verb11-verb-lex &
 aɬar := verb11-verb-lex &
   [ STEM < "aɬar" >,
     SYNSEM.LKEYS.KEYREL.PRED "_say_v_rel" ].
-
-dak_27lev_1 := verb11-verb-lex &
-  [ STEM < "dak'lev" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
 
 datːar := verb11-verb-lex &
   [ STEM < "datːar" >,
@@ -2441,7 +2433,7 @@ lex := verb72-verb-lex &
 
 motː_1 := verb72-verb-lex &
   [ STEM < "motː" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think, seem, regard, consider_v_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_regard, consider_v_rel" ].
 
 qaic_27 := verb72-verb-lex &
   [ STEM < "qaic'" >,
@@ -2505,7 +2497,7 @@ teq_27 := verb86-verb-lex &
 
 motː_2 := verb86-verb-lex &
   [ STEM < "motː" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think, seem, regard, consider_v_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_regard, consider_v_rel" ].
 
 nʕaiʔi_3 := verb86-verb-lex &
   [ STEM < "nʕaiʔi" >,
@@ -2788,10 +2780,6 @@ cer_2 := verb178-verb-lex &
   [ STEM < "cer" >,
     SYNSEM.LKEYS.KEYREL.PRED "_edge, extremity-or-shore_v_rel" ].
 
-dak_27lev_2 := verb178-verb-lex &
-  [ STEM < "dak'lev" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
-
 daħ_2 := verb178-verb-lex &
   [ STEM < "daħ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_away from speaker_v_rel" ].
@@ -2810,7 +2798,7 @@ aɬ_2 := verb178-verb-lex &
 
 gonbad := verb178-verb-lex &
   [ STEM < "gonbad" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_think up, come up with_v_rel" ].
+    SYNSEM.LKEYS.KEYREL.PRED "_come up with_v_rel" ].
 
 gočnad := verb178-verb-lex &
   [ STEM < "gočnad" >,
@@ -2908,7 +2896,7 @@ ag_2 := verb178-verb-lex &
   [ STEM < "ag" >,
     SYNSEM.LKEYS.KEYREL.PRED "_see (+preradical cm)_v_rel" ].
 
-aq_27 := verb178-verb-lex &
+aq_27_1 := verb178-verb-lex &
   [ STEM < "aq'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_eat (+preradical cm)_v_rel" ].
 
@@ -2984,33 +2972,45 @@ a := be_existential-verb-lex &
   [ STEM < "a" >,
     SYNSEM.LKEYS.KEYREL.PRED "_be_v_rel" ].
 
-tet_27 := trans_imperfective-verb-lex &
+tet_27 := trans_imperfective_no_agr-verb-lex &
   [ STEM < "tet'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
-toħ := intrans_imperfective-verb-lex &
-  [ STEM < "toħ" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
-
-tit_27 := trans_perfective-verb-lex &
+tit_27 := trans_perfective_no_agr-verb-lex &
   [ STEM < "tit'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_cut_v_rel" ].
 
-dak_27lev_3 := clause_comp_dec_impf-verb-lex &
+dak_27lev := clause_comp_dec_impf_no_agr-verb-lex &
   [ STEM < "dak'lev" >,
     SYNSEM.LKEYS.KEYREL.PRED "_think_v_rel" ].
 
-xeʔ_4 := clause_comp_dec_impf-verb-lex &
+xeʔ_4 := clause_comp_dec_impf_no_agr-verb-lex &
   [ STEM < "xeʔ" >,
     SYNSEM.LKEYS.KEYREL.PRED "_know_v_rel" ].
 
-xet_27 := clause_comp_ques_impf-verb-lex &
+xet_27 := clause_comp_ques_impf_no_agr-verb-lex &
   [ STEM < "xet'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
-xat_27 := clause_comp_ques_perf-verb-lex &
+xat_27 := clause_comp_ques_perf_no_agr-verb-lex &
   [ STEM < "xat'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
+
+ac_27yal := trans_impr_agr_con-verb-lex &
+  [ STEM < "ac'yal" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
+
+aq_27_2 := trans_impr_agr-verb-lex &
+  [ STEM < "aq'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+
+ac_27_3 := intrans_impr_agr-verb-lex &
+  [ STEM < "ac'" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_run_v_rel" ].
+
+toħ := intrans_imp_no_agr-verb-lex &
+  [ STEM < "toħ" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 ;;; Auxiliaries
 
@@ -3030,8 +3030,8 @@ co := neg4-aux-lex &
   [ STEM < "co" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
-;;me_1 := aux5-aux-lex &
-;;  [ STEM < "me" > ].
+me_1 := aux5-aux-lex &
+  [ STEM < "me" > ].
 
 šuin := aux6-aux-lex &
   [ STEM < "šuin" > ].
@@ -3048,14 +3048,14 @@ co := neg4-aux-lex &
 šarin := aux10-aux-lex &
   [ STEM < "šarin" > ].
 
-;;oqux := aux11-aux-lex &
-;;  [ STEM < "oqux" > ].
+oqux := aux11-aux-lex &
+  [ STEM < "oqux" > ].
 
-;;-x := aux12-aux-lex &
-;;  [ STEM < "-x" > ].
+-x := aux12-aux-lex &
+  [ STEM < "-x" > ].
 
-;;-er := aux13-aux-lex &
-;;  [ STEM < "-er" > ].
+-er := aux13-aux-lex &
+  [ STEM < "-er" > ].
 
 txain := aux14-aux-lex &
   [ STEM < "txain" > ].
@@ -3066,8 +3066,8 @@ sain := aux15-aux-lex &
 šer := aux16-aux-lex &
   [ STEM < "šer" > ].
 
-;;šarax := aux17-aux-lex &
-;;  [ STEM < "šarax" > ].
+šarax := aux17-aux-lex &
+  [ STEM < "šarax" > ].
 
 suin := aux18-aux-lex &
   [ STEM < "suin" > ].
