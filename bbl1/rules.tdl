@@ -51,9 +51,37 @@ n8-same-same-same-top-coord := n8-same-same-same-top-coord-rule.
 
 n8-same-same-same-mid-coord := n8-same-same-same-mid-coord-rule.
 
-n8-any-nonmatching-dd-top-coord := n8-any-nonmatching-dd-top-coord-rule.
+n8-dd-nonmatching-dd-top-coord := n8-dd-nonmatching-dd-top-coord-rule.
 
-n8-any-nonmatching-dd-mid-coord := n8-any-nonmatching-dd-mid-coord-rule.
+n8-dd-nonmatching-dd-mid-coord := n8-dd-nonmatching-dd-mid-coord-rule.
+
+n8-vb-nonmatching-dd-top-coord := n8-vb-nonmatching-dd-top-coord-rule.
+
+n8-vb-nonmatching-dd-mid-coord := n8-vb-nonmatching-dd-mid-coord-rule.
+
+n8-jj-nonmatching-dd-top-coord := n8-jj-nonmatching-dd-top-coord-rule.
+
+n8-jj-nonmatching-dd-mid-coord := n8-jj-nonmatching-dd-mid-coord-rule.
+
+n8-bj-nonmatching-dd-top-coord := n8-bj-nonmatching-dd-top-coord-rule.
+
+n8-bj-nonmatching-dd-mid-coord := n8-bj-nonmatching-dd-mid-coord-rule.
+
+n8-jd-nonmatching-dd-top-coord := n8-jd-nonmatching-dd-top-coord-rule.
+
+n8-jd-nonmatching-dd-mid-coord := n8-jd-nonmatching-dd-mid-coord-rule.
+
+n8-bb-nonmatching-dd-top-coord := n8-bb-nonmatching-dd-top-coord-rule.
+
+n8-bb-nonmatching-dd-mid-coord := n8-bb-nonmatching-dd-mid-coord-rule.
+
+n8-bd-nonmatching-dd-top-coord := n8-bd-nonmatching-dd-top-coord-rule.
+
+n8-bd-nonmatching-dd-mid-coord := n8-bd-nonmatching-dd-mid-coord-rule.
+
+n8-dj-nonmatching-dd-top-coord := n8-dj-nonmatching-dd-top-coord-rule.
+
+n8-dj-nonmatching-dd-mid-coord := n8-dj-nonmatching-dd-mid-coord-rule.
 
 vp9-top-coord := vp9-top-coord-rule.
 
