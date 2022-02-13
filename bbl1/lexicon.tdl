@@ -1067,7 +1067,7 @@ vedr := noun1-noun-lex &
   [ STEM < "vedr" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bucket_n_rel" ].
 
-vir := noun1-noun-lex &
+vir := dd_nouns-noun-lex &
   [ STEM < "vir" >,
     SYNSEM.LKEYS.KEYREL.PRED "_donkey_n_rel" ].
 
@@ -2287,9 +2287,9 @@ ož := verb16-verb-lex &
   [ STEM < "ož" >,
     SYNSEM.LKEYS.KEYREL.PRED "_to fall (+preradical cm)_v_rel" ].
 
-ac_27_1 := verb16-verb-lex &
-  [ STEM < "ac'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_to follow, to run after, to haunt (+preradical cm)_v_rel" ].
+;;;ac_27_1 := verb16-verb-lex &
+;;;  [ STEM < "ac'" >,
+;;;   SYNSEM.LKEYS.KEYREL.PRED "_to follow, to run after, to haunt (+preradical cm)_v_rel" ].
 
 aɬ_1 := verb16-verb-lex &
   [ STEM < "aɬ" >,
@@ -2335,9 +2335,9 @@ olix := verb18-verb-lex &
   [ STEM < "olix" >,
     SYNSEM.LKEYS.KEYREL.PRED "_go (imperative) (+preradical cm)_v_rel" ].
 
-ac_27_2 := verb18-verb-lex &
-  [ STEM < "ac'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_(+preradical cm) to have, keep or have something in bound form _v_rel" ].
+;;;ac_27_2 := verb18-verb-lex &
+;;;  [ STEM < "ac'" >,
+;;;    SYNSEM.LKEYS.KEYREL.PRED "_(+preradical cm) to have, keep or have something in bound form _v_rel" ].
 
 et_27 := verb33-verb-lex &
   [ STEM < "et'" >,
@@ -2956,17 +2956,17 @@ arst_27_1 := split-s-volition-abs-verb-lex &
   [ STEM < "arst'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
-arst_27_2 := split-s-volition-erg-1-verb-lex &
-  [ STEM < "arst'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+;;arst_27_2 := split-s-volition-erg-1-verb-lex &
+;;  [ STEM < "arst'" >,
+;;    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
 erst_27 := split-s-volition-erg-1-verb-lex &
   [ STEM < "erst'" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
-arst_27_3 := split-s-volition-erg-2-verb-lex &
-  [ STEM < "arst'" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
+;;arst_27_3 := split-s-volition-erg-2-verb-lex &
+;;  [ STEM < "arst'" >,
+;;    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
 a := be_existential-verb-lex &
   [ STEM < "a" >,
@@ -3030,8 +3030,8 @@ co := neg4-aux-lex &
   [ STEM < "co" >,
     SYNSEM.LKEYS.KEYREL.PRED "neg_rel" ].
 
-me_1 := aux5-aux-lex &
-  [ STEM < "me" > ].
+;;me_1 := aux5-aux-lex &
+;;  [ STEM < "me" > ].
 
 šuin := aux6-aux-lex &
   [ STEM < "šuin" > ].
@@ -3048,14 +3048,14 @@ me_1 := aux5-aux-lex &
 šarin := aux10-aux-lex &
   [ STEM < "šarin" > ].
 
-oqux := aux11-aux-lex &
-  [ STEM < "oqux" > ].
+;;oqux := aux11-aux-lex &
+;;  [ STEM < "oqux" > ].
 
--x := aux12-aux-lex &
-  [ STEM < "-x" > ].
+;;-x := aux12-aux-lex &
+;;  [ STEM < "-x" > ].
 
--er := aux13-aux-lex &
-  [ STEM < "-er" > ].
+;;-er := aux13-aux-lex &
+;;  [ STEM < "-er" > ].
 
 txain := aux14-aux-lex &
   [ STEM < "txain" > ].
@@ -3066,8 +3066,8 @@ sain := aux15-aux-lex &
 šer := aux16-aux-lex &
   [ STEM < "šer" > ].
 
-šarax := aux17-aux-lex &
-  [ STEM < "šarax" > ].
+;;šarax := aux17-aux-lex &
+;;  [ STEM < "šarax" > ].
 
 suin := aux18-aux-lex &
   [ STEM < "suin" > ].
