@@ -638,7 +638,7 @@ clausal-erg-verb-lex := clausal-verb-lex &
                                 [ CASE erg ] ].
 
 copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2 
-                   & verb-pc21-rule-dtr &
+                   & verb-gender-agreement-intrans-rule-dtr &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ < #subj >,
                              COMPS < #comps >,
                              SPR < >,
@@ -2793,6 +2793,9 @@ vb_singular-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
 
 dd-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd ].
+
+bb-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND bb ].
 
 vb_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND vb,
