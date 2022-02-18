@@ -64,3 +64,7 @@ ma_gr := arg0e_gtr &
 suinen_gr := arg0e_gtr &
   [ CONTEXT.RELS.LIST < [ PRED "non_existing_rel" ] >,
     FLAGS.TRIGGER "suinen" ].
+
+a_gr := arg0e_gtr &
+  [ CONTEXT.RELS.LIST < [ PRED "_loc_p_rel" ] >,
+    FLAGS.TRIGGER "a_2" ].

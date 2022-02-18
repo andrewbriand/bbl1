@@ -57,6 +57,10 @@ noun-pc9_lrt8-suffix :=
 %suffix (* -s)
 noun-pc9_lrt8-lex-rule.
 
+locative-lex-rule-suffix :=
+%suffix (* -ħ)
+locative-lex-rule.
+
 ;;noun-pc9_lrt9-suffix1 :=
 ;;%suffix (* -ɣ)
 ;;noun-pc9_lrt9-lex-rule.
@@ -308,6 +312,10 @@ verb-pc21_lrt3-lex-rule.
 verb-pc21_lrt4-prefix :=
 %prefix (* d-)
 verb-pc21_lrt4-lex-rule.
+
+verb-pc21_lrt5-prefix :=
+%prefix (* b-)
+verb-pc21_lrt5-lex-rule.
 
 verb-pc24_lrt1-suffix1 :=
 %suffix (* -i)
