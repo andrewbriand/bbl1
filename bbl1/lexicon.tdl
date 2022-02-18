@@ -2968,9 +2968,9 @@ erst_27 := split-s-volition-erg-1-verb-lex &
 ;;  [ STEM < "arst'" >,
 ;;    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
-;;a := be_existential-verb-lex &
-;;  [ STEM < "a" >,
-;;    SYNSEM.LKEYS.KEYREL.PRED "_be_v_rel" ].
+a := be_existential-verb-lex &
+  [ STEM < "a" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_be_v_id_rel" ].
 
 a_2 := copula-verb-lex &
   [ STEM < "a" > ].
