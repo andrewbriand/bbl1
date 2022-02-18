@@ -18,6 +18,21 @@ non-mod-lex-item := lex-item &
 ;;; Matrix Type Addenda
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;basic-adjective-lex :+ [ SYNSEM.LOCAL.CAT.VAL.SUBJ < [ SYNSEM.LOCAL.CAT.HEAD noun ] > ].
+
+bbl-basic-adjective-lex := norm-sem-lex-item &
+  [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
+                           VAL [ COMPS < >,
+                                 SPEC < >,
+                                 SUBJ.FIRST [ LOCAL [  CAT.HEAD noun,
+                                                       CONT.HOOK.XARG #index ] ] ] ] ],
+             LKEYS.KEYREL event-relation &
+                    [ ARG0 #index ] ] ].
+
+bbl-basic-adjective-lex :+
+  [ SYNSEM [ LOCAL.CONT.HOOK.XARG ref-ind & #xarg,
+             LKEYS.KEYREL.ARG1 #xarg ] ].
+
 basic-head-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT [ VAL.COMPS.FIRST.OPT -,
                                 MC #mc ],
     SYNSEM [ LIGHT -,
@@ -635,7 +650,8 @@ copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2
                                    COMPS < > ],
                              HEAD noun & [CASE abs] ] ] ],
              #comps &
-             [ LOCAL.CAT [ VAL [ COMPS < > ],
+             [ LOCAL.CAT [ VAL [ COMPS < >,
+                                 SUBJ < [ ] > ],
                            HEAD +jp ] ] > ].
 
 verb1-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr &
