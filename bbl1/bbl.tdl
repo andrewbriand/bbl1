@@ -20,11 +20,12 @@ non-mod-lex-item := lex-item &
 
 ;;basic-adjective-lex :+ [ SYNSEM.LOCAL.CAT.VAL.SUBJ < [ SYNSEM.LOCAL.CAT.HEAD noun ] > ].
 
-bbl-basic-adjective-lex := norm-sem-lex-item &
+bbl-basic-adjective-lex := norm-sem-lex-item & intersective-mod-lex &
   [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
                            VAL [ COMPS < >,
+                                 SUBJ < >,
                                  SPEC < >,
-                                 SUBJ.FIRST [ LOCAL [  CAT.HEAD noun,
+                                 SPR.FIRST [ LOCAL [  CAT.HEAD noun,
                                                        CONT.HOOK.XARG #index ] ] ] ] ],
              LKEYS.KEYREL event-relation &
                     [ ARG0 #index ] ] ].
