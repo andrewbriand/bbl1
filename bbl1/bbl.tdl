@@ -638,7 +638,7 @@ clausal-erg-verb-lex := clausal-verb-lex &
                                 [ CASE erg ] ].
 
 copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2 
-                   & verb-pc21-rule-dtr &
+                   & verb-gender-agreement-intrans-rule-dtr &
   [ SYNSEM.LOCAL [ CAT.VAL [ SUBJ < #subj >,
                              COMPS < #comps >,
                              SPR < >,
@@ -650,8 +650,7 @@ copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2
                                    COMPS < > ],
                              HEAD noun & [CASE abs] ] ] ],
              #comps &
-             [ LOCAL.CAT [ VAL [ COMPS < >,
-                                 SUBJ < [ ] > ],
+             [ LOCAL.CAT [ VAL [ COMPS < > ],
                            HEAD +jp ] ] > ].
 
 verb1-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr &
@@ -2793,6 +2792,9 @@ vb_singular-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
 
 dd-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND dd ].
+
+bb-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.GEND bb ].
 
 vb_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ GEND vb,

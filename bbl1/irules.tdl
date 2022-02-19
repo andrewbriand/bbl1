@@ -573,6 +573,10 @@ dd-prefix :=
 %prefix (* d-)
 dd-lex-rule.
 
+bb-prefix :=
+%prefix (* b-)
+bb-lex-rule.
+
 vb_plural-prefix :=
 %prefix (* b-)
 vb_plural-lex-rule.
