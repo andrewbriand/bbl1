@@ -1607,9 +1607,9 @@ met_27r := noun109-noun-lex &
 	   [ STEM < "met'r" >,
 	     SYNSEM.LKEYS.KEYREL.PRED "_meter_n_rel" ].
 
-meⁿ_1 := noun109-noun-lex &
-	 [ STEM < "meⁿ" >,
-	   SYNSEM.LKEYS.KEYREL.PRED "_who (nom.s)_n_rel" ].
+;;meⁿ_1 := noun109-noun-lex &
+;;	 [ STEM < "meⁿ" >,
+;;	   SYNSEM.LKEYS.KEYREL.PRED "_who (nom.s)_n_rel" ].
 
 mixeil := noun109-noun-lex &
 	  [ STEM < "mixeil" >,
@@ -1833,19 +1833,19 @@ t_27ot_27 := dj_nouns-noun-lex &
 
 ħan := question_erg-noun-lex &
        [ STEM < "ħan" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_who_n_rel" ].
+	 SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
 
 st_27e := question_erg-noun-lex &
 	  [ STEM < "st'e" >,
-	    SYNSEM.LKEYS.KEYREL.PRED "_what_n_rel" ].
+	    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
 
 vux := question_abs-noun-lex &
        [ STEM < "vux" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_what _n_rel" ].
+	 SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
 
 meⁿ_2 := question_abs-noun-lex &
 	 [ STEM < "meⁿ" >,
-	   SYNSEM.LKEYS.KEYREL.PRED "_who_n_rel" ].
+	   SYNSEM.LKEYS.KEYREL.PRED "_person_n_rel" ].
 
 pħu := bb_nouns-noun-lex &
        [ STEM < "pħu" >,
