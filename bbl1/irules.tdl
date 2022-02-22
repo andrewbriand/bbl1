@@ -61,6 +61,10 @@ locative-lex-rule-suffix :=
 %suffix (* -ħ)
 locative-lex-rule.
 
+contact-lex-rule-suffix :=
+%suffix (* -x)
+contact-lex-rule.
+
 ;;noun-pc9_lrt9-suffix1 :=
 ;;%suffix (* -ɣ)
 ;;noun-pc9_lrt9-lex-rule.

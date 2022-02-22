@@ -1485,6 +1485,9 @@ locative-lex-rule := Case-lex-rule-super & infl-lex-rule &
 absolutive-lex-rule := Case-lex-rule-super & const-lex-rule &
 		       [ SYNSEM.LOCAL.CAT.HEAD.CASE abs ].
 
+contact-lex-rule := Case-lex-rule-super & infl-lex-rule &
+		     [ SYNSEM.LOCAL.CAT.HEAD.CASE con].
+
 Number-lex-rule-super := Case-rule-dtr & add-only-no-ccont-rule & noun-and-clitic-rule-dtr & noun-pc1-rule-dtr & noun-pc19-rule-dtr & noun-pc21-rule-dtr & noun-pc29-rule-dtr & noun-pc4-rule-dtr & noun-pc46-rule-dtr & noun-pc6-rule-dtr & noun-pc8-rule-dtr & noun-yes-no-question-particle-rule-dtr &
 			 [ INFLECTED [ NUMBER-FLAG +,
 				       VERB-PC73-FLAG #verb-pc73,
