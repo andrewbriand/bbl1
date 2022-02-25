@@ -34,6 +34,7 @@ bbl-basic-adjective-lex :+
 			  [ SYNSEM [ LOCAL.CONT.HOOK.XARG ref-ind & #xarg,
 				     LKEYS.KEYREL.ARG1 #xarg ] ].
 
+
 basic-head-comp-phrase :+ [ HEAD-DTR.SYNSEM.LOCAL.CAT [ VAL.COMPS.FIRST.OPT -,
 							MC #mc ],
 			    SYNSEM [ LIGHT -,
@@ -2842,8 +2843,7 @@ dj_plural-lex-rule := verb-gender-agreement-intrans-lex-rule-super &
 locative-pp-phrase := unary-phrase &
 		      [ SYNSEM [ NON-LOCAL #nl,
 				 LOCAL.CAT [ HEAD adp & [ MOD < [ LOCAL intersective-mod &
-									[ CAT.HEAD verb,
-									  CONT.HOOK.INDEX #xarg ] ] > ],
+									[ CONT.HOOK.INDEX #xarg ] ] > ],
 					     VAL [ COMPS < >,
 						   SUBJ < >, 
 						   SPR < > ]]],

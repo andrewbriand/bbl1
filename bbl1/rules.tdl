@@ -23,6 +23,8 @@ comp-head-2 := comp-head-phrase-2.
 
 adj-head-int := adj-head-int-phrase.
 
+head-adj-int := head-adj-int-phrase.
+
 head-spec := head-spec-phrase.
 
 bare-np := bare-np-phrase.
