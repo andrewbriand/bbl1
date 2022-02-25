@@ -2896,10 +2896,6 @@ ag_2 := verb178-verb-lex &
 	[ STEM < "ag" >,
 	  SYNSEM.LKEYS.KEYREL.PRED "_see (+preradical cm)_v_rel" ].
 
-aq_27_1 := verb178-verb-lex &
-	   [ STEM < "aq'" >,
-	     SYNSEM.LKEYS.KEYREL.PRED "_eat (+preradical cm)_v_rel" ].
-
 at_27_2 := verb178-verb-lex &
 	   [ STEM < "at'" >,
 	     SYNSEM.LKEYS.KEYREL.PRED "_to be spread over_v_rel" ].
@@ -2968,11 +2964,9 @@ erst_27 := split-s-volition-erg-1-verb-lex &
 ;;  [ STEM < "arst'" >,
 ;;    SYNSEM.LKEYS.KEYREL.PRED "_gain_weight_v_rel" ].
 
-a := trans_impr_agr-verb-lex &
+a := trans_impr_agr-abs-abs-verb-lex &
      [ STEM < "a" >,
-       SYNSEM.LKEYS.KEYREL.PRED "_be_v_id_rel",
-       SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
-			      COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ] ].
+       SYNSEM.LKEYS.KEYREL.PRED "_be_v_id_rel"].
 
 a_2 := copula-verb-lex &
        [ STEM < "a" > ].
@@ -3005,7 +2999,7 @@ ac_27yal := trans_impr_agr_con-verb-lex &
 	    [ STEM < "ac'yal" >,
 	      SYNSEM.LKEYS.KEYREL.PRED "_chase_v_rel" ].
 
-aq_27_2 := trans_impr_agr-verb-lex &
+aq_27_2 := trans_impr_agr-erg-abs-verb-lex &
 	   [ STEM < "aq'" >,
 	     SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
 
