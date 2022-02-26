@@ -604,3 +604,7 @@ dj_singular-lex-rule.
 dj_plural-prefix :=
 %prefix (* y-)
 dj_plural-lex-rule.
+
+attributive-erg-suffix :=
+%suffix (* -v)
+attributive-erg-lex-rule.

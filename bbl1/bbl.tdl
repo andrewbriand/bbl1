@@ -28,6 +28,8 @@ bbl-basic-adjective-lex := norm-sem-lex-item & non-local-none-lex-item & adj-inf
                                                           SPR < > ] ] ] ], 
                              INFLECTED.ADJ-INFL-FLAG - ].
 
+bbl-basic-adjective-lex-intersective := bbl-basic-adjective-lex & intersective-mod-lex.
+
 ;;bbl-basic-adjective-lex := norm-sem-lex-item & intersective-mod-lex & non-local-none-lex-item &
 ;;			   [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
 ;;						    VAL [ COMPS < >,
@@ -2599,7 +2601,15 @@ adj-infl-lex-rule-super := add-only-no-ccont-rule &
                              DTR adj-infl-dtr & [ INFLECTED.ADJ-INFL-FLAG - ] ].
 
 predicative-lex-rule := adj-infl-lex-rule-super & const-lex-rule &
-			[ SYNSEM.LOCAL.CAT.HEAD [ MOD < > ] ].
+			[ SYNSEM.LOCAL.CAT.HEAD.MOD < > ].
+
+;;attributive-erg-lex-rule := adj-infl-lex-rule-super & infl-lex-rule &
+;;			[ SYNSEM [ LOCAL.CAT.HEAD.MOD < [ LOCAL intersective-mod                                                              & [ CAT.HEAD.CASE erg,
+;;                                                        CONT.HOOK.INDEX #ind ] ] >,
+;;                                    LKEYS.KEYREL.ARG1 #ind ] ].
+
+attributive-erg-lex-rule := adj-infl-lex-rule-super & infl-lex-rule &
+                            [ DTR bbl-basic-adjective-lex-intersective ].
 
 verb-pc77-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
 			    [ INFLECTED [ VERB-PC77-FLAG +,
