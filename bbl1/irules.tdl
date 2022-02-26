@@ -45,9 +45,9 @@ noun-pc9_lrt5-suffix :=
 %suffix (* -n)
 noun-pc9_lrt5-lex-rule.
 
-noun-pc9_lrt6-suffix :=
-%suffix (* -cin)
-noun-pc9_lrt6-lex-rule.
+;;noun-pc9_lrt6-suffix :=
+;;%suffix (* -cin)
+;;noun-pc9_lrt6-lex-rule.
 
 noun-pc9_lrt7-suffix :=
 %suffix (* -n)
