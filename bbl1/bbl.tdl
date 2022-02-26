@@ -20,15 +20,23 @@ non-mod-lex-item := lex-item &
 
 ;;basic-adjective-lex :+ [ SYNSEM.LOCAL.CAT.VAL.SUBJ < [ SYNSEM.LOCAL.CAT.HEAD noun ] > ].
 
-bbl-basic-adjective-lex := norm-sem-lex-item & intersective-mod-lex & non-local-none-lex-item &
+bbl-basic-adjective-lex := norm-sem-lex-item & non-local-none-lex-item & adj-infl-dtr &
 			   [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
 						    VAL [ COMPS < >,
 							  SUBJ < >,
 							  SPEC < >,
-							  SPR.FIRST [ LOCAL [  CAT.HEAD noun,
-									       CONT.HOOK.XARG #index ] ] ] ] ],
-				      LKEYS.KEYREL event-relation &
-					    [ ARG0 #index ] ] ].
+                                                          SPR < > ] ] ] ], 
+                             INFLECTED.ADJ-INFL-FLAG - ].
+
+;;bbl-basic-adjective-lex := norm-sem-lex-item & intersective-mod-lex & non-local-none-lex-item &
+;;			   [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
+;;						    VAL [ COMPS < >,
+;;							  SUBJ < >,
+;;							  SPEC < >,
+;;							  SPR.FIRST [ LOCAL [  CAT.HEAD adv,
+;;									       CONT.HOOK.XARG #index ] ] ] ] ],
+;;				      LKEYS.KEYREL event-relation &
+;;					    [ ARG0 #index ] ] ].
 
 bbl-basic-adjective-lex :+
 			  [ SYNSEM [ LOCAL.CONT.HOOK.XARG ref-ind & #xarg,
@@ -69,7 +77,8 @@ inflected :+ [ VERB-PC73-FLAG luk,
 	       VERB-GENDER-AGREEMENT-INTRANS-FLAG luk,
 	       VERB-PC72-FLAG luk,
 	       VERB-PC64-FLAG luk,
-	       VERB-PC77-FLAG luk ].
+	       VERB-PC77-FLAG luk,
+               ADJ-INFL-FLAG luk].
 
 infl-satisfied :+ [ VERB-PC73-FLAG na-or-+,
 		    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
@@ -91,7 +100,8 @@ infl-satisfied :+ [ VERB-PC73-FLAG na-or-+,
 		    VERB-GENDER-AGREEMENT-INTRANS-FLAG na-or-+,
 		    VERB-PC72-FLAG na-or-+,
 		    VERB-PC64-FLAG na-or-+,
-		    VERB-PC77-FLAG na-or-+ ].
+		    VERB-PC77-FLAG na-or-+, 
+                    ADJ-INFL-FLAG na-or-+ ].
 
 png :+ [ PER person,
 	 NUM number,
@@ -1396,6 +1406,7 @@ verb-pc6-rule-dtr := word-or-lexrule.
 verb-pc31-rule-dtr := word-or-lexrule.
 verb-pc24-rule-dtr := word-or-lexrule.
 verb-gender-agreement-intrans-rule-dtr := word-or-lexrule.
+adj-infl-dtr := word-or-lexrule.
 
 ;;; Lexical rule types
 
@@ -2582,6 +2593,13 @@ verb-pc76-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
 
 verb-pc76_lrt1-lex-rule := verb-pc76-lex-rule-super &
 			   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.PER 1st ].
+
+adj-infl-lex-rule-super := add-only-no-ccont-rule &
+                           [ INFLECTED infl-satisfied,
+                             DTR adj-infl-dtr & [ INFLECTED.ADJ-INFL-FLAG - ] ].
+
+predicative-lex-rule := adj-infl-lex-rule-super & const-lex-rule &
+			[ SYNSEM.LOCAL.CAT.HEAD [ MOD < > ] ].
 
 verb-pc77-lex-rule-super := add-only-no-ccont-rule & const-lex-rule &
 			    [ INFLECTED [ VERB-PC77-FLAG +,
