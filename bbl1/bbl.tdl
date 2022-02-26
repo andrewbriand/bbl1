@@ -80,7 +80,7 @@ inflected :+ [ VERB-PC73-FLAG luk,
 	       VERB-PC72-FLAG luk,
 	       VERB-PC64-FLAG luk,
 	       VERB-PC77-FLAG luk,
-               ADJ-INFL-FLAG luk].
+               ADJ-INFL-FLAG luk ].
 
 infl-satisfied :+ [ VERB-PC73-FLAG na-or-+,
 		    VERB-PC70-OR-VERB-PC71-OR-VERB-PC72-OR-VERB-PC73-OR-VERB-PC74-OR-VERB-PC75-OR-VERB-PC76-FLAG na-or-+,
@@ -587,6 +587,9 @@ poss-pron1-noun-lex := non-local-none-lex-item &
 								PER 3rd ],
 					  CAT.HEAD.MOD.FIRST.LOCAL.CAT.HEAD.CASE non-abs ] ].
 
+question_con-noun-lex := wh-pronoun-noun-lex &
+			 [ SYNSEM.LOCAL [ CAT.HEAD.CASE con,
+					  CONT.HOOK.INDEX.PNG.GEND dd ] ].
 ;;; Verbs
 
 verb-lex := non-mod-lex-item & dummy-person-case-agreement-rule-dtr &

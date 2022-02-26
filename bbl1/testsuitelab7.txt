@@ -961,11 +961,38 @@ pħu-i k'uit'i-i y-a
 dog-PL cat-PL agreement.bb-be.PRESENT
 The dogs are the cats
 
+# 107: Non-scopal modifiers
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: non-scopal modifiers
+maci-v     pħu-i-v    b-aq'-o
+hungry-ERG dog-PL-ERG agreement.bb-eat-PRESENT
+Hungry dogs eat
 
+# 108: Non-scopal modifiers
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: non-scopal modifiers
+pħu-i-v    mindor-ħ b-aq'-o
+dog-PL-ERG park-LOC agreement.bb-eat-PRESENT
+Dogs in the park eat
 
+# 109: Non-scopal modifiers
+Source: author
+Vetted: f
+Judgment: g
+Phenomena: non-scopal modifiers
+pħu-i-v    b-aq'-o                  mindor-ħ 
+dog-PL-ERG agreement.bb-eat-PRESENT park-LOC
+Dogs eat in the park
 
-
-
-
-
-
+# 107: Non-scopal modifiers: adjectives agree in case with nouns
+Source: author
+Vetted: f
+Judgment: u
+Phenomena: non-scopal modifiers
+maci-n     pħu-i-v    b-aq'-o
+hungry-ABS dog-PL-ERG agreement.bb-eat-PRESENT
+Hungry dogs eat

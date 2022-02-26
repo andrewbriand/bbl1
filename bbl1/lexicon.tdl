@@ -3197,6 +3197,10 @@ oq := det21-determiner-lex &
 3SG-POSS-OBL-noun := 3SG-POSS-OBL-noun-lex &
 		     [ STEM < "oqui" > ].
 
+stex := question_con-noun-lex &
+	  [ STEM < "st'e-x" >,
+	    SYNSEM.LKEYS.KEYREL.PRED "_thing_n_rel" ].
+
 ye2 := conj-lex &
        [ STEM < "ye" >,
 	 SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
