@@ -291,7 +291,7 @@ wh-pronoun-noun-lex := basic-wh-word-lex & norm-hook-lex-item & basic-icons-lex-
 					  CONT [ RELS.LIST < [ LBL #larg,
 							       ARG0 #arg0 & ref-ind ],
 							     quant-relation &
-							     [ PRED "which_q_rel",
+							     [ PRED "wh_q_rel",
 							       ARG0 #arg0,
 							       RSTR #harg ] >,
 						 HCONS.LIST < [ HARG #harg,
@@ -461,9 +461,11 @@ oblique-stem-demonstratives-noun-lex := no-spr-noun-lex & Case-rule-dtr & noun-a
 					  INFLECTED.CASE-FLAG - ].
 
 1sg-abs-noun-lex := no-spr-noun-lex &
-		    [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
+		    [ SYNSEM.LOCAL [ CAT.HEAD.CASE abs,
+				     CAT.HEAD.PRON +,
 				     CONT.HOOK.INDEX.PNG [ PER 1st,
-							   NUM sg ] ] ].
+							   NUM sg,
+							   GEND vb ] ] ].
 
 jd_nouns-noun-lex := noun1-noun-lex & contact-case-rule-dtr &
 		     [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG.GEND jd ].

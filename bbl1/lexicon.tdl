@@ -1943,9 +1943,9 @@ qos_1 := verb5-verb-lex &
 	 [ STEM < "qos" >,
 	   SYNSEM.LKEYS.KEYREL.PRED "_throw, shoot_v_rel" ].
 
-so_2 := verb5-verb-lex &
-	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
+;;so_2 := verb5-verb-lex &
+;;	[ STEM < "so" >,
+;;	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
 
 sodaħ_1 := verb5-verb-lex &
 	   [ STEM < "sodaħ" >,
@@ -2127,9 +2127,9 @@ qos_2 := verb11-verb-lex &
 	 [ STEM < "qos" >,
 	   SYNSEM.LKEYS.KEYREL.PRED "_throw, shoot_v_rel" ].
 
-so_3 := verb11-verb-lex &
-	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
+;;so_3 := verb11-verb-lex &
+;;	[ STEM < "so" >,
+;;	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
 
 sodaħ_2 := verb11-verb-lex &
 	   [ STEM < "sodaħ" >,
@@ -2519,9 +2519,9 @@ sa_2 := verb86-verb-lex &
 	[ STEM < "sa" >,
 	  SYNSEM.LKEYS.KEYREL.PRED "_spirit, soul_v_rel" ].
 
-so_4 := verb86-verb-lex &
-	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
+;;so_4 := verb86-verb-lex &
+;;	[ STEM < "so" >,
+;;	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
 
 teɬ_3 := verb86-verb-lex &
 	 [ STEM < "teɬ" >,
@@ -2720,9 +2720,9 @@ qos_3 := verb178-verb-lex &
 	 [ STEM < "qos" >,
 	   SYNSEM.LKEYS.KEYREL.PRED "_throw, shoot_v_rel" ].
 
-so_5 := verb178-verb-lex &
-	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
+;;so_5 := verb178-verb-lex &
+;;	[ STEM < "so" >,
+;;	  SYNSEM.LKEYS.KEYREL.PRED "_toward speaker_v_rel" ].
 
 sodaħ_3 := verb178-verb-lex &
 	   [ STEM < "sodaħ" >,
