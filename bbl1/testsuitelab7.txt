@@ -988,7 +988,7 @@ pħu-i-v    b-aq'-o                  mindor-ħ
 dog-PL-ERG agreement.bb-eat-PRESENT park-LOC
 Dogs eat in the park
 
-# 107: Non-scopal modifiers: adjectives agree in case with nouns
+# 110: Non-scopal modifiers: adjectives agree in case with nouns
 Source: author
 Vetted: f
 Judgment: u
