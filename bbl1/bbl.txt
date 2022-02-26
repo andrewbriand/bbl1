@@ -3,9 +3,9 @@ pħu-i mankaⁿ-i-x b-ac'yal
 as ħo-x v-ac'yal
 pħu-i-v b-aq'-o
 pħu-i mankaⁿ-i-x co b-ac'yal
+as dak'lev me ħo xeʔ me pħu-i mankaⁿ-i-x b-ac'yal
 SKIPPED
-SKIPPED
-SKIPPED
+k'uit'i-i=e pħu-i=e mankaⁿ-i-x d-ac'yal
 SKIPPED
 SKIPPED
 SKIPPED
@@ -16,11 +16,11 @@ pħu-i maci b-a
 pħu-i mindor-ħ b-a
 pħu-i k'uit'i-i b-a
 SKIPPED
-SKIPPED
+seⁿ pħu-i toħ
 meⁿ toħ
 pħu-i st'e-x d-ac'yal
 SKIPPED
 SKIPPED
-SKIPPED
+as xet' st'e-x pħu-i b-ac'yal
 SKIPPED
 SKIPPED
