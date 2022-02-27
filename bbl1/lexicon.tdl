@@ -1729,7 +1729,7 @@ sen := noun113-noun-lex &
 
 ħo := noun115-noun-lex &
       [ STEM < "ħo" >,
-	SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	SYNSEM.LKEYS.KEYREL.PRED "pron_n_rel" ].
 
 šu := noun116-noun-lex &
       [ STEM < "šu" >,
@@ -1741,7 +1741,7 @@ sen := noun113-noun-lex &
 
 p_27acient_27 := noun118-noun-lex &
 		 [ STEM < "p'acient'" >,
-		   SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+		   SYNSEM.LKEYS.KEYREL.PRED "_patient_n_rel" ].
 
 equs_1 := singular_ergative_demonstratives-noun-lex &
 	  [ STEM < "equs" >,
@@ -1781,7 +1781,7 @@ oqui := oblique-stem-demonstratives-noun-lex &
 
 so_1 := 1sg-abs-noun-lex &
 	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_1sg_n_rel" ].
+	  SYNSEM.LKEYS.KEYREL.PRED "pron_n_rel" ].
 
 nan := jd_nouns-noun-lex &
        [ STEM < "nan" >,

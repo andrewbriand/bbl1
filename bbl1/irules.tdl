@@ -133,9 +133,9 @@ noun-pc19_lrt1-suffix :=
 %suffix (* -ħ)
 noun-pc19_lrt1-lex-rule.
 
-noun-pc20_lrt1-suffix :=
-%suffix (* -ɣar)
-noun-pc20_lrt1-lex-rule.
+;;noun-pc20_lrt1-suffix :=
+;;%suffix (* -ɣar)
+;;noun-pc20_lrt1-lex-rule.
 
 ;;;noun-pc21_lrt1-suffix1 :=
 ;;;%suffix (* =mciⁿ)

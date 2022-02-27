@@ -663,6 +663,8 @@ copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2
 					      SPR < >,
 					      SPEC < > ],
 				    CONT.HOOK.XARG #xarg ],
+		    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
+					 IMPF_STEMS-FLAG - ] ,
 		     ARG-ST < #subj &
 			      [ LOCAL [ CONT.HOOK.INDEX #xarg,
 					CAT [ VAL [ SPR < >,
@@ -671,6 +673,7 @@ copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2
 			      #comps &
 			      [ LOCAL.CAT [ VAL [ COMPS < > ],
 					    HEAD +jp ] ] > ].
+
 
 verb1-verb-lex := intransitive-verb-lex & verb-pc1-rule-dtr & verb-pc10-rule-dtr & verb-pc11-rule-dtr & verb-pc15-rule-dtr & verb-pc34-rule-dtr & verb-pc38-rule-dtr & verb-pc45-rule-dtr & verb-pc48-rule-dtr & verb-pc5-rule-dtr & verb-pc6-rule-dtr &
 		  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg ].
