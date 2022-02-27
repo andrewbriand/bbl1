@@ -810,8 +810,13 @@ clause_comp_dec_impf_no_agr-verb-lex := clausal-verb-lex & impf_stems-rule-dtr &
 						   NON-LOCAL.QUE.LIST < > ] ].
 
 clause_comp_ques_impf_no_agr-verb-lex := clausal-verb-lex & impf_stems-rule-dtr &
-					 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD +vc ] >,
+					[ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
+							       COMPS  < [ LOCAL.CAT.HEAD +vc ] > ],
 					   INFLECTED.IMPF_STEMS-FLAG - ].
+
+;;clause_comp_ques_impf_no_agr-verb-lex := clausal-verb-lex & impf_stems-rule-dtr &
+;;					 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD +vc ] >,
+;;					   INFLECTED.IMPF_STEMS-FLAG - ].
 
 clause_comp_ques_perf_no_agr-verb-lex := clausal-verb-lex & perf_stems-rule-dtr &
 					 [ SYNSEM.LOCAL.CAT.VAL.COMPS < [ LOCAL.CAT.HEAD +vc ] > ].

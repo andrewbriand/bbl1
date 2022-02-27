@@ -2011,9 +2011,9 @@ tepx_1 := verb5-verb-lex &
 	  [ STEM < "tepx" >,
 	    SYNSEM.LKEYS.KEYREL.PRED "_play (impf)_v_rel" ].
 
-xet_27ː := verb5-verb-lex &
-	   [ STEM < "xet'ː" >,
-	     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
+;;xet_27ː := verb5-verb-lex &
+;;	   [ STEM < "xet'ː" >,
+;;	     SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
 ħeč_27q_27 := verb5-verb-lex &
 	      [ STEM < "ħeč'q'" >,
@@ -2471,9 +2471,9 @@ k_27erbad := verb75-verb-lex &
 	     [ STEM < "k'erbad" >,
 	       SYNSEM.LKEYS.KEYREL.PRED "_compose (song, poem) (+post radical cm)_v_rel" ].
 
-xet := verb75-verb-lex &
-       [ STEM < "xet" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_find_v_rel" ].
+;;xet := verb75-verb-lex &
+;;       [ STEM < "xet" >,
+;;	 SYNSEM.LKEYS.KEYREL.PRED "_find_v_rel" ].
 
 kat_27 := verb83-verb-lex &
 	  [ STEM < "kat'" >,
@@ -2991,9 +2991,9 @@ xet_27 := clause_comp_ques_impf_no_agr-verb-lex &
 	  [ STEM < "xet'" >,
 	    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
-xat_27 := clause_comp_ques_perf_no_agr-verb-lex &
-	  [ STEM < "xat'" >,
-	    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
+;;xat_27 := clause_comp_ques_perf_no_agr-verb-lex &
+;;	  [ STEM < "xat'" >,
+;;	    SYNSEM.LKEYS.KEYREL.PRED "_ask_v_rel" ].
 
 ac_27yal := trans_impr_agr_con-verb-lex &
 	    [ STEM < "ac'yal" >,
