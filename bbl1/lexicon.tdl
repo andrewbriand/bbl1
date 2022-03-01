@@ -1709,35 +1709,35 @@ vaⁿ := noun109-noun-lex &
 
 as := noun110-noun-lex &
       [ STEM < "as" >,
-	SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 aħo := noun111-noun-lex &
        [ STEM < "aħo" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	 SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 eš_1 := noun112-noun-lex &
 	[ STEM < "eš" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	  SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 sen := noun113-noun-lex &
        [ STEM < "sen" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	 SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ħen_2 := noun114-noun-lex &
 	 [ STEM < "ħen" >,
-	   SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	   SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 ħo := noun115-noun-lex &
       [ STEM < "ħo" >,
-	SYNSEM.LKEYS.KEYREL.PRED "pron_n_rel" ].
+	SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 šu := noun116-noun-lex &
       [ STEM < "šu" >,
-	SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 šun := noun117-noun-lex &
        [ STEM < "šun" >,
-	 SYNSEM.LKEYS.KEYREL.PRED "_pron_n_rel" ].
+	 SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 p_27acient_27 := noun118-noun-lex &
 		 [ STEM < "p'acient'" >,
@@ -1781,7 +1781,7 @@ oqui := oblique-stem-demonstratives-noun-lex &
 
 so_1 := 1sg-abs-noun-lex &
 	[ STEM < "so" >,
-	  SYNSEM.LKEYS.KEYREL.PRED "pron_n_rel" ].
+	  SYNSEM.LKEYS.KEYREL.PRED "pron_rel" ].
 
 nan := jd_nouns-noun-lex &
        [ STEM < "nan" >,

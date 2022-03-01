@@ -422,7 +422,8 @@ noun114-noun-lex := noun-lex & Case-rule-dtr & Number-rule-dtr & noun-and-clitic
 
 noun115-noun-lex := noun-lex & Case-rule-dtr & Number-rule-dtr & noun-and-clitic-rule-dtr & noun-pc1-rule-dtr & noun-pc12-rule-dtr & noun-pc19-rule-dtr & noun-pc21-rule-dtr & noun-pc29-rule-dtr & noun-pc4-rule-dtr & noun-pc46-rule-dtr & noun-pc48-rule-dtr & noun-pc49-rule-dtr & noun-pc52-rule-dtr & noun-pc6-rule-dtr & noun-pc8-rule-dtr & noun-plural-for-people-rule-dtr & noun-thematic-extension-rule-dtr & noun-yes-no-question-particle-rule-dtr &
 		    [ SYNSEM.LOCAL [ CAT.HEAD.PRON +,
-				     CONT.HOOK.INDEX.PNG.PER 2nd ],
+				     CONT.HOOK.INDEX.PNG [ PER 2nd,
+							   NUM sg ] ],
 		      INFLECTED [ NUMBER-FLAG -,
 				  CASE-FLAG - ] ].
 

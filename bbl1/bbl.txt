@@ -15,12 +15,12 @@ pħu-i-v b-aq'-o mindor-ħ
 pħu-i maci b-a
 pħu-i mindor-ħ b-a
 pħu-i k'uit'i-i b-a
-pħu-n mankaⁿ toħ
+SKIPPED
 seⁿ pħu-i toħ
 meⁿ toħ
 pħu-i st'e-x b-ac'yal
 SKIPPED
-SKIPPED
+meⁿ xet' me st'e-x pħu-i b-ac'yal
 so xet' me st'e-x pħu-i b-ac'yal
 SKIPPED
 SKIPPED
