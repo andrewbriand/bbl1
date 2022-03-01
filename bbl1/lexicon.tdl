@@ -1923,9 +1923,9 @@ nʕaiʔi_1 := verb5-verb-lex &
 	    [ STEM < "nʕaiʔi" >,
 	      SYNSEM.LKEYS.KEYREL.PRED "_out, outside, outward_v_rel" ].
 
-qalː_1 := verb5-verb-lex &
-	  [ STEM < "qalː" >,
-	    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+;;qalː_1 := verb5-verb-lex &
+;;	  [ STEM < "qalː" >,
+;;	    SYNSEM.LKEYS.KEYREL.PRED "_consume_v_rel" ].
 
 qel_1 := verb5-verb-lex &
 	 [ STEM < "qel" >,
@@ -2107,9 +2107,9 @@ nʕaiʔi_2 := verb11-verb-lex &
 	    [ STEM < "nʕaiʔi" >,
 	      SYNSEM.LKEYS.KEYREL.PRED "_out, outside, outward_v_rel" ].
 
-qalː_2 := verb11-verb-lex &
-	  [ STEM < "qalː" >,
-	    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+;;qalː_2 := verb11-verb-lex &
+;;	  [ STEM < "qalː" >,
+;;	    SYNSEM.LKEYS.KEYREL.PRED "_consume_v_rel" ].
 
 qel_2 := verb11-verb-lex &
 	 [ STEM < "qel" >,
@@ -2700,9 +2700,9 @@ nʕaiʔi_4 := verb178-verb-lex &
 	    [ STEM < "nʕaiʔi" >,
 	      SYNSEM.LKEYS.KEYREL.PRED "_out, outside, outward_v_rel" ].
 
-qalː_3 := verb178-verb-lex &
-	  [ STEM < "qalː" >,
-	    SYNSEM.LKEYS.KEYREL.PRED "_eat_v_rel" ].
+;;qalː_3 := verb178-verb-lex &
+;;	  [ STEM < "qalː" >,
+;;	    SYNSEM.LKEYS.KEYREL.PRED "_consume_v_rel" ].
 
 qel_3 := verb178-verb-lex &
 	 [ STEM < "qel" >,
