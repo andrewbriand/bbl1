@@ -69,6 +69,10 @@ a_gr := arg0e_gtr &
   [ CONTEXT [ RELS.LIST < [ PRED "~.*_p_" ] > ],
     FLAGS.TRIGGER "a_2" ].
 
+a_gr_adj := arg0e_gtr &
+  [ CONTEXT [ RELS.LIST < [ PRED "~.*_a_rel" ] > ],
+    FLAGS.TRIGGER "a_2" ].
+
 ;;a_gr := arg0e_gtr &
 ;;  [ CONTEXT.RELS.LIST < [ PRED "_loc_p_rel" ] >,
 ;;    FLAGS.TRIGGER "a_2" ].
