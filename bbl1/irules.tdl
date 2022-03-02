@@ -53,9 +53,9 @@ noun-pc9_lrt7-suffix :=
 %suffix (* -n)
 noun-pc9_lrt7-lex-rule.
 
-noun-pc9_lrt8-suffix :=
-%suffix (* -s)
-noun-pc9_lrt8-lex-rule.
+;;noun-pc9_lrt8-suffix :=
+;;%suffix (* -s)
+;;noun-pc9_lrt8-lex-rule.
 
 locative-lex-rule-suffix :=
 %suffix (* -ħ)
@@ -514,7 +514,7 @@ verb-pc58_lrt2-lex-rule.
 ;;;dummy-person-case-agreement_lrt2-lex-rule.
 
 present_tense-suffix1 :=
-%suffix (* -ʷ) (* -o) (* -e)
+%suffix (* -ʷ) (* -o) (* -e) (* *)
 present_tense-lex-rule.
 
 present_ipf-suffix1 :=
