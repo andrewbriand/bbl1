@@ -9,6 +9,8 @@ poss-2-head-final := poss-phrase-2-head-final.
 
 locative-pp := locative-pp-phrase.
 
+locative-pp-no-mod := locative-pp-phrase-no-mod.
+
 head-comp := head-comp-phrase.
 
 head-subj := head-subj-phrase.
