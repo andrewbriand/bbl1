@@ -129,9 +129,9 @@ noun-pc12_lrt4-lex-rule.
 ;;;%suffix (* =e)
 ;;;noun-pc18_lrt1-lex-rule.
 
-noun-pc19_lrt1-suffix :=
-%suffix (* -ħ)
-noun-pc19_lrt1-lex-rule.
+;;noun-pc19_lrt1-suffix :=
+;;%suffix (* -ħ)
+;;noun-pc19_lrt1-lex-rule.
 
 ;;noun-pc20_lrt1-suffix :=
 ;;%suffix (* -ɣar)
