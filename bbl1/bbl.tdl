@@ -826,7 +826,7 @@ trans_impr_agr_con-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-
 			       [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
 							COMPS.FIRST.LOCAL.CAT.HEAD.CASE con ],
 				 INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
-					     IMPF_STEMS-FLAG - ] ].
+					     IMPF_STEMS-FLAG + ] ].
 
 trans_impr_agr-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
 			   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
