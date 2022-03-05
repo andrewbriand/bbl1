@@ -665,7 +665,7 @@ copula-verb-lex := verb-lex & trans-first-arg-raising-lex-item-2
 					      SPEC < > ],
 				    CONT.HOOK.XARG #xarg ],
 		    INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
-					 IMPF_STEMS-FLAG - ] ,
+					 IMPF_STEMS-FLAG + ] ,
 		     ARG-ST < #subj &
 			      [ LOCAL [ CONT.HOOK.INDEX #xarg,
 					CAT [ VAL [ SPR < >,
@@ -837,7 +837,7 @@ trans_impr_agr-abs-abs-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & v
 			   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE abs,
 COMPS.FIRST.LOCAL.CAT.HEAD.CASE abs ],
 			     INFLECTED [ VERB-GENDER-AGREEMENT-INTRANS-FLAG -,
-					 IMPF_STEMS-FLAG - ] ].
+					 IMPF_STEMS-FLAG + ] ].
 
 trans_impr_agr-erg-abs-verb-lex := transitive-verb-lex & impf_stems-rule-dtr & verb-gender-agreement-intrans-rule-dtr &
 			   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ.FIRST.LOCAL.CAT.HEAD.CASE erg,
@@ -2723,7 +2723,8 @@ impf_stems-lex-rule-super := cont-change-only-lex-rule &
 						       VERB-GENDER-AGREEMENT-INTRANS-FLAG #verb-gender-agreement-intrans,
 						       VERB-PC72-FLAG #verb-pc72,
 						       VERB-PC64-FLAG #verb-pc64,
-						       VERB-PC77-FLAG #verb-pc77 ] ] ].
+						       VERB-PC77-FLAG #verb-pc77,
+                                                       IMPF_STEMS-FLAG - ] ] ].
 
 present_tense-lex-rule := add-only-no-ccont-rule & impf_stems-lex-rule-super & infl-lex-rule &
 			  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE present ].

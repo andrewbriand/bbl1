@@ -514,7 +514,7 @@ verb-pc58_lrt2-lex-rule.
 ;;;dummy-person-case-agreement_lrt2-lex-rule.
 
 present_tense-suffix1 :=
-%suffix (* -ʷ) (* -o) (* -e) (* *)
+%suffix (* -ʷ) (* -o) (* -e)
 present_tense-lex-rule.
 
 present_ipf-suffix1 :=
